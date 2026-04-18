@@ -130,6 +130,39 @@ a{color:inherit;text-decoration:none}
 .reveal--delay-2{transition-delay:.3s}
 .reveal--delay-3{transition-delay:.45s}
 
+/* TRENDING SECTION */
+.trend-section{padding:100px 80px;background:#0a0a0a}
+.trend-section .section-h em{font-style:normal;color:var(--c-red)}
+.trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.trend-card{border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:border-color .35s,transform .35s;background:#111}
+.trend-card:hover{border-color:rgba(204,31,31,.4);transform:translateY(-6px)}
+.trend-card__img{position:relative;height:240px;overflow:hidden}
+.trend-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.trend-card:hover .trend-card__img img{transform:scale(1.06)}
+.trend-badge{position:absolute;top:14px;left:14px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:3px}
+.trend-badge--red{background:rgba(204,31,31,.92);color:#fff}
+.trend-badge--navy{background:rgba(10,22,40,.92);border:1px solid rgba(255,255,255,.2);color:#E8E4DC}
+.trend-badge--gold{background:rgba(150,105,30,.9);color:#fff}
+.trend-card__body{padding:26px 26px 30px}
+.trend-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;color:var(--c-text);line-height:1.1;margin-bottom:10px}
+.trend-card__desc{font-size:.85rem;color:var(--c-dim);line-height:1.75;margin-bottom:18px}
+.trend-card__cta{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-red);text-decoration:none;transition:gap .25s,opacity .2s}
+.trend-card__cta:hover{gap:10px;opacity:.8}
+.trend-cta-inline{margin-top:64px;padding:52px 44px;border:1px solid rgba(255,255,255,.07);border-radius:6px;background:linear-gradient(135deg,rgba(10,22,40,.6),rgba(13,13,13,.6));text-align:center}
+.trend-cta-inline h3{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;text-transform:uppercase;margin-bottom:14px}
+.trend-cta-inline p{font-size:.95rem;color:var(--c-dim);max-width:480px;margin:0 auto 34px;line-height:1.7}
+.trend-cta-inline .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* GALLERY STRIP */
+.gallery-section{padding:80px 0;overflow:hidden}
+.gallery-section__header{padding:0 80px;margin-bottom:52px}
+.gallery-track{display:flex;gap:18px;width:max-content;animation:galleryScroll 40s linear infinite}
+.gallery-track:hover{animation-play-state:paused}
+@keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(calc(-50% - 9px))}}
+.gallery-slide{width:500px;height:360px;overflow:hidden;border-radius:2px;flex-shrink:0}
+.gallery-slide img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.gallery-slide:hover img{transform:scale(1.06)}
+
 @media(max-width:960px){
   .nav__inner{padding:18px 24px}
   .hero__content{padding:0 28px}
@@ -147,6 +180,10 @@ a{color:inherit;text-decoration:none}
   .cta-band{padding:90px 28px}
   .site-footer{padding:64px 28px 36px}
   .footer-grid{grid-template-columns:1fr;gap:44px}
+  .gallery-section__header{padding:0 28px}
+  .trend-section{padding:70px 28px}
+  .trend-grid{grid-template-columns:1fr}
+  .trend-cta-inline{padding:36px 24px}
 }
 </style>
 </head>
@@ -374,6 +411,94 @@ a{color:inherit;text-decoration:none}
       <h3 class="process-step__title">Punch List &amp; Handoff</h3>
       <p class="process-step__body">Final walkthrough with your project manager. Every detail addressed before we consider the job complete. Hardware, appliances, and fixtures all tested and running. We leave it ready to cook in.</p>
     </div>
+  </div>
+</section>
+
+<!-- TRENDING NOW -->
+<section class="trend-section">
+  <div class="reveal">
+    <p class="eyebrow">What Houston Homeowners Are Asking For Right Now</p>
+    <h2 class="section-h">The <em>most-requested</em> kitchen upgrades<br>in Houston — 2025–2026.</h2>
+    <p class="section-sub">These are the specific details our clients in Katy, Sugar Land, The Woodlands, and Houston bring to their very first consultation. If you see something you want — call us. We'll quote it in 48 hours.</p>
+  </div>
+  <div class="trend-grid">
+
+    <div class="trend-card reveal">
+      <div class="trend-card__img">
+        <img src="images/firefly-cabinetry-hero.jpg" alt="Two-tone kitchen cabinetry — white upper cabinets, navy lower cabinets — Houston Texas remodel" loading="lazy">
+        <span class="trend-badge trend-badge--red">Most Requested</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Two-Tone Semi-Custom Cabinetry</h3>
+        <p class="trend-card__desc">White uppers, navy or sage lowers — paired with quartz countertops and matte black or brushed brass hardware. Clean, modern, and built to outlast any trend cycle. The single most-requested kitchen look in Houston right now.</p>
+        <a href="estimate.html" class="trend-card__cta">Get This Look — Free Estimate <span>→</span></a>
+      </div>
+    </div>
+
+    <div class="trend-card reveal reveal--delay-1">
+      <div class="trend-card__img">
+        <img src="images/project-kitchen-dark-marble-led.jpg" alt="Waterfall quartz island with LED under-cabinet lighting — kitchen remodel Houston Texas" loading="lazy">
+        <span class="trend-badge trend-badge--navy">Design Statement</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Waterfall Quartz Island</h3>
+        <p class="trend-card__desc">3cm quartz with a full waterfall edge — one side or both. Statement pendant lighting above. LED under-cabinet strips. The island is the centerpiece — we build it to photograph and hold up under real family use for decades.</p>
+        <a href="estimate.html" class="trend-card__cta">Get This Look — Free Estimate <span>→</span></a>
+      </div>
+    </div>
+
+    <div class="trend-card reveal reveal--delay-2">
+      <div class="trend-card__img">
+        <img src="images/kitchen-7.jpg" alt="Dedicated coffee and beverage bar built-in — Houston Texas kitchen remodel" loading="lazy">
+        <span class="trend-badge trend-badge--gold">Texas Favorite</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Coffee &amp; Beverage Bar</h3>
+        <p class="trend-card__desc">A built-in coffee station with glass-front upper cabinets, open shelving, a secondary sink, and under-counter beverage fridge. The detail Houston homeowners ask for at their very first meeting — every single time.</p>
+        <a href="estimate.html" class="trend-card__cta">Get This Look — Free Estimate <span>→</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="trend-cta-inline reveal">
+    <h3>See something you want in your home?</h3>
+    <p>We serve Houston, Katy, Sugar Land, The Woodlands, and surrounding areas. Free in-home consultation — detailed fixed-price quote within 48 hours. Typically scheduling within the same week.</p>
+    <div class="actions">
+      <a href="estimate.html" class="btn-primary">Book Your Free Consultation</a>
+      <a href="tel:8322312334" class="btn-ghost">(832) 231-2334</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-section__header reveal">
+    <p class="eyebrow">Kitchen Gallery</p>
+    <h2 class="section-h">Work we're proud of.</h2>
+  </div>
+  <div class="gallery-track">
+    <div class="gallery-slide"><img src="images/kitchen-1.jpg" alt="Full kitchen renovation with custom cabinetry and quartz countertops" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-2.jpg" alt="White shaker kitchen with pendant lighting and hardwood floors" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-3.jpg" alt="Modern kitchen with dark island and open shelving" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-5.jpg" alt="Contemporary kitchen open to living area" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-6.jpg" alt="Kitchen with stainless appliances and stone countertops" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-7.jpg" alt="Two-tone kitchen cabinetry with matte black hardware" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/project-kitchen-dark-marble-led.jpg" alt="Dark shaker kitchen with marble backsplash and LED under-cabinet lighting" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/project-kitchen-navy-island.jpg" alt="Open concept kitchen with navy island and hardwood floors" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/project-kitchen-island-backyard.jpg" alt="White kitchen island with leather barstools and backyard view" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/cabinetry-dark-marble.jpg" alt="Custom dark cabinetry with marble countertop" loading="lazy"></div>
+    <!-- Doubled for seamless loop -->
+    <div class="gallery-slide"><img src="images/kitchen-1.jpg" alt="Full kitchen renovation with custom cabinetry and quartz countertops" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-2.jpg" alt="White shaker kitchen with pendant lighting and hardwood floors" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-3.jpg" alt="Modern kitchen with dark island and open shelving" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-5.jpg" alt="Contemporary kitchen open to living area" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-6.jpg" alt="Kitchen with stainless appliances and stone countertops" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/kitchen-7.jpg" alt="Two-tone kitchen cabinetry with matte black hardware" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/project-kitchen-dark-marble-led.jpg" alt="Dark shaker kitchen with marble backsplash and LED under-cabinet lighting" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/project-kitchen-navy-island.jpg" alt="Open concept kitchen with navy island and hardwood floors" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/project-kitchen-island-backyard.jpg" alt="White kitchen island with leather barstools and backyard view" loading="lazy"></div>
+    <div class="gallery-slide"><img src="images/cabinetry-dark-marble.jpg" alt="Custom dark cabinetry with marble countertop" loading="lazy"></div>
   </div>
 </section>
 

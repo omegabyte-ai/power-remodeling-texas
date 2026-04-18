@@ -94,6 +94,27 @@ a{color:inherit;text-decoration:none}
 .process-step__title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;margin-bottom:12px}
 .process-step__body{font-size:.86rem;color:var(--c-dim);line-height:1.75}
 
+/* TRENDING SECTION */
+.trend-section{padding:100px 80px;background:#0a0a0a}
+.trend-section .section-h em{font-style:normal;color:var(--c-red)}
+.trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.trend-card{border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:border-color .35s,transform .35s;background:#111}
+.trend-card:hover{border-color:rgba(204,31,31,.4);transform:translateY(-6px)}
+.trend-card__img{position:relative;height:240px;overflow:hidden}
+.trend-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.trend-card:hover .trend-card__img img{transform:scale(1.06)}
+.trend-badge{position:absolute;top:14px;left:14px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:3px}
+.trend-badge--red{background:rgba(204,31,31,.92);color:#fff}
+.trend-badge--navy{background:rgba(10,22,40,.92);border:1px solid rgba(255,255,255,.2);color:#E8E4DC}
+.trend-badge--gold{background:rgba(150,105,30,.9);color:#fff}
+.trend-card__body{padding:26px 26px 30px}
+.trend-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;color:var(--c-text);line-height:1.1;margin-bottom:10px}
+.trend-card__desc{font-size:.85rem;color:var(--c-dim);line-height:1.75;margin-bottom:18px}
+.trend-card__cta{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-red);text-decoration:none;transition:gap .25s,opacity .2s}
+.trend-card__cta:hover{gap:10px;opacity:.8}
+.trend-cta-inline{margin-top:64px;padding:52px 44px;border:1px solid rgba(255,255,255,.07);border-radius:6px;background:linear-gradient(135deg,rgba(10,22,40,.6),rgba(13,13,13,.6));text-align:center}
+.trend-cta-inline .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
 .gallery-section{padding:80px 0;overflow:hidden}
 .gallery-section__header{padding:0 80px;margin-bottom:52px}
 .gallery-track{display:flex;gap:18px;width:max-content;animation:galleryScroll 36s linear infinite}
@@ -142,6 +163,9 @@ a{color:inherit;text-decoration:none}
   .planning-callout{grid-template-columns:1fr;padding:40px 28px;gap:36px;margin-top:44px}
   .roi-strip{grid-template-columns:1fr;padding:60px 28px;gap:40px}
   .roi-grid{grid-template-columns:1fr}
+  .trend-section{padding:70px 28px}
+  .trend-grid{grid-template-columns:1fr}
+  .trend-cta-inline{padding:36px 24px}
   .gallery-section__header{padding:0 28px}
   .cta-band{padding:90px 28px}
   .site-footer{padding:64px 28px 36px}
@@ -353,6 +377,64 @@ a{color:inherit;text-decoration:none}
       <div class="process-step__n">04</div>
       <h3 class="process-step__title">Final Inspection &amp; CO</h3>
       <p class="process-step__body">We coordinate final city inspection, obtain the Certificate of Occupancy, and walk the completed addition with you. Every punch list item resolved before final payment. Your new space is move-in ready — completely, not approximately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING NOW -->
+<section class="trend-section">
+  <div class="reveal">
+    <p class="eyebrow">What Houston Homeowners Are Adding</p>
+    <h2 class="section-h">Home Addition Trends <em>Worth Building</em></h2>
+    <p class="section-sub">Houston families are expanding their homes instead of moving — and these are the additions delivering the biggest quality-of-life gains and the strongest returns in Katy, Sugar Land, and The Woodlands.</p>
+  </div>
+  <div class="trend-grid">
+
+    <div class="trend-card reveal">
+      <div class="trend-card__img">
+        <img src="images/addition-kitchen-backyard.jpg" alt="Open concept kitchen addition indoor outdoor flow Houston Texas" loading="lazy">
+        <span class="trend-badge trend-badge--red">Most Requested</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Open-Concept Kitchen Expansion</h3>
+        <p class="trend-card__desc">Removing the wall between the kitchen and living space is the most common addition request in Houston right now. We handle the structural engineering, beam installation, electrical relocation, and finish work — delivering a seamless open plan that makes the entire first floor feel twice as large.</p>
+        <a href="tel:+17134567890" class="trend-card__cta">Get This Built — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="trend-card reveal reveal--delay-1">
+      <div class="trend-card__img">
+        <img src="images/project-open-concept-staircase.jpg" alt="Second story addition master suite staircase Katy Sugar Land Texas" loading="lazy">
+        <span class="trend-badge trend-badge--navy">Design Statement</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Second-Story Master Suite</h3>
+        <p class="trend-card__desc">Adding a second story master suite with a spa-caliber bathroom is the ultimate Houston addition — it creates private sanctuary space for parents, dramatically increases square footage, and often covers its own cost in appraisal value. We build the complete vertical addition: framing, roofline, MEP, and all finishes.</p>
+        <a href="tel:+17134567890" class="trend-card__cta">Get This Built — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="trend-card reveal reveal--delay-2">
+      <div class="trend-card__img">
+        <img src="images/addition-open-concept.jpg" alt="In-law suite addition guest suite home office The Woodlands Houston" loading="lazy">
+        <span class="trend-badge trend-badge--gold">Texas Favorite</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">In-Law Suite / Guest Addition</h3>
+        <p class="trend-card__desc">Multi-generational living is booming across Houston suburbs. A dedicated in-law suite with a private entry, bathroom, and kitchenette gives family the space they need without sacrificing your primary living area. We design these to code with full permitting and CO — no shortcuts.</p>
+        <a href="tel:+17134567890" class="trend-card__cta">Get This Built — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="trend-cta-inline reveal">
+    <p class="eyebrow">Ready to grow your home?</p>
+    <h3 class="section-h" style="font-size:1.9rem;margin-bottom:14px">Build Up. Build Out. Stay in the Neighborhood You Love.</h3>
+    <p class="section-sub" style="max-width:540px;margin:0 auto 28px">We handle permits, engineering, and every trade in-house. Serving Houston, Katy, Sugar Land, The Woodlands, Pearland and surrounding areas. Fixed-price bids within 5 business days.</p>
+    <div class="actions">
+      <a href="tel:+17134567890" class="btn btn--primary">Call for a Free Estimate</a>
+      <a href="index.html#contact" class="btn btn--ghost">Send a Message</a>
     </div>
   </div>
 </section>

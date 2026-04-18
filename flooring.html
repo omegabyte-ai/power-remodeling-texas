@@ -101,6 +101,27 @@ a{color:inherit;text-decoration:none}
 .process-step__title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;margin-bottom:12px}
 .process-step__body{font-size:.86rem;color:var(--c-dim);line-height:1.75}
 
+/* TRENDING SECTION */
+.trend-section{padding:100px 80px;background:#0a0a0a}
+.trend-section .section-h em{font-style:normal;color:var(--c-red)}
+.trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.trend-card{border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:border-color .35s,transform .35s;background:#111}
+.trend-card:hover{border-color:rgba(204,31,31,.4);transform:translateY(-6px)}
+.trend-card__img{position:relative;height:240px;overflow:hidden}
+.trend-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.trend-card:hover .trend-card__img img{transform:scale(1.06)}
+.trend-badge{position:absolute;top:14px;left:14px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:3px}
+.trend-badge--red{background:rgba(204,31,31,.92);color:#fff}
+.trend-badge--navy{background:rgba(10,22,40,.92);border:1px solid rgba(255,255,255,.2);color:#E8E4DC}
+.trend-badge--gold{background:rgba(150,105,30,.9);color:#fff}
+.trend-card__body{padding:26px 26px 30px}
+.trend-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;color:var(--c-text);line-height:1.1;margin-bottom:10px}
+.trend-card__desc{font-size:.85rem;color:var(--c-dim);line-height:1.75;margin-bottom:18px}
+.trend-card__cta{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-red);text-decoration:none;transition:gap .25s,opacity .2s}
+.trend-card__cta:hover{gap:10px;opacity:.8}
+.trend-cta-inline{margin-top:64px;padding:52px 44px;border:1px solid rgba(255,255,255,.07);border-radius:6px;background:linear-gradient(135deg,rgba(10,22,40,.6),rgba(13,13,13,.6));text-align:center}
+.trend-cta-inline .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
 /* GALLERY */
 .gallery-section{padding:80px 0;overflow:hidden}
 .gallery-section__header{padding:0 80px;margin-bottom:52px}
@@ -152,6 +173,9 @@ a{color:inherit;text-decoration:none}
   .intro-split{grid-template-columns:1fr}
   .svc-grid{grid-template-columns:1fr}
   .process-grid{grid-template-columns:1fr 1fr}
+  .trend-section{padding:70px 28px}
+  .trend-grid{grid-template-columns:1fr}
+  .trend-cta-inline{padding:36px 24px}
   .gallery-section__header{padding:0 28px}
   .cta-band{padding:90px 28px}
   .site-footer{padding:64px 28px 36px}
@@ -371,6 +395,64 @@ a{color:inherit;text-decoration:none}
       <div class="process-step__n">04</div>
       <h3 class="process-step__title">Trim &amp; Cleanup</h3>
       <p class="process-step__body">Transitions, thresholds, base molding reinstalled or replaced. Full cleanup including dust from any sanding. Final walkthrough before we consider the job done.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING NOW -->
+<section class="trend-section">
+  <div class="reveal">
+    <p class="eyebrow">What Houston Homeowners Are Installing</p>
+    <h2 class="section-h">Flooring Trends <em>Driving Real Resale Value</em></h2>
+    <p class="section-sub">From Katy to The Woodlands, these are the flooring upgrades Houston homeowners are requesting most — and the ones real estate agents recommend before listing.</p>
+  </div>
+  <div class="trend-grid">
+
+    <div class="trend-card reveal">
+      <div class="trend-card__img">
+        <img src="images/firefly-flooring-hero.jpg" alt="Wide-plank hardwood flooring installation Houston Texas living room" loading="lazy">
+        <span class="trend-badge trend-badge--red">Most Requested</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Wide-Plank White Oak Hardwood</h3>
+        <p class="trend-card__desc">Wide-plank white oak in a natural or light matte finish is the single most-requested flooring upgrade we see across Houston. It reads warm and timeless, photographs beautifully, and outperforms narrow-plank oak on resale. We carry multiple grades and widths — installed and finished in one visit.</p>
+        <a href="tel:+17134567890" class="trend-card__cta">Get This Look — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="trend-card reveal reveal--delay-1">
+      <div class="trend-card__img">
+        <img src="images/project-flooring-pattern-tile.jpg" alt="Large format porcelain tile flooring open concept Houston Texas" loading="lazy">
+        <span class="trend-badge trend-badge--navy">Design Statement</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Large-Format Porcelain Tile</h3>
+        <p class="trend-card__desc">24×24 and 32×32 porcelain slabs laid in a minimal grout pattern create a seamless, high-end look that's perfect for open-concept living spaces. Virtually maintenance-free, waterproof, and available in concrete, marble, and wood looks. A favorite in Sugar Land and Pearland renovations.</p>
+        <a href="tel:+17134567890" class="trend-card__cta">Get This Look — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="trend-card reveal reveal--delay-2">
+      <div class="trend-card__img">
+        <img src="images/project-flooring-herringbone.jpg" alt="Herringbone luxury vinyl plank flooring renovation Katy Texas" loading="lazy">
+        <span class="trend-badge trend-badge--gold">Texas Favorite</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Herringbone Luxury Vinyl Plank</h3>
+        <p class="trend-card__desc">Waterproof, kid-proof, and pet-proof — LVP in a herringbone layout delivers the visual drama of hardwood at a fraction of the cost. We've installed this pattern in over 200 Houston-area homes and it's a consistent crowd-pleaser on everything from Zillow tours to HGTV pitches.</p>
+        <a href="tel:+17134567890" class="trend-card__cta">Get This Look — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="trend-cta-inline reveal">
+    <p class="eyebrow">Ready to upgrade your floors?</p>
+    <h3 class="section-h" style="font-size:1.9rem;margin-bottom:14px">Get a Fixed-Price Quote in 48 Hours</h3>
+    <p class="section-sub" style="max-width:520px;margin:0 auto 28px">Serving Houston, Katy, Sugar Land, The Woodlands, Pearland and surrounding areas. We show up on time, work clean, and stand behind every square foot.</p>
+    <div class="actions">
+      <a href="tel:+17134567890" class="btn btn--primary">Call for a Free Estimate</a>
+      <a href="index.html#contact" class="btn btn--ghost">Send a Message</a>
     </div>
   </div>
 </section>

@@ -101,6 +101,27 @@ a{color:inherit;text-decoration:none}
 .compare-table td:last-child{color:var(--c-dim)}
 .badge-yes{display:inline-block;background:rgba(204,31,31,.15);color:var(--c-red);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px}
 
+/* TRENDING SECTION */
+.trend-section{padding:100px 80px;background:#0a0a0a}
+.trend-section .section-h em{font-style:normal;color:var(--c-red)}
+.trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.trend-card{border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:border-color .35s,transform .35s;background:#111}
+.trend-card:hover{border-color:rgba(204,31,31,.4);transform:translateY(-6px)}
+.trend-card__img{position:relative;height:240px;overflow:hidden}
+.trend-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.trend-card:hover .trend-card__img img{transform:scale(1.06)}
+.trend-badge{position:absolute;top:14px;left:14px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:3px}
+.trend-badge--red{background:rgba(204,31,31,.92);color:#fff}
+.trend-badge--navy{background:rgba(10,22,40,.92);border:1px solid rgba(255,255,255,.2);color:#E8E4DC}
+.trend-badge--gold{background:rgba(150,105,30,.9);color:#fff}
+.trend-card__body{padding:26px 26px 30px}
+.trend-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;color:var(--c-text);line-height:1.1;margin-bottom:10px}
+.trend-card__desc{font-size:.85rem;color:var(--c-dim);line-height:1.75;margin-bottom:18px}
+.trend-card__cta{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-red);text-decoration:none;transition:gap .25s,opacity .2s}
+.trend-card__cta:hover{gap:10px;opacity:.8}
+.trend-cta-inline{margin-top:64px;padding:52px 44px;border:1px solid rgba(255,255,255,.07);border-radius:6px;background:linear-gradient(135deg,rgba(10,22,40,.6),rgba(13,13,13,.6));text-align:center}
+.trend-cta-inline .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
 .gallery-section{padding:80px 0;overflow:hidden}
 .gallery-section__header{padding:0 80px;margin-bottom:52px}
 .gallery-track{display:flex;gap:18px;width:max-content;animation:galleryScroll 32s linear infinite}
@@ -151,6 +172,9 @@ a{color:inherit;text-decoration:none}
   .refacing-section{padding:70px 28px}
   .refacing-grid{grid-template-columns:1fr;gap:44px}
   .refacing-img img{height:400px}
+  .trend-section{padding:70px 28px}
+  .trend-grid{grid-template-columns:1fr}
+  .trend-cta-inline{padding:36px 24px}
   .gallery-section__header{padding:0 28px}
   .cta-band{padding:90px 28px}
   .site-footer{padding:64px 28px 36px}
@@ -411,6 +435,64 @@ a{color:inherit;text-decoration:none}
     </div>
     <div style="margin-top:56px;text-align:center" class="reveal">
       <a href="estimate.html" style="display:inline-block;background:var(--c-red);color:#fff;padding:16px 36px;border-radius:2px;font-size:.83rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none">Discuss Your Project Details →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING NOW -->
+<section class="trend-section">
+  <div class="reveal">
+    <p class="eyebrow">What Houston Homeowners Are Asking For</p>
+    <h2 class="section-h">Cabinet Trends <em>That Sell Homes</em></h2>
+    <p class="section-sub">From Sugar Land to The Woodlands, these are the cabinetry upgrades driving the most calls — and delivering the strongest return at resale across the Houston market.</p>
+  </div>
+  <div class="trend-grid">
+
+    <div class="trend-card reveal">
+      <div class="trend-card__img">
+        <img src="images/firefly-cabinetry-hero.jpg" alt="Two-tone semi-custom kitchen cabinetry quartz countertops Houston Texas" loading="lazy">
+        <span class="trend-badge trend-badge--red">Most Requested</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Two-Tone Semi-Custom Cabinetry</h3>
+        <p class="trend-card__desc">Lower cabinets in a bold navy or sage, uppers in crisp white — this two-tone look dominates every design magazine and Houston model home right now. Semi-custom boxes with custom-look doors give you the designer aesthetic at a realistic remodel budget. Paired with quartz countertops, it's unbeatable on resale.</p>
+        <a href="tel:+17134567890" class="trend-card__cta">Get This Look — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="trend-card reveal reveal--delay-1">
+      <div class="trend-card__img">
+        <img src="images/cabinetry-hero.jpg" alt="Floor-to-ceiling custom cabinetry with integrated lighting kitchen remodel Katy Texas" loading="lazy">
+        <span class="trend-badge trend-badge--navy">Design Statement</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Floor-to-Ceiling Storage with LED</h3>
+        <p class="trend-card__body-text" style="font-size:.85rem;color:var(--c-dim);line-height:1.75;margin-bottom:18px">Bringing cabinets all the way to the ceiling eliminates the awkward gap that collects dust and makes kitchens look shorter. Add integrated LED under-cabinet and interior lighting and the whole room transforms at night. We frame and build these custom — no box-store limitations.</p>
+        <a href="tel:+17134567890" class="trend-card__cta">Get This Look — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="trend-card reveal reveal--delay-2">
+      <div class="trend-card__img">
+        <img src="images/project-kitchen-dark-marble-led.jpg" alt="Shaker cabinet kitchen remodel with quartz island Sugar Land The Woodlands Houston" loading="lazy">
+        <span class="trend-badge trend-badge--gold">Texas Favorite</span>
+      </div>
+      <div class="trend-card__body">
+        <h3 class="trend-card__title">Shaker Doors + Waterfall Quartz Island</h3>
+        <p class="trend-card__desc">Clean-line shaker cabinetry paired with a quartz waterfall island is the kitchen combination Houston buyers expect at the $500K+ price point — but we build it at a price that makes sense for a remodel. We handle the full scope: cabinets, island framing, countertop templating, and installation.</p>
+        <a href="tel:+17134567890" class="trend-card__cta">Get This Look — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="trend-cta-inline reveal">
+    <p class="eyebrow">Let's design your kitchen together</p>
+    <h3 class="section-h" style="font-size:1.9rem;margin-bottom:14px">Custom Look. Real-World Budget.</h3>
+    <p class="section-sub" style="max-width:520px;margin:0 auto 28px">We serve Houston, Katy, Sugar Land, The Woodlands, and surrounding areas. In-home consultation, fixed-price quote within 48 hours. No pressure. No surprises.</p>
+    <div class="actions">
+      <a href="tel:+17134567890" class="btn btn--primary">Call for a Free Estimate</a>
+      <a href="index.html#contact" class="btn btn--ghost">Send a Message</a>
     </div>
   </div>
 </section>

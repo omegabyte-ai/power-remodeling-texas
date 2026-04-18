@@ -900,6 +900,153 @@
       }
       .reveal { opacity: 1; transform: none; }
     }
+
+    /* ── TREND MODAL ───────────────────────────────────────────── */
+    .tmodal-backdrop {
+      position: fixed; inset: 0; z-index: 900;
+      background: rgba(5,5,10,.72);
+      backdrop-filter: blur(4px);
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .tmodal-backdrop.is-open { opacity: 1; pointer-events: all; }
+
+    .tmodal-panel {
+      position: fixed; z-index: 901;
+      background: #111318;
+      border: 1px solid rgba(255,255,255,.08);
+      overflow-y: auto;
+      /* Mobile: bottom-sheet */
+      bottom: 0; left: 0; right: 0;
+      max-height: 88vh;
+      border-radius: 18px 18px 0 0;
+      transform: translateY(100%);
+      transition: transform .35s cubic-bezier(.32,.72,0,1);
+    }
+    .tmodal-panel.is-open { transform: translateY(0); }
+
+    /* Desktop: centered card */
+    @media (min-width: 680px) {
+      .tmodal-panel {
+        top: 50%; left: 50%;
+        bottom: auto; right: auto;
+        width: 640px;
+        max-height: 82vh;
+        border-radius: 12px;
+        transform: translate(-50%,-50%) scale(.94);
+        transition: transform .3s cubic-bezier(.32,.72,0,1), opacity .25s ease;
+        opacity: 0;
+      }
+      .tmodal-panel.is-open {
+        transform: translate(-50%,-50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .tmodal-inner { padding: 32px 28px 40px; }
+    @media (min-width: 680px) { .tmodal-inner { padding: 40px 44px 48px; } }
+
+    .tmodal-drag-pill {
+      width: 40px; height: 4px;
+      background: rgba(255,255,255,.18);
+      border-radius: 2px;
+      margin: 0 auto 28px;
+    }
+    @media (min-width: 680px) { .tmodal-drag-pill { display: none; } }
+
+    .tmodal-close {
+      position: absolute; top: 18px; right: 20px;
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 50%;
+      color: #fff; font-size: 1.1rem; line-height: 34px; text-align: center;
+      cursor: pointer; transition: background .2s;
+      display: none;
+    }
+    @media (min-width: 680px) { .tmodal-close { display: block; } }
+    .tmodal-close:hover { background: rgba(255,255,255,.14); }
+
+    .tmodal-eyebrow {
+      font-size: .7rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #CC1F1F; margin-bottom: 10px;
+    }
+    .tmodal-h {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.7rem, 5vw, 2.2rem);
+      font-weight: 900; line-height: 1.05; text-transform: uppercase;
+      color: #E8E4DC; margin-bottom: 28px;
+    }
+    .tmodal-h em { font-style: normal; color: #CC1F1F; }
+
+    /* Trend items */
+    .tmodal-items { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+
+    .titem {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 8px;
+      padding: 16px;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+    .titem.visible { opacity: 1; transform: translateY(0); }
+    .titem:nth-child(2) { transition-delay: .07s; }
+    .titem:nth-child(3) { transition-delay: .14s; }
+
+    .titem__img {
+      width: 80px; height: 80px; flex-shrink: 0;
+      border-radius: 6px; overflow: hidden;
+    }
+    .titem__img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .titem__body { flex: 1; min-width: 0; }
+    .titem__hot {
+      display: inline-block;
+      font-size: .6rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #CC1F1F;
+      background: rgba(204,31,31,.12);
+      border: 1px solid rgba(204,31,31,.25);
+      border-radius: 3px; padding: 2px 7px;
+      margin-bottom: 6px;
+    }
+    .titem__title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.05rem; font-weight: 700;
+      text-transform: uppercase; color: #E8E4DC;
+      line-height: 1.1; margin-bottom: 4px;
+    }
+    .titem__desc { font-size: .8rem; color: #9A9590; line-height: 1.5; }
+
+    /* CTA block */
+    .tmodal-cta { display: flex; flex-direction: column; gap: 14px; align-items: stretch; }
+    .tmodal-cta .btn-primary {
+      background: #CC1F1F; color: #fff;
+      padding: 16px 24px; border-radius: 4px;
+      font-weight: 700; font-size: .9rem; letter-spacing: .07em;
+      text-transform: uppercase; text-align: center;
+      transition: opacity .2s, transform .2s;
+      text-decoration: none; display: block;
+    }
+    .tmodal-cta .btn-primary:hover { opacity: .88; transform: translateY(-2px); }
+    .tmodal-phone {
+      text-align: center; color: #9A9590; font-size: .85rem;
+      text-decoration: none; transition: color .2s;
+    }
+    .tmodal-phone:hover { color: #E8E4DC; }
+    .tmodal-viewlink {
+      display: block; text-align: center;
+      font-size: .78rem; letter-spacing: .06em;
+      color: rgba(232,228,220,.35); text-decoration: none;
+      margin-top: 18px; transition: color .2s;
+    }
+    .tmodal-viewlink:hover { color: rgba(232,228,220,.75); }
+
+    /* Card click affordance */
+    .svc-card { cursor: pointer; }
+    .svc-item { cursor: pointer; }
+    .svc-card .svc-card__link { pointer-events: none; }
   </style>
 </head>
 <body>
@@ -995,7 +1142,7 @@
 
         <div class="services__row services__row--secondary">
           <a class="svc-item reveal" href="flooring.html">
-            <img class="svc-item__img" src="images/flooring-hardwood.jpg" alt="Wide-plank hardwood flooring installation" loading="lazy" />
+            <img class="svc-item__img" src="images/firefly-flooring-hero.jpg" alt="Wide-plank hardwood flooring installation" loading="lazy" />
             <div class="svc-item__body">
               <div class="svc-item__no">04</div>
               <h3>Flooring &amp; Tile</h3>
@@ -1003,7 +1150,7 @@
             </div>
           </a>
           <a class="svc-item reveal reveal--delay-1" href="cabinetry.html">
-            <img class="svc-item__img" src="images/cabinetry-dark-marble.jpg" alt="Custom cabinetry with dark marble countertops" loading="lazy" />
+            <img class="svc-item__img" src="images/firefly-cabinetry-hero.jpg" alt="Two-tone semi-custom kitchen cabinetry with quartz countertops" loading="lazy" />
             <div class="svc-item__body">
               <div class="svc-item__no">05</div>
               <h3>Custom Cabinetry</h3>
@@ -1011,7 +1158,7 @@
             </div>
           </a>
           <a class="svc-item reveal reveal--delay-2" href="finishes.html">
-            <img class="svc-item__img" src="images/project-kitchen-dark-marble-led.jpg" alt="Modern kitchen finishes with dark marble and LED lighting" loading="lazy" />
+            <img class="svc-item__img" src="images/firefly-finishes-hero.jpg" alt="Quartz countertop with matte black hardware and brushed brass faucet" loading="lazy" />
             <div class="svc-item__body">
               <div class="svc-item__no">06</div>
               <h3>Modern Finishes</h3>
