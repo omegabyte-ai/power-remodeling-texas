@@ -131,13 +131,13 @@
       align-items: center;
       line-height: 1;
     }
-    .logo img {
+    .logo img, .logo svg {
       height: 48px;
       width: auto;
       display: block;
       filter: brightness(0) invert(1);
     }
-    .footer__about .logo img {
+    .footer__about .logo img, .footer__about .logo svg {
       height: 56px;
       filter: brightness(0) invert(1);
     }
@@ -576,6 +576,78 @@
     .tile--h { grid-column: span 6; grid-row: span 2; }
 
     /* =========================================================
+       2026 TRENDS
+    */
+    .trends { background: #0A1628; }
+    .trends__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .trend-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 2rem 1.75rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .trend-card:hover {
+      background: rgba(204,31,31,0.06);
+      border-color: rgba(204,31,31,0.3);
+      transform: translateY(-3px);
+    }
+    .trend-card__icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.25rem;
+    }
+    .trend-card__icon svg { width: 100%; height: 100%; }
+    .trend-card__title {
+      font-family: 'Barlow Condensed', 'Impact', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 0.75rem;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+    .trend-card__body {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.6);
+      margin: 0 0 1.25rem;
+    }
+    .trend-card__tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #CC1F1F;
+      border: 1px solid rgba(204,31,31,0.4);
+      border-radius: 2px;
+      padding: 0.2em 0.6em;
+    }
+    .trends__cta {
+      text-align: center;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .trends__cta p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 1100px) {
+      .trends__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .trends__grid { grid-template-columns: 1fr; }
+    }
+
+    /*
        TESTIMONIALS
        ========================================================= */
     .testimonials { background: #111; }
@@ -829,7 +901,7 @@
         </ul>
       </nav>
       <a href="#top" class="logo" aria-label="Power Remodeling Texas — Home">
-        <img src="images/prm-logo.svg" alt="Power Remodeling Texas" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" role="img" aria-label="Power Remodeling Texas" style="display:block"><title>Power Remodeling Texas</title><g transform="translate(112 108)"><path d="M0,-34 L9.98,-10.51 L32.34,-10.51 L14.17,4.01 L20,27.49 L0,13.60 L-20,27.49 L-14.17,4.01 L-32.34,-10.51 L-9.98,-10.51Z" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="miter"/></g><text x="168" y="148" fill="#000" font-family="'Barlow Condensed',Impact,'Arial Narrow',sans-serif" font-weight="900" font-size="148" letter-spacing="-2">POWER</text><line x1="168" y1="170" x2="712" y2="170" stroke="#000" stroke-width="1.5"/><text x="168" y="200" fill="#000" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="22" letter-spacing="8">REMODELING  ·  TEXAS</text></svg>
       </a>
       <div class="nav__right">
         <a href="estimate.html" class="btn btn--red nav__cta">Free Quote</a>
@@ -849,7 +921,7 @@
       <div class="container hero__content">
         <div class="hero__tag">Texas — Since 2009</div>
         <h1 class="hero__title">
-          <span>Built for Texas.</span>
+          <span>Built for Texans.</span>
           <span class="accent">Built to last.</span>
         </h1>
         <p class="hero__sub">Premium kitchen, bathroom, and home remodeling — delivered by a licensed Texas crew that treats your home like their own.</p>
@@ -949,66 +1021,207 @@
         <div class="section__head reveal">
           <span class="eyebrow">Our work</span>
           <h2>Recent Texas&nbsp;projects.</h2>
-          <p>A selection of completed kitchen and bathroom projects across the greater Houston area.</p>
+          <p>Kitchen, bathroom, cabinetry, and whole-home remodels completed across Houston, Katy, Sugar Land, and The Woodlands.</p>
         </div>
 
         <div class="projects__grid">
           <a class="tile tile--a reveal" href="kitchen.html">
-            <img src="images/kitchen-2.jpg" alt="Open-plan kitchen remodel in Houston" loading="lazy" />
+            <img src="images/project-kitchen-navy-island.jpg" alt="Open concept kitchen with navy island and hardwood floors, Houston TX" loading="lazy" />
             <div class="tile__hover">
               <div class="tile__cat">Kitchen Remodel</div>
-              <div class="tile__title"><span>Full Kitchen Renovation</span><span>→</span></div>
+              <div class="tile__title"><span>Open Concept Kitchen</span><span>→</span></div>
             </div>
           </a>
-          <a class="tile tile--b reveal reveal--delay-1" href="kitchen.html">
-            <img src="images/kitchen-3.jpg" alt="Custom kitchen with marble island" loading="lazy" />
+          <a class="tile tile--b reveal reveal--delay-1" href="bathroom.html">
+            <img src="images/project-bath-master-soaking.jpg" alt="Spa master bathroom with soaking tub and pendant lights" loading="lazy" />
             <div class="tile__hover">
-              <div class="tile__cat">Kitchen Remodel</div>
-              <div class="tile__title"><span>Custom Island Kitchen</span><span>→</span></div>
+              <div class="tile__cat">Bathroom Remodel</div>
+              <div class="tile__title"><span>Spa Master Suite Bath</span><span>→</span></div>
             </div>
           </a>
           <a class="tile tile--c reveal reveal--delay-2" href="kitchen.html">
-            <img src="images/kitchen-5.jpg" alt="Warm tone kitchen renovation" loading="lazy" />
+            <img src="images/project-kitchen-dark-marble-led.jpg" alt="Dark shaker kitchen with marble backsplash and LED under-cabinet lighting" loading="lazy" />
             <div class="tile__hover">
               <div class="tile__cat">Kitchen Remodel</div>
-              <div class="tile__title"><span>Warm Wood Kitchen</span><span>→</span></div>
+              <div class="tile__title"><span>Dark Shaker + Marble Kitchen</span><span>→</span></div>
             </div>
           </a>
-          <a class="tile tile--d reveal" href="kitchen.html">
-            <img src="images/kitchen-6.jpg" alt="Modern open kitchen with large island" loading="lazy" />
+          <a class="tile tile--d reveal" href="cabinetry.html">
+            <img src="images/cabinetry-hero.jpg" alt="Custom floor-to-ceiling navy cabinetry with gold hardware" loading="lazy" />
             <div class="tile__hover">
-              <div class="tile__cat">Kitchen Remodel</div>
-              <div class="tile__title"><span>Modern Open Kitchen</span><span>→</span></div>
+              <div class="tile__cat">Custom Cabinetry</div>
+              <div class="tile__title"><span>Floor-to-Ceiling Custom Cabinets</span><span>→</span></div>
             </div>
           </a>
-          <a class="tile tile--e reveal reveal--delay-1" href="kitchen.html">
-            <img src="images/kitchen-8.jpg" alt="Contemporary minimalist kitchen design" loading="lazy" />
-            <div class="tile__hover">
-              <div class="tile__cat">Kitchen Remodel</div>
-              <div class="tile__title"><span>Minimalist Kitchen Design</span><span>→</span></div>
-            </div>
-          </a>
-          <a class="tile tile--f reveal reveal--delay-2" href="bathroom.html">
-            <img src="images/bathroom-1.jpg" alt="Luxury primary bathroom renovation" loading="lazy" />
+          <a class="tile tile--e reveal reveal--delay-1" href="bathroom.html">
+            <img src="images/bathroom-1.jpg" alt="Luxury white primary bathroom renovation" loading="lazy" />
             <div class="tile__hover">
               <div class="tile__cat">Bathroom Remodel</div>
-              <div class="tile__title"><span>Master Suite Bathroom</span><span>→</span></div>
+              <div class="tile__title"><span>Luxury Primary Bathroom</span><span>→</span></div>
             </div>
           </a>
-          <a class="tile tile--g reveal" href="bathroom.html">
-            <img src="images/bathroom-2.jpg" alt="Walk-in shower bathroom transformation" loading="lazy" />
+          <a class="tile tile--f reveal reveal--delay-2" href="additions.html">
+            <img src="images/project-open-concept-staircase.jpg" alt="Whole home open concept remodel with custom staircase and wide plank hardwood" loading="lazy" />
             <div class="tile__hover">
-              <div class="tile__cat">Bathroom Remodel</div>
-              <div class="tile__title"><span>Tub-to-Shower Conversion</span><span>→</span></div>
+              <div class="tile__cat">Whole Home Remodel</div>
+              <div class="tile__title"><span>Open Concept Home Remodel</span><span>→</span></div>
             </div>
           </a>
-          <a class="tile tile--h reveal reveal--delay-1" href="kitchen.html">
-            <img src="images/kitchen-7.jpg" alt="Contemporary kitchen with custom cabinetry" loading="lazy" />
+          <a class="tile tile--g reveal" href="kitchen.html">
+            <img src="images/kitchen-2.jpg" alt="Clean white kitchen with custom cabinetry and quartz counters" loading="lazy" />
             <div class="tile__hover">
               <div class="tile__cat">Kitchen Remodel</div>
-              <div class="tile__title"><span>Contemporary Kitchen</span><span>→</span></div>
+              <div class="tile__title"><span>White Shaker Kitchen</span><span>→</span></div>
             </div>
           </a>
+          <a class="tile tile--h reveal reveal--delay-1" href="additions.html">
+            <img src="images/addition-exterior.png" alt="Rear home addition exterior in Houston Texas" loading="lazy" />
+            <div class="tile__hover">
+              <div class="tile__cat">Home Addition</div>
+              <div class="tile__title"><span>Rear Home Addition</span><span>→</span></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2026 DESIGN TRENDS -->
+    <section class="section trends" id="trends">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">2026 Design Trends</span>
+          <h2>What high-end Texas homes are&nbsp;specifying.</h2>
+          <p>We stay ahead of what's happening in luxury remodeling — so you don't have to research it yourself. These are the materials, finishes, and details our clients are requesting right now.</p>
+        </div>
+        <div class="trends__grid">
+
+          <div class="trend-card reveal">
+            <div class="trend-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="14" width="36" height="20" rx="2" stroke="#CC1F1F" stroke-width="2"/>
+                <rect x="6" y="22" width="36" height="2" fill="#CC1F1F"/>
+                <line x1="24" y1="14" x2="24" y2="34" stroke="#CC1F1F" stroke-width="1.5"/>
+                <rect x="10" y="26" width="10" height="5" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
+                <rect x="28" y="26" width="10" height="5" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
+                <line x1="12" y1="29" x2="18" y2="29" stroke="#CC1F1F" stroke-width="1"/>
+                <line x1="30" y1="29" x2="36" y2="29" stroke="#CC1F1F" stroke-width="1"/>
+              </svg>
+            </div>
+            <h3 class="trend-card__title">In-Drawer Organizer Systems</h3>
+            <p class="trend-card__body">Custom pull-out inserts for cutlery, utensils, and spices — fitted precisely to your drawer dimensions. Solid walnut dividers, soft-close undermount slides, and hand-sorted compartments for every tool in your kitchen.</p>
+            <span class="trend-card__tag">Custom Cabinetry</span>
+          </div>
+
+          <div class="trend-card reveal reveal--delay-1">
+            <div class="trend-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="28" width="32" height="6" rx="1" stroke="#CC1F1F" stroke-width="2"/>
+                <path d="M8 28 L4 36 L44 36 L40 28" stroke="#CC1F1F" stroke-width="1.5"/>
+                <line x1="8" y1="36" x2="8" y2="40" stroke="#CC1F1F" stroke-width="1.5"/>
+                <line x1="40" y1="36" x2="40" y2="40" stroke="#CC1F1F" stroke-width="1.5"/>
+                <ellipse cx="24" cy="26" rx="10" ry="3" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <circle cx="24" cy="20" r="4" stroke="#CC1F1F" stroke-width="1.5"/>
+                <line x1="24" y1="16" x2="24" y2="10" stroke="#CC1F1F" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="trend-card__title">LED-Backlit Countertops &amp; Islands</h3>
+            <p class="trend-card__body">Warm-white LED strips recessed beneath waterfall island edges and toe-kick channels. Creates architectural drama at night while adding functional task lighting — a signature finish on every high-end kitchen we complete.</p>
+            <span class="trend-card__tag">Kitchen · Cabinetry</span>
+          </div>
+
+          <div class="trend-card reveal reveal--delay-2">
+            <div class="trend-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="10" width="32" height="28" rx="1" stroke="#CC1F1F" stroke-width="2"/>
+                <path d="M8 10 Q20 16 16 24 Q12 32 8 38" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <path d="M20 10 Q28 18 24 26 Q20 34 24 38" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <path d="M32 10 Q38 20 36 28 Q34 34 40 38" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/>
+              </svg>
+            </div>
+            <h3 class="trend-card__title">Book-Matched Calacatta Marble</h3>
+            <p class="trend-card__body">Full-slab Calacatta Gold or Viola marble — not tile — book-matched so veining mirrors across seams. Used as kitchen island waterfalls, primary bath feature walls, and fireplace surrounds. The material that makes a room unforgettable.</p>
+            <span class="trend-card__tag">Kitchen · Bathroom · Finishes</span>
+          </div>
+
+          <div class="trend-card reveal">
+            <div class="trend-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="36" width="36" height="4" rx="1" fill="#CC1F1F" opacity="0.3"/>
+                <rect x="6" y="8" width="8" height="28" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
+                <rect x="17" y="12" width="8" height="24" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
+                <rect x="28" y="8" width="8" height="28" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
+                <line x1="6" y1="20" x2="14" y2="20" stroke="#CC1F1F" stroke-width="1"/>
+                <line x1="17" y1="22" x2="25" y2="22" stroke="#CC1F1F" stroke-width="1"/>
+                <line x1="28" y1="18" x2="36" y2="18" stroke="#CC1F1F" stroke-width="1"/>
+              </svg>
+            </div>
+            <h3 class="trend-card__title">Wide Plank White Oak Hardwood</h3>
+            <p class="trend-card__body">7-inch-plus engineered white oak with a wire-brushed or fumed finish — the floor choice replacing narrow-strip maple across Houston luxury homes. Provides warmth and natural variation that photographed rooms demand. We offer site-finished options for seamless transitions throughout the home.</p>
+            <span class="trend-card__tag">Flooring</span>
+          </div>
+
+          <div class="trend-card reveal reveal--delay-1">
+            <div class="trend-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="8" width="12" height="32" rx="1" stroke="#CC1F1F" stroke-width="2"/>
+                <rect x="26" y="8" width="12" height="32" rx="1" stroke="#CC1F1F" stroke-width="2"/>
+                <line x1="10" y1="24" x2="22" y2="24" stroke="#CC1F1F" stroke-width="1.5"/>
+                <line x1="26" y1="24" x2="38" y2="24" stroke="#CC1F1F" stroke-width="1.5"/>
+                <circle cx="22" cy="24" r="1.5" fill="#CC1F1F"/>
+                <circle cx="26" cy="24" r="1.5" fill="#CC1F1F"/>
+              </svg>
+            </div>
+            <h3 class="trend-card__title">Flat-Panel Frameless Cabinetry</h3>
+            <p class="trend-card__body">Slab-front doors in matte lacquer, walnut veneer, or two-tone combinations — no inset frames, no reveals. The clean horizontal line is the dominant aesthetic in new-construction Houston luxury and in our full-kitchen remodels. Pairs with integrated appliances and push-to-open hardware.</p>
+            <span class="trend-card__tag">Custom Cabinetry · Kitchen</span>
+          </div>
+
+          <div class="trend-card reveal reveal--delay-2">
+            <div class="trend-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="28" r="12" stroke="#CC1F1F" stroke-width="2"/>
+                <path d="M16 28 Q16 16 24 16 Q32 16 32 28" stroke="#CC1F1F" stroke-width="2" fill="none"/>
+                <line x1="24" y1="16" x2="24" y2="10" stroke="#CC1F1F" stroke-width="2"/>
+                <path d="M20 28 L22 26 L24 28 L26 26 L28 28" stroke="#CC1F1F" stroke-width="1.5" fill="none"/>
+              </svg>
+            </div>
+            <h3 class="trend-card__title">Matte Black &amp; Unlacquered Brass</h3>
+            <p class="trend-card__body">Brushed nickel and chrome are out of Texas luxury homes. Matte black faucets, cabinet pulls, light fixtures, and door hardware are the 2026 standard — often paired with unlacquered brass on islands for contrast. We source from Kohler, Brizo, and Watermark for finishes that hold up in Texas humidity.</p>
+            <span class="trend-card__tag">Kitchen · Bathroom · Finishes</span>
+          </div>
+
+          <div class="trend-card reveal">
+            <div class="trend-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 38 L12 22 Q12 10 24 10 Q36 10 36 22 L36 38" stroke="#CC1F1F" stroke-width="2" fill="none"/>
+                <line x1="8" y1="38" x2="40" y2="38" stroke="#CC1F1F" stroke-width="2"/>
+                <line x1="20" y1="38" x2="20" y2="26" stroke="#CC1F1F" stroke-width="1.5"/>
+                <line x1="28" y1="38" x2="28" y2="26" stroke="#CC1F1F" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="trend-card__title">Arched Doorways &amp; Alcoves</h3>
+            <p class="trend-card__body">The curved arch is the single most requested architectural detail in 2026 Texas remodeling — replacing square pass-throughs, framing window seats, and defining open-plan zones without walls. We frame and plaster arched openings as part of kitchen expansions and whole-home remodels. Pairs perfectly with shiplap and board-and-batten.</p>
+            <span class="trend-card__tag">Home Addition · Whole Home</span>
+          </div>
+
+          <div class="trend-card reveal reveal--delay-1">
+            <div class="trend-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
+                <rect x="18" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
+                <rect x="26" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
+                <rect x="34" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="trend-card__title">Fluted Wood &amp; Reeded Glass Panels</h3>
+            <p class="trend-card__body">Vertical reeding — on cabinet fronts, kitchen islands, bath vanities, and room dividers — is replacing flat surfaces with tactile texture. Fluted white oak, walnut, or painted MDF adds dimension without bulk. Reeded glass inserts in upper cabinet doors create warmth and visual interest while keeping contents softly visible.</p>
+            <span class="trend-card__tag">Cabinetry · Bathroom · Finishes</span>
+          </div>
+
+        </div>
+        <div class="trends__cta reveal">
+          <p>Not sure which direction is right for your home? Our design consultations start with your lifestyle — not a material catalog.</p>
+          <a href="estimate.html" class="btn btn--red btn--lg">Schedule Your Free Consultation</a>
         </div>
       </div>
     </section>
@@ -1067,7 +1280,7 @@
       <div class="footer__grid">
         <div class="footer__col footer__about">
           <a href="#top" class="logo">
-            <img src="images/prm-logo.svg" alt="Power Remodeling Texas" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" role="img" aria-label="Power Remodeling Texas" style="display:block"><title>Power Remodeling Texas</title><g transform="translate(112 108)"><path d="M0,-34 L9.98,-10.51 L32.34,-10.51 L14.17,4.01 L20,27.49 L0,13.60 L-20,27.49 L-14.17,4.01 L-32.34,-10.51 L-9.98,-10.51Z" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="miter"/></g><text x="168" y="148" fill="#000" font-family="'Barlow Condensed',Impact,'Arial Narrow',sans-serif" font-weight="900" font-size="148" letter-spacing="-2">POWER</text><line x1="168" y1="170" x2="712" y2="170" stroke="#000" stroke-width="1.5"/><text x="168" y="200" fill="#000" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-weight="500" font-size="22" letter-spacing="8">REMODELING  ·  TEXAS</text></svg>
           </a>
           <p>Texas's premier residential remodeling contractor. In-house craftsmen, design-led process, transparent pricing. Building better homes since 2009.</p>
           
