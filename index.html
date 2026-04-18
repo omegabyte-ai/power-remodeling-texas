@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Power Remodeling Texas — Premium Houston Kitchen, Bath & Home Remodeling</title>
-  <meta name="description" content="Houston's premier residential remodeling contractor since 2009. Kitchen, bathroom, and whole-home renovation. Licensed, insured, on-time, on-budget." />
+  <title>Power Remodeling Texas — Premium Kitchen, Bath & Home Remodeling</title>
+  <meta name="description" content="Texas's premier residential remodeling contractor since 2009. Kitchen, bathroom, and whole-home renovation. Licensed, insured, on-time, on-budget." />
   <meta name="theme-color" content="#0D0D0D" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -373,6 +373,7 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #fff;
+      text-decoration: none;
     }
     .svc-card__link span { transition: transform 0.35s var(--ease); }
     .svc-card:hover .svc-card__link span { transform: translateX(6px); }
@@ -427,10 +428,14 @@
       grid-template-columns: repeat(3, 1fr);
     }
     .svc-item {
+      display: block;
       padding: 2rem 0;
       border-left: 1px solid var(--c-line);
       padding-left: 2rem;
       transition: border-color 0.3s var(--ease);
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
     .svc-item:hover { border-left-color: var(--c-red); }
     .svc-item__no {
@@ -872,7 +877,7 @@
               <div class="svc-card__num">01 — Kitchens</div>
               <h3 class="svc-card__title">Kitchen Remodeling</h3>
               <p class="svc-card__desc">Custom cabinetry, natural stone, and hand-finished detail. The heart of the home, re-engineered.</p>
-              <span class="svc-card__link">Explore <span>→</span></span>
+              <a class="svc-card__link" href="kitchen.html">Explore <span>→</span></a>
             </div>
           </article>
 
@@ -883,7 +888,7 @@
               <div class="svc-card__num">02 — Baths</div>
               <h3 class="svc-card__title">Bathroom Renovation</h3>
               <p class="svc-card__desc">Spa-grade showers, floating vanities, and tile work done right the first time.</p>
-              <span class="svc-card__link">Explore <span>→</span></span>
+              <a class="svc-card__link" href="bathroom.html">Explore <span>→</span></a>
             </div>
           </article>
 
@@ -895,27 +900,27 @@
               <div class="svc-card__num">03 — Additions</div>
               <h3 class="svc-card__title">Home Additions</h3>
               <p class="svc-card__desc">Primary-suite additions, second stories, and bump-outs engineered for Texas weather and code.</p>
-              <span class="svc-card__link">Explore <span>→</span></span>
+              <a class="svc-card__link" href="additions.html">Explore <span>→</span></a>
             </div>
           </article>
         </div>
 
         <div class="services__row services__row--secondary">
-          <div class="svc-item reveal">
+          <a class="svc-item reveal" href="flooring.html">
             <div class="svc-item__no">04</div>
             <h3>Flooring &amp; Tile</h3>
             <p>Wide-plank hardwood, large-format porcelain, and hand-set mosaic — installed flat, level, and forever.</p>
-          </div>
-          <div class="svc-item reveal reveal--delay-1">
+          </a>
+          <a class="svc-item reveal reveal--delay-1" href="cabinetry.html">
             <div class="svc-item__no">05</div>
             <h3>Custom Cabinetry</h3>
             <p>Shop-built cabinets, full-overlay doors, and soft-close hardware. Built for your space, not pulled from a catalog.</p>
-          </div>
-          <div class="svc-item reveal reveal--delay-2">
+          </a>
+          <a class="svc-item reveal reveal--delay-2" href="finishes.html">
             <div class="svc-item__no">06</div>
             <h3>Modern Finishes</h3>
             <p>Quartz, honed marble, brushed brass, matte black. We source the materials that make a project feel permanent.</p>
-          </div>
+          </a>
         </div>
       </div>
     </section>

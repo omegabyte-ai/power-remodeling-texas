@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Finishes — Power Remodeling Texas</title>
+  <meta name="description" content="Quartz, honed marble, brushed brass, matte black — we source the materials that make a project feel permanent." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --c-bg: #0D0D0D; --c-navy: #0A1628; --c-navy-deep: #060F1C;
+      --c-red: #CC1F1F; --c-red-hover: #B01A1A;
+      --c-text: #F5F5F5; --c-text-mute: rgba(245,245,245,0.55);
+      --c-line: rgba(255,255,255,0.08);
+      --ff-head: 'Barlow Condensed', sans-serif;
+      --ff-body: 'Inter', sans-serif;
+      --ease: cubic-bezier(0.16,1,0.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { background: var(--c-bg); color: var(--c-text); font-family: var(--ff-body); font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    address { font-style: normal; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* NAV */
+    .nav { position: fixed; inset: 0 0 auto 0; z-index: 100; padding: 1.5rem 0; transition: background-color 0.4s var(--ease), padding 0.4s var(--ease); border-bottom: 1px solid transparent; }
+    .nav.is-scrolled { background: rgba(13,13,13,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 1rem 0; border-bottom-color: var(--c-line); }
+    .nav__inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; }
+    .nav__right { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; }
+    .logo { display: inline-flex; align-items: center; }
+    .logo img { height: 48px; width: auto; filter: brightness(0) invert(1); }
+    .footer__about .logo img { height: 56px; }
+    .nav__links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
+    .nav__links a { font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-text); opacity: 0.85; transition: opacity 0.2s, color 0.2s; }
+    .nav__links a:hover { opacity: 1; color: var(--c-red); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.95rem 1.6rem; font-family: var(--ff-body); font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 0; transition: background-color 0.25s, color 0.25s, transform 0.25s; white-space: nowrap; }
+    .btn--red { background: var(--c-red); color: #fff; }
+    .btn--red:hover { background: var(--c-red-hover); transform: translateY(-1px); }
+    .btn--ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.5); }
+    .btn--ghost:hover { background: #fff; color: var(--c-bg); border-color: #fff; }
+    .btn--lg { padding: 1.15rem 2rem; font-size: 0.875rem; }
+    .nav__cta { padding: 0.75rem 1.35rem; font-size: 0.75rem; }
+    .nav__toggle { display: none; width: 28px; height: 22px; position: relative; background: transparent; border: none; cursor: pointer; }
+    .nav__toggle span { position: absolute; left: 0; width: 100%; height: 2px; background: var(--c-text); border-radius: 2px; transition: all 0.3s var(--ease); }
+    .nav__toggle span:nth-child(1) { top: 2px; } .nav__toggle span:nth-child(2) { top: 10px; } .nav__toggle span:nth-child(3) { top: 18px; }
+
+    /* SERVICE HERO */
+    .svc-hero { position: relative; height: 75vh; min-height: 500px; display: flex; align-items: flex-end; overflow: hidden; }
+    .svc-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform-origin: center; animation: heroZoom 18s ease-in-out infinite alternate; }
+    @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.06); } }
+    .svc-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.3) 60%, rgba(13,13,13,0.1) 100%); }
+    .svc-hero__content { position: relative; z-index: 2; padding: 4rem 0; }
+    .svc-hero__tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-red); display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+    .svc-hero__tag::before { content: ""; display: block; width: 2.5rem; height: 2px; background: var(--c-red); }
+    .svc-hero h1 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(3rem, 8vw, 6rem); line-height: 0.92; letter-spacing: -0.01em; text-transform: uppercase; }
+    .svc-hero__sub { margin-top: 1.25rem; font-size: 1.0625rem; color: var(--c-text-mute); max-width: 560px; line-height: 1.65; }
+    .svc-hero__breadcrumb { position: absolute; top: 7rem; right: 0; z-index: 2; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .svc-hero__breadcrumb a:hover { color: var(--c-red); }
+
+    /* INTRO SPLIT */
+    .intro { padding: clamp(5rem, 10vw, 9rem) 0; }
+    .intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .intro__img { position: relative; }
+    .intro__img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .intro__img::after { content: ""; position: absolute; bottom: -1.5rem; right: -1.5rem; width: 60%; height: 60%; border: 2px solid var(--c-red); z-index: -1; }
+    .intro__eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-red); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .intro__eyebrow::before { content: ""; display: block; width: 2rem; height: 2px; background: var(--c-red); }
+    .intro h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2.25rem, 4vw, 3.25rem); line-height: 0.95; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .intro p { color: var(--c-text-mute); line-height: 1.75; margin-bottom: 1.25rem; }
+    .intro p:last-of-type { margin-bottom: 2rem; }
+
+    /* WHAT'S INCLUDED */
+    .includes { background: var(--c-navy); padding: clamp(4rem, 8vw, 7rem) 0; }
+    .includes__head { text-align: center; margin-bottom: 3.5rem; }
+    .includes__head h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 0.75rem; }
+    .includes__head p { color: var(--c-text-mute); max-width: 520px; margin: 0 auto; }
+    .includes__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .includes__item { background: rgba(255,255,255,0.04); border: 1px solid var(--c-line); padding: 2rem 1.75rem; transition: border-color 0.3s; }
+    .includes__item:hover { border-color: var(--c-red); }
+    .includes__num { font-family: var(--ff-head); font-weight: 900; font-size: 2.5rem; color: rgba(204,31,31,0.2); line-height: 1; margin-bottom: 1rem; }
+    .includes__item h3 { font-family: var(--ff-head); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.625rem; }
+    .includes__item p { font-size: 0.9rem; color: var(--c-text-mute); line-height: 1.65; }
+
+    /* PROCESS */
+    .process { padding: clamp(4rem, 8vw, 7rem) 0; }
+    .process__head { margin-bottom: 3.5rem; }
+    .process__head h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 0.75rem; }
+    .process__head p { color: var(--c-text-mute); max-width: 560px; }
+    .process__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--c-line); }
+    .process__step { padding: 2.5rem 1.5rem 2.5rem 0; border-right: 1px solid var(--c-line); }
+    .process__step:last-child { border-right: none; padding-right: 0; padding-left: 1.5rem; }
+    .process__step:not(:first-child) { padding-left: 1.5rem; }
+    .process__step-num { font-family: var(--ff-head); font-weight: 900; font-size: 3rem; color: rgba(204,31,31,0.15); line-height: 1; margin-bottom: 1rem; }
+    .process__step h3 { font-family: var(--ff-head); font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--c-text); }
+    .process__step p { font-size: 0.875rem; color: var(--c-text-mute); line-height: 1.65; }
+
+    /* GALLERY STRIP */
+    .gallery-strip { padding: clamp(4rem, 8vw, 7rem) 0 0; }
+    .gallery-strip h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 2.5rem; }
+    .gallery-strip__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.75rem; }
+    .gallery-strip__grid img { width: 100%; height: 400px; object-fit: cover; display: block; transition: transform 0.6s var(--ease); overflow: hidden; }
+    .gallery-strip__grid div { overflow: hidden; }
+    .gallery-strip__grid div:hover img { transform: scale(1.04); }
+
+    /* CTA BAND */
+    .cta-band { position: relative; padding: clamp(5rem, 10vw, 8rem) 0; overflow: hidden; }
+    .cta-band__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .cta-band__overlay { position: absolute; inset: 0; background: rgba(13,13,13,0.82); }
+    .cta-band__content { position: relative; z-index: 2; max-width: 660px; }
+    .cta-band__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-red); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .cta-band__eyebrow::before { content: ""; display: block; width: 2rem; height: 2px; background: var(--c-red); }
+    .cta-band h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; line-height: 0.95; margin-bottom: 1.25rem; }
+    .cta-band p { color: var(--c-text-mute); margin-bottom: 2.5rem; font-size: 1rem; }
+    .cta-band__btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .footer { background: var(--c-navy-deep); border-top: 1px solid var(--c-line); padding: 4rem 0 2rem; }
+    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer__about p { font-size: 0.875rem; color: var(--c-text-mute); margin-top: 1.25rem; line-height: 1.7; }
+    .footer__license { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 0.75rem; }
+    .footer__col h4 { font-family: var(--ff-head); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; }
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
+    .footer__links a, .footer address a { font-size: 0.9rem; color: var(--c-text-mute); transition: color 0.2s; }
+    .footer__links a:hover, .footer address a:hover { color: var(--c-red); }
+    .footer address { font-size: 0.9rem; color: var(--c-text-mute); line-height: 1.9; }
+    .footer__bottom { border-top: 1px solid var(--c-line); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .intro__grid, .includes__grid, .footer__grid { grid-template-columns: 1fr; }
+      .process__steps { grid-template-columns: 1fr 1fr; }
+      .gallery-strip__grid { grid-template-columns: 1fr 1fr; }
+      .gallery-strip__grid div:first-child { grid-column: span 2; }
+      .intro__img::after { display: none; }
+    }
+    @media (max-width: 720px) {
+      .nav__links { position: fixed; inset: 0; background: var(--c-bg); flex-direction: column; justify-content: center; gap: 2rem; transform: translateX(100%); transition: transform 0.4s var(--ease); }
+      .nav__links a { font-size: 1.25rem; }
+      .nav.is-open .nav__links { transform: translateX(0); }
+      .nav__toggle { display: block; z-index: 10; }
+      .nav__cta { display: none; }
+      .nav__inner { grid-template-columns: auto 1fr auto; }
+      .process__steps { grid-template-columns: 1fr; border-top: none; }
+      .process__step { border-right: none; border-top: 1px solid var(--c-line); padding: 2rem 0; }
+      .process__step:not(:first-child) { padding-left: 0; }
+      .includes__grid { grid-template-columns: 1fr; }
+      .gallery-strip__grid { grid-template-columns: 1fr; }
+      .gallery-strip__grid div:first-child { grid-column: span 1; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <nav aria-label="Primary">
+        <ul class="nav__links" id="navLinks">
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#reviews">Reviews</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="/" class="logo" aria-label="Power Remodeling Texas — Home">
+        <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
+      </a>
+      <div class="nav__right">
+        <a href="/#contact" class="btn btn--red nav__cta">Free Quote</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- SERVICE HERO -->
+    <section class="svc-hero">
+      <div class="svc-hero__bg" style="background-image: url('images/kitchen-6.jpg');"></div><!-- SWAP: replace with service-specific image -->
+      <div class="svc-hero__overlay"></div>
+      <div class="container" style="position:relative;z-index:2;width:100%;">
+        <p class="svc-hero__breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; Modern Finishes</p>
+        <div class="svc-hero__content">
+          <div class="svc-hero__tag">Service — 06</div>
+          <h1>Materials that<br>mean something.</h1>
+          <p class="svc-hero__sub">Quartz, honed marble, brushed brass, matte black — we source the materials that make a project feel permanent.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro">
+      <div class="container">
+        <div class="intro__grid">
+          <div class="intro__img reveal">
+            <img src="images/kitchen-7.jpg" alt="Modern Finishes" loading="lazy" /><!-- SWAP -->
+          </div>
+          <div class="intro__text reveal">
+            <div class="intro__eyebrow">What we do</div>
+            <h2>The details that<br>elevate everything.</h2>
+            <p>The difference between a $30,000 and a $90,000 remodel often isn't the layout — it's the material quality and the precision of installation. We spec and install finishes that look as good in year fifteen as they do on day one.</p>
+            <p>We have established relationships with stone yards, tile importers, and hardware suppliers that give our clients access to materials that aren't available at the big-box stores — at prices that reflect contractor volume, not retail markup.</p>
+            <a href="/#contact" class="btn btn--red btn--lg">Get a Free Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="includes">
+      <div class="container">
+        <div class="includes__head reveal">
+          <h2>What's included</h2>
+          <p>Every modern finishes project covers these scopes — no add-on surprises mid-build.</p>
+        </div>
+        <div class="includes__grid">
+        <div class="includes__item reveal">
+          <div class="includes__num">01</div>
+          <h3>Quartz Countertops</h3>
+          <p>Calacatta, Statuario, and matte concrete looks — cut to zero-gap seams with integrated apron fronts.</p>
+        </div>
+        <div class="includes__item reveal">
+          <div class="includes__num">02</div>
+          <h3>Honed Natural Stone</h3>
+          <p>Unfilled travertine, honed Carrara marble, and leathered granite — properly sealed and maintained.</p>
+        </div>
+        <div class="includes__item reveal">
+          <div class="includes__num">03</div>
+          <h3>Decorative Tile</h3>
+          <p>Zellige, handmade ceramic, fluted, and flute-profile tile for feature walls, ranges, and entries.</p>
+        </div>
+        <div class="includes__item reveal">
+          <div class="includes__num">04</div>
+          <h3>Hardware Packages</h3>
+          <p>Brushed brass, unlacquered brass, matte black, and polished nickel — specified to match across every room.</p>
+        </div>
+        <div class="includes__item reveal">
+          <div class="includes__num">05</div>
+          <h3>Trim & Millwork</h3>
+          <p>Crown molding, picture-frame wall detail, shiplap, board-and-batten — installed by finish carpenters.</p>
+        </div>
+        <div class="includes__item reveal">
+          <div class="includes__num">06</div>
+          <h3>Paint & Wall Finish</h3>
+          <p>Color consultation, proper surface prep, and application by painters who use proper nap and technique.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process">
+      <div class="container">
+        <div class="process__head reveal">
+          <h2>How it works</h2>
+          <p>Our process is designed to eliminate surprises. You know what's happening, when, and why — before we ever swing a hammer.</p>
+        </div>
+        <div class="process__steps">
+        <div class="process__step reveal">
+          <div class="process__step-num">01</div>
+          <h3>Material Curation</h3>
+          <p>We present curated material boards for your project — counters, tile, hardware, and paint together.</p>
+        </div>
+        <div class="process__step reveal">
+          <div class="process__step-num">02</div>
+          <h3>Procurement</h3>
+          <p>We order materials on contractor accounts, coordinate delivery, and inspect every piece before install.</p>
+        </div>
+        <div class="process__step reveal">
+          <div class="process__step-num">03</div>
+          <h3>Surface Prep</h3>
+          <p>Proper substrate, backer, and primer for every surface — no shortcuts that compromise adhesion or durability.</p>
+        </div>
+        <div class="process__step reveal">
+          <div class="process__step-num">04</div>
+          <h3>Install & Seal</h3>
+          <p>Precision installation, grout or caulk joints in the right places, and sealer application where required.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-strip">
+      <div class="container">
+        <h2 class="reveal">Recent work</h2>
+        <div class="gallery-strip__grid">
+        <div><img src="images/kitchen-8.jpg" alt="" loading="lazy" /></div>
+        <div><img src="images/kitchen-1.jpg" alt="" loading="lazy" /></div>
+        <div><img src="images/kitchen-2.jpg" alt="" loading="lazy" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="cta-band__bg" style="background-image: url('images/kitchen-3.jpg');"></div>
+      <div class="cta-band__overlay"></div>
+      <div class="container">
+        <div class="cta-band__content reveal">
+          <div class="cta-band__eyebrow">Let's build</div>
+          <h2>Ready to start your project?</h2>
+          <p>Schedule a free in-home consultation. We typically book within the same week.</p>
+          <div class="cta-band__btns">
+            <a href="/#contact" class="btn btn--red btn--lg">Get Your Free Quote →</a>
+            <a href="/" class="btn btn--ghost btn--lg">See All Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__about">
+          <a href="/" class="logo">
+            <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
+          </a>
+          <p>Texas's premier residential remodeling contractor. In-house craftsmen, design-led process, transparent pricing. Building better homes since 2009.</p>
+          <p class="footer__license">TX Contractor Lic. #REM-2024-7741</p>
+        </div>
+        <div class="footer__col">
+          <h4>Navigate</h4>
+          <ul class="footer__links">
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/#reviews">Reviews</a></li>
+            <li><a href="/#contact">Free Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <address>
+            Power Remodeling Texas<br>
+            Houston, TX<br>
+            <a href="tel:7135550182">(713) 555-0182</a><br>
+            <a href="mailto:info@powerremodelingtx.com">info@powerremodelingtx.com</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 Power Remodeling Texas. All rights reserved.</p>
+        <p>TX Contractor Lic. #REM-2024-7741</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    const nav = document.getElementById('nav');
+    const onScroll = () => { nav.classList.toggle('is-scrolled', window.scrollY > 20); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    const navToggle = document.getElementById('navToggle');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', open);
+      });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  </script>
+
+</body>
+</html>
