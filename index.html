@@ -600,22 +600,31 @@
       gap: 1.5rem;
       margin-top: 3rem;
     }
+
+    /* ── Trend card base ── */
     .trend-card {
+      position: relative;
+      overflow: hidden;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 4px;
       padding: 2rem 1.75rem;
-      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      cursor: pointer;
+      transition: border-color 0.35s var(--ease), transform 0.35s var(--ease);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
     }
     .trend-card:hover {
-      background: rgba(204,31,31,0.06);
-      border-color: rgba(204,31,31,0.3);
-      transform: translateY(-3px);
+      border-color: rgba(204,31,31,0.5);
+      transform: translateY(-4px);
     }
     .trend-card__icon {
       width: 48px;
       height: 48px;
       margin-bottom: 1.25rem;
+      flex-shrink: 0;
+      transition: opacity 0.25s ease, transform 0.35s var(--ease);
     }
     .trend-card__icon svg { width: 100%; height: 100%; }
     .trend-card__title {
@@ -626,12 +635,17 @@
       margin: 0 0 0.75rem;
       letter-spacing: 0.01em;
       line-height: 1.2;
+      transition: color 0.25s ease;
+      position: relative;
+      z-index: 2;
     }
     .trend-card__body {
       font-size: 0.82rem;
       line-height: 1.65;
       color: rgba(255,255,255,0.6);
       margin: 0 0 1.25rem;
+      flex: 1;
+      transition: opacity 0.25s ease;
     }
     .trend-card__tag {
       display: inline-block;
@@ -643,7 +657,253 @@
       border: 1px solid rgba(204,31,31,0.4);
       border-radius: 2px;
       padding: 0.2em 0.6em;
+      transition: opacity 0.25s ease;
+      align-self: flex-start;
     }
+
+    /* ── Image reveal panel (slides up on hover) ── */
+    .trend-card__reveal {
+      position: absolute;
+      inset: 0;
+      transform: translateY(100%);
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 3;
+    }
+    .trend-card__reveal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+    .trend-card:hover .trend-card__reveal img { transform: scale(1.04); }
+    .trend-card__reveal-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+    .trend-card__reveal-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+    .trend-card__reveal-hint {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .trend-card__reveal-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #CC1F1F;
+      padding: 0.55em 1em;
+      border-radius: 2px;
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.2s ease;
+    }
+    .trend-card__reveal-cta:hover { background: #E62626; }
+
+    /* Hover triggers reveal */
+    @media (hover: hover) {
+      .trend-card:hover .trend-card__reveal { transform: translateY(0); }
+      .trend-card:hover .trend-card__icon { opacity: 0; transform: translateY(-8px); }
+    }
+
+    /* ── Tap hint badge (shows on mobile only) ── */
+    .trend-card__tap-hint {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2px;
+      padding: 3px 8px;
+      pointer-events: none;
+    }
+    @media (hover: hover) { .trend-card__tap-hint { display: none; } }
+
+    /* ── Lightbox ── */
+    .tbox-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      padding: clamp(1rem, 4vw, 3rem);
+    }
+    .tbox-backdrop.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .tbox-panel {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      background: #111;
+      border-radius: 6px;
+      overflow: hidden;
+      transform: translateY(28px) scale(0.97);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+      opacity: 0;
+    }
+    .tbox-backdrop.is-open .tbox-panel {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    .tbox-img-wrap {
+      position: relative;
+      height: clamp(260px, 55vw, 520px);
+      overflow: hidden;
+    }
+    .tbox-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .tbox-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    }
+    .tbox-body {
+      padding: 1.75rem 2rem 2rem;
+    }
+    .tbox-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #CC1F1F;
+      margin-bottom: 0.6rem;
+    }
+    .tbox-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 0.75rem;
+    }
+    .tbox-desc {
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .tbox-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .tbox-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #CC1F1F;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75em 1.5em;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .tbox-cta-primary:hover { background: #E62626; }
+    .tbox-cta-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75em 1.5em;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tbox-cta-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .tbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+    .tbox-close:hover { background: #CC1F1F; border-color: #CC1F1F; }
+    .tbox-close svg { width: 16px; height: 16px; stroke: #fff; }
+
+    /* ── Nav arrows ── */
+    .tbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+    .tbox-nav:hover { background: #CC1F1F; border-color: #CC1F1F; }
+    .tbox-nav svg { width: 18px; height: 18px; stroke: #fff; }
+    .tbox-nav--prev { left: -56px; }
+    .tbox-nav--next { right: -56px; }
+    @media (max-width: 1040px) {
+      .tbox-nav--prev { left: 10px; }
+      .tbox-nav--next { right: 10px; }
+      .tbox-nav { top: clamp(100px, 28vw, 200px); transform: none; }
+    }
+    @media (max-width: 640px) {
+      .tbox-body { padding: 1.25rem 1.25rem 1.5rem; }
+    }
+
     .trends__cta {
       text-align: center;
       margin-top: 3.5rem;
@@ -1267,127 +1527,140 @@
         </div>
         <div class="trends__grid">
 
-          <div class="trend-card reveal">
-            <div class="trend-card__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="6" y="14" width="36" height="20" rx="2" stroke="#CC1F1F" stroke-width="2"/>
-                <rect x="6" y="22" width="36" height="2" fill="#CC1F1F"/>
-                <line x1="24" y1="14" x2="24" y2="34" stroke="#CC1F1F" stroke-width="1.5"/>
-                <rect x="10" y="26" width="10" height="5" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
-                <rect x="28" y="26" width="10" height="5" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
-                <line x1="12" y1="29" x2="18" y2="29" stroke="#CC1F1F" stroke-width="1"/>
-                <line x1="30" y1="29" x2="36" y2="29" stroke="#CC1F1F" stroke-width="1"/>
-              </svg>
-            </div>
+          <!-- 1 — In-Drawer Organizer Systems -->
+          <div class="trend-card reveal" data-img="images/firefly-drawer-organizer.jpg" data-link="cabinetry.html" data-title="In-Drawer Organizer Systems" data-tag="Custom Cabinetry" data-desc="Custom pull-out inserts for cutlery, utensils, and spices — fitted precisely to your drawer dimensions. Solid walnut dividers, soft-close undermount slides, and hand-sorted compartments for every tool in your kitchen.">
+            <span class="trend-card__tap-hint">Tap to see example</span>
+            <div class="trend-card__icon"><svg viewBox="0 0 48 48" fill="none"><rect x="6" y="14" width="36" height="20" rx="2" stroke="#CC1F1F" stroke-width="2"/><rect x="6" y="22" width="36" height="2" fill="#CC1F1F"/><line x1="24" y1="14" x2="24" y2="34" stroke="#CC1F1F" stroke-width="1.5"/><rect x="10" y="26" width="10" height="5" rx="1" stroke="#CC1F1F" stroke-width="1.5"/><rect x="28" y="26" width="10" height="5" rx="1" stroke="#CC1F1F" stroke-width="1.5"/></svg></div>
             <h3 class="trend-card__title">In-Drawer Organizer Systems</h3>
             <p class="trend-card__body">Custom pull-out inserts for cutlery, utensils, and spices — fitted precisely to your drawer dimensions. Solid walnut dividers, soft-close undermount slides, and hand-sorted compartments for every tool in your kitchen.</p>
             <span class="trend-card__tag">Custom Cabinetry</span>
+            <div class="trend-card__reveal">
+              <img src="images/firefly-drawer-organizer.jpg" alt="Custom in-drawer organizer walnut dividers kitchen cabinetry" loading="lazy">
+              <div class="trend-card__reveal-overlay">
+                <div class="trend-card__reveal-title">In-Drawer Organizer Systems</div>
+                <div class="trend-card__reveal-hint">Click for full example + pricing</div>
+                <a href="cabinetry.html" class="trend-card__reveal-cta" onclick="event.stopPropagation()">See Our Work →</a>
+              </div>
+            </div>
           </div>
 
-          <div class="trend-card reveal reveal--delay-1">
-            <div class="trend-card__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="8" y="28" width="32" height="6" rx="1" stroke="#CC1F1F" stroke-width="2"/>
-                <path d="M8 28 L4 36 L44 36 L40 28" stroke="#CC1F1F" stroke-width="1.5"/>
-                <line x1="8" y1="36" x2="8" y2="40" stroke="#CC1F1F" stroke-width="1.5"/>
-                <line x1="40" y1="36" x2="40" y2="40" stroke="#CC1F1F" stroke-width="1.5"/>
-                <ellipse cx="24" cy="26" rx="10" ry="3" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/>
-                <circle cx="24" cy="20" r="4" stroke="#CC1F1F" stroke-width="1.5"/>
-                <line x1="24" y1="16" x2="24" y2="10" stroke="#CC1F1F" stroke-width="1.5"/>
-              </svg>
-            </div>
+          <!-- 2 — LED-Backlit Countertops -->
+          <div class="trend-card reveal reveal--delay-1" data-img="images/project-kitchen-dark-marble-led.jpg" data-link="kitchen.html" data-title="LED-Backlit Countertops & Islands" data-tag="Kitchen · Cabinetry" data-desc="Warm-white LED strips recessed beneath waterfall island edges and toe-kick channels. Creates architectural drama at night while adding functional task lighting — a signature finish on every high-end kitchen we complete.">
+            <span class="trend-card__tap-hint">Tap to see example</span>
+            <div class="trend-card__icon"><svg viewBox="0 0 48 48" fill="none"><rect x="8" y="28" width="32" height="6" rx="1" stroke="#CC1F1F" stroke-width="2"/><path d="M8 28 L4 36 L44 36 L40 28" stroke="#CC1F1F" stroke-width="1.5"/><ellipse cx="24" cy="26" rx="10" ry="3" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/><circle cx="24" cy="20" r="4" stroke="#CC1F1F" stroke-width="1.5"/><line x1="24" y1="16" x2="24" y2="10" stroke="#CC1F1F" stroke-width="1.5"/></svg></div>
             <h3 class="trend-card__title">LED-Backlit Countertops &amp; Islands</h3>
             <p class="trend-card__body">Warm-white LED strips recessed beneath waterfall island edges and toe-kick channels. Creates architectural drama at night while adding functional task lighting — a signature finish on every high-end kitchen we complete.</p>
             <span class="trend-card__tag">Kitchen · Cabinetry</span>
+            <div class="trend-card__reveal">
+              <img src="images/project-kitchen-dark-marble-led.jpg" alt="LED-backlit kitchen island dark marble countertop under-cabinet lighting" loading="lazy">
+              <div class="trend-card__reveal-overlay">
+                <div class="trend-card__reveal-title">LED-Backlit Islands</div>
+                <div class="trend-card__reveal-hint">Click for full example + pricing</div>
+                <a href="kitchen.html" class="trend-card__reveal-cta" onclick="event.stopPropagation()">See Our Work →</a>
+              </div>
+            </div>
           </div>
 
-          <div class="trend-card reveal reveal--delay-2">
-            <div class="trend-card__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="8" y="10" width="32" height="28" rx="1" stroke="#CC1F1F" stroke-width="2"/>
-                <path d="M8 10 Q20 16 16 24 Q12 32 8 38" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/>
-                <path d="M20 10 Q28 18 24 26 Q20 34 24 38" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/>
-                <path d="M32 10 Q38 20 36 28 Q34 34 40 38" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/>
-              </svg>
-            </div>
+          <!-- 3 — Book-Matched Calacatta Marble -->
+          <div class="trend-card reveal reveal--delay-2" data-img="images/firefly-marble-slab.jpg" data-link="finishes.html" data-title="Book-Matched Calacatta Marble" data-tag="Kitchen · Bathroom · Finishes" data-desc="Full-slab Calacatta Gold or Viola marble — not tile — book-matched so veining mirrors across seams. Used as kitchen island waterfalls, primary bath feature walls, and fireplace surrounds. The material that makes a room unforgettable.">
+            <span class="trend-card__tap-hint">Tap to see example</span>
+            <div class="trend-card__icon"><svg viewBox="0 0 48 48" fill="none"><rect x="8" y="10" width="32" height="28" rx="1" stroke="#CC1F1F" stroke-width="2"/><path d="M8 10 Q20 16 16 24 Q12 32 8 38" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/><path d="M20 10 Q28 18 24 26 Q20 34 24 38" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/><path d="M32 10 Q38 20 36 28 Q34 34 40 38" stroke="#CC1F1F" stroke-width="1.5" stroke-dasharray="2 2"/></svg></div>
             <h3 class="trend-card__title">Book-Matched Calacatta Marble</h3>
             <p class="trend-card__body">Full-slab Calacatta Gold or Viola marble — not tile — book-matched so veining mirrors across seams. Used as kitchen island waterfalls, primary bath feature walls, and fireplace surrounds. The material that makes a room unforgettable.</p>
             <span class="trend-card__tag">Kitchen · Bathroom · Finishes</span>
+            <div class="trend-card__reveal">
+              <img src="images/firefly-marble-slab.jpg" alt="Calacatta marble slab book-matched veining countertop luxury kitchen" loading="lazy">
+              <div class="trend-card__reveal-overlay">
+                <div class="trend-card__reveal-title">Calacatta Marble</div>
+                <div class="trend-card__reveal-hint">Click for full example + pricing</div>
+                <a href="finishes.html" class="trend-card__reveal-cta" onclick="event.stopPropagation()">See Material Guide →</a>
+              </div>
+            </div>
           </div>
 
-          <div class="trend-card reveal">
-            <div class="trend-card__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="6" y="36" width="36" height="4" rx="1" fill="#CC1F1F" opacity="0.3"/>
-                <rect x="6" y="8" width="8" height="28" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
-                <rect x="17" y="12" width="8" height="24" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
-                <rect x="28" y="8" width="8" height="28" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
-                <line x1="6" y1="20" x2="14" y2="20" stroke="#CC1F1F" stroke-width="1"/>
-                <line x1="17" y1="22" x2="25" y2="22" stroke="#CC1F1F" stroke-width="1"/>
-                <line x1="28" y1="18" x2="36" y2="18" stroke="#CC1F1F" stroke-width="1"/>
-              </svg>
-            </div>
+          <!-- 4 — Wide Plank White Oak -->
+          <div class="trend-card reveal" data-img="images/firefly-flooring-hero.jpg" data-link="flooring.html" data-title="Wide Plank White Oak Hardwood" data-tag="Flooring" data-desc="7-inch-plus engineered white oak with a wire-brushed or fumed finish — the floor choice replacing narrow-strip maple across Houston luxury homes. Provides warmth and natural variation that photographed rooms demand.">
+            <span class="trend-card__tap-hint">Tap to see example</span>
+            <div class="trend-card__icon"><svg viewBox="0 0 48 48" fill="none"><rect x="6" y="36" width="36" height="4" rx="1" fill="#CC1F1F" opacity="0.3"/><rect x="6" y="8" width="8" height="28" rx="1" stroke="#CC1F1F" stroke-width="1.5"/><rect x="17" y="12" width="8" height="24" rx="1" stroke="#CC1F1F" stroke-width="1.5"/><rect x="28" y="8" width="8" height="28" rx="1" stroke="#CC1F1F" stroke-width="1.5"/></svg></div>
             <h3 class="trend-card__title">Wide Plank White Oak Hardwood</h3>
             <p class="trend-card__body">7-inch-plus engineered white oak with a wire-brushed or fumed finish — the floor choice replacing narrow-strip maple across Houston luxury homes. Provides warmth and natural variation that photographed rooms demand. We offer site-finished options for seamless transitions throughout the home.</p>
             <span class="trend-card__tag">Flooring</span>
+            <div class="trend-card__reveal">
+              <img src="images/firefly-flooring-hero.jpg" alt="Wide plank white oak hardwood floor installation Houston Texas" loading="lazy">
+              <div class="trend-card__reveal-overlay">
+                <div class="trend-card__reveal-title">Wide Plank White Oak</div>
+                <div class="trend-card__reveal-hint">Click for full example + pricing</div>
+                <a href="flooring.html" class="trend-card__reveal-cta" onclick="event.stopPropagation()">See Our Work →</a>
+              </div>
+            </div>
           </div>
 
-          <div class="trend-card reveal reveal--delay-1">
-            <div class="trend-card__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="10" y="8" width="12" height="32" rx="1" stroke="#CC1F1F" stroke-width="2"/>
-                <rect x="26" y="8" width="12" height="32" rx="1" stroke="#CC1F1F" stroke-width="2"/>
-                <line x1="10" y1="24" x2="22" y2="24" stroke="#CC1F1F" stroke-width="1.5"/>
-                <line x1="26" y1="24" x2="38" y2="24" stroke="#CC1F1F" stroke-width="1.5"/>
-                <circle cx="22" cy="24" r="1.5" fill="#CC1F1F"/>
-                <circle cx="26" cy="24" r="1.5" fill="#CC1F1F"/>
-              </svg>
-            </div>
+          <!-- 5 — Flat-Panel Frameless Cabinetry -->
+          <div class="trend-card reveal reveal--delay-1" data-img="images/firefly-cabinetry-hero.jpg" data-link="cabinetry.html" data-title="Flat-Panel Frameless Cabinetry" data-tag="Custom Cabinetry · Kitchen" data-desc="Slab-front doors in matte lacquer, walnut veneer, or two-tone combinations — no inset frames, no reveals. The clean horizontal line is the dominant aesthetic in new-construction Houston luxury and in our full-kitchen remodels.">
+            <span class="trend-card__tap-hint">Tap to see example</span>
+            <div class="trend-card__icon"><svg viewBox="0 0 48 48" fill="none"><rect x="10" y="8" width="12" height="32" rx="1" stroke="#CC1F1F" stroke-width="2"/><rect x="26" y="8" width="12" height="32" rx="1" stroke="#CC1F1F" stroke-width="2"/><line x1="10" y1="24" x2="22" y2="24" stroke="#CC1F1F" stroke-width="1.5"/><line x1="26" y1="24" x2="38" y2="24" stroke="#CC1F1F" stroke-width="1.5"/><circle cx="22" cy="24" r="1.5" fill="#CC1F1F"/><circle cx="26" cy="24" r="1.5" fill="#CC1F1F"/></svg></div>
             <h3 class="trend-card__title">Flat-Panel Frameless Cabinetry</h3>
             <p class="trend-card__body">Slab-front doors in matte lacquer, walnut veneer, or two-tone combinations — no inset frames, no reveals. The clean horizontal line is the dominant aesthetic in new-construction Houston luxury and in our full-kitchen remodels. Pairs with integrated appliances and push-to-open hardware.</p>
             <span class="trend-card__tag">Custom Cabinetry · Kitchen</span>
+            <div class="trend-card__reveal">
+              <img src="images/firefly-cabinetry-hero.jpg" alt="Two-tone flat panel frameless cabinetry quartz countertop kitchen remodel Houston" loading="lazy">
+              <div class="trend-card__reveal-overlay">
+                <div class="trend-card__reveal-title">Frameless Cabinetry</div>
+                <div class="trend-card__reveal-hint">Click for full example + pricing</div>
+                <a href="cabinetry.html" class="trend-card__reveal-cta" onclick="event.stopPropagation()">See Our Work →</a>
+              </div>
+            </div>
           </div>
 
-          <div class="trend-card reveal reveal--delay-2">
-            <div class="trend-card__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="28" r="12" stroke="#CC1F1F" stroke-width="2"/>
-                <path d="M16 28 Q16 16 24 16 Q32 16 32 28" stroke="#CC1F1F" stroke-width="2" fill="none"/>
-                <line x1="24" y1="16" x2="24" y2="10" stroke="#CC1F1F" stroke-width="2"/>
-                <path d="M20 28 L22 26 L24 28 L26 26 L28 28" stroke="#CC1F1F" stroke-width="1.5" fill="none"/>
-              </svg>
-            </div>
+          <!-- 6 — Matte Black & Unlacquered Brass -->
+          <div class="trend-card reveal reveal--delay-2" data-img="images/firefly-finishes-hero.jpg" data-link="finishes.html" data-title="Matte Black & Unlacquered Brass" data-tag="Kitchen · Bathroom · Finishes" data-desc="Brushed nickel and chrome are out of Texas luxury homes. Matte black faucets, cabinet pulls, light fixtures, and door hardware are the 2026 standard — often paired with unlacquered brass on islands for contrast.">
+            <span class="trend-card__tap-hint">Tap to see example</span>
+            <div class="trend-card__icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="28" r="12" stroke="#CC1F1F" stroke-width="2"/><path d="M16 28 Q16 16 24 16 Q32 16 32 28" stroke="#CC1F1F" stroke-width="2" fill="none"/><line x1="24" y1="16" x2="24" y2="10" stroke="#CC1F1F" stroke-width="2"/><path d="M20 28 L22 26 L24 28 L26 26 L28 28" stroke="#CC1F1F" stroke-width="1.5" fill="none"/></svg></div>
             <h3 class="trend-card__title">Matte Black &amp; Unlacquered Brass</h3>
             <p class="trend-card__body">Brushed nickel and chrome are out of Texas luxury homes. Matte black faucets, cabinet pulls, light fixtures, and door hardware are the 2026 standard — often paired with unlacquered brass on islands for contrast. We source from Kohler, Brizo, and Watermark for finishes that hold up in Texas humidity.</p>
             <span class="trend-card__tag">Kitchen · Bathroom · Finishes</span>
+            <div class="trend-card__reveal">
+              <img src="images/firefly-finishes-hero.jpg" alt="Matte black faucet unlacquered brass hardware quartz countertop kitchen finishes" loading="lazy">
+              <div class="trend-card__reveal-overlay">
+                <div class="trend-card__reveal-title">Matte Black & Brass</div>
+                <div class="trend-card__reveal-hint">Click for full example + pricing</div>
+                <a href="finishes.html" class="trend-card__reveal-cta" onclick="event.stopPropagation()">See Material Guide →</a>
+              </div>
+            </div>
           </div>
 
-          <div class="trend-card reveal">
-            <div class="trend-card__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 38 L12 22 Q12 10 24 10 Q36 10 36 22 L36 38" stroke="#CC1F1F" stroke-width="2" fill="none"/>
-                <line x1="8" y1="38" x2="40" y2="38" stroke="#CC1F1F" stroke-width="2"/>
-                <line x1="20" y1="38" x2="20" y2="26" stroke="#CC1F1F" stroke-width="1.5"/>
-                <line x1="28" y1="38" x2="28" y2="26" stroke="#CC1F1F" stroke-width="1.5"/>
-              </svg>
-            </div>
+          <!-- 7 — Arched Doorways & Alcoves -->
+          <div class="trend-card reveal" data-img="images/firefly-arched-doorway.jpg" data-link="additions.html" data-title="Arched Doorways & Alcoves" data-tag="Home Addition · Whole Home" data-desc="The curved arch is the single most requested architectural detail in 2026 Texas remodeling — replacing square pass-throughs, framing window seats, and defining open-plan zones without walls.">
+            <span class="trend-card__tap-hint">Tap to see example</span>
+            <div class="trend-card__icon"><svg viewBox="0 0 48 48" fill="none"><path d="M12 38 L12 22 Q12 10 24 10 Q36 10 36 22 L36 38" stroke="#CC1F1F" stroke-width="2" fill="none"/><line x1="8" y1="38" x2="40" y2="38" stroke="#CC1F1F" stroke-width="2"/><line x1="20" y1="38" x2="20" y2="26" stroke="#CC1F1F" stroke-width="1.5"/><line x1="28" y1="38" x2="28" y2="26" stroke="#CC1F1F" stroke-width="1.5"/></svg></div>
             <h3 class="trend-card__title">Arched Doorways &amp; Alcoves</h3>
             <p class="trend-card__body">The curved arch is the single most requested architectural detail in 2026 Texas remodeling — replacing square pass-throughs, framing window seats, and defining open-plan zones without walls. We frame and plaster arched openings as part of kitchen expansions and whole-home remodels. Pairs perfectly with shiplap and board-and-batten.</p>
             <span class="trend-card__tag">Home Addition · Whole Home</span>
+            <div class="trend-card__reveal">
+              <img src="images/firefly-arched-doorway.jpg" alt="Plaster arched doorway opening living room kitchen open plan Texas home 2026" loading="lazy">
+              <div class="trend-card__reveal-overlay">
+                <div class="trend-card__reveal-title">Arched Doorways</div>
+                <div class="trend-card__reveal-hint">Click for full example + pricing</div>
+                <a href="additions.html" class="trend-card__reveal-cta" onclick="event.stopPropagation()">See Our Work →</a>
+              </div>
+            </div>
           </div>
 
-          <div class="trend-card reveal reveal--delay-1">
-            <div class="trend-card__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="10" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
-                <rect x="18" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
-                <rect x="26" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
-                <rect x="34" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/>
-              </svg>
-            </div>
+          <!-- 8 — Fluted Wood & Reeded Glass -->
+          <div class="trend-card reveal reveal--delay-1" data-img="images/firefly-fluted-cabinetry.jpg" data-link="cabinetry.html" data-title="Fluted Wood & Reeded Glass Panels" data-tag="Cabinetry · Bathroom · Finishes" data-desc="Vertical reeding — on cabinet fronts, kitchen islands, bath vanities, and room dividers — is replacing flat surfaces with tactile texture. Fluted white oak, walnut, or painted MDF adds dimension without bulk.">
+            <span class="trend-card__tap-hint">Tap to see example</span>
+            <div class="trend-card__icon"><svg viewBox="0 0 48 48" fill="none"><rect x="10" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/><rect x="18" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/><rect x="26" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/><rect x="34" y="8" width="5" height="32" rx="1" stroke="#CC1F1F" stroke-width="1.5"/></svg></div>
             <h3 class="trend-card__title">Fluted Wood &amp; Reeded Glass Panels</h3>
             <p class="trend-card__body">Vertical reeding — on cabinet fronts, kitchen islands, bath vanities, and room dividers — is replacing flat surfaces with tactile texture. Fluted white oak, walnut, or painted MDF adds dimension without bulk. Reeded glass inserts in upper cabinet doors create warmth and visual interest while keeping contents softly visible.</p>
             <span class="trend-card__tag">Cabinetry · Bathroom · Finishes</span>
+            <div class="trend-card__reveal">
+              <img src="images/firefly-fluted-cabinetry.jpg" alt="Fluted wood kitchen island vertical reeded panels walnut oak cabinetry design 2026" loading="lazy">
+              <div class="trend-card__reveal-overlay">
+                <div class="trend-card__reveal-title">Fluted Wood Panels</div>
+                <div class="trend-card__reveal-hint">Click for full example + pricing</div>
+                <a href="cabinetry.html" class="trend-card__reveal-cta" onclick="event.stopPropagation()">See Our Work →</a>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -1570,6 +1843,102 @@
       }, { threshold: 0.4 });
       counters.forEach(function(el){ io.observe(el); });
     })();
+  </script>
+
+  <!-- TREND CARD LIGHTBOX -->
+  <div class="tbox-backdrop" id="tbox" role="dialog" aria-modal="true" aria-label="Project example">
+    <button class="tbox-nav tbox-nav--prev" id="tbox-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="tbox-panel" id="tbox-panel">
+      <button class="tbox-close" id="tbox-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="tbox-img-wrap">
+        <img id="tbox-img" src="" alt="">
+        <div class="tbox-img-overlay"></div>
+      </div>
+      <div class="tbox-body">
+        <div class="tbox-tag" id="tbox-tag"></div>
+        <h2 class="tbox-title" id="tbox-title"></h2>
+        <p class="tbox-desc" id="tbox-desc"></p>
+        <div class="tbox-actions">
+          <a href="#" class="tbox-cta-primary" id="tbox-cta">Get This Look — Free Estimate <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="tel:+18322312334" class="tbox-cta-ghost">Call (832) 231-2334</a>
+        </div>
+      </div>
+    </div>
+    <button class="tbox-nav tbox-nav--next" id="tbox-next" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <script>
+  (function(){
+    var cards = Array.from(document.querySelectorAll('.trend-card[data-img]'));
+    var backdrop = document.getElementById('tbox');
+    var img = document.getElementById('tbox-img');
+    var titleEl = document.getElementById('tbox-title');
+    var tagEl = document.getElementById('tbox-tag');
+    var descEl = document.getElementById('tbox-desc');
+    var ctaEl = document.getElementById('tbox-cta');
+    var closeBtn = document.getElementById('tbox-close');
+    var prevBtn = document.getElementById('tbox-prev');
+    var nextBtn = document.getElementById('tbox-next');
+    var currentIdx = 0;
+
+    function openBox(idx) {
+      currentIdx = idx;
+      var c = cards[idx];
+      img.src = c.dataset.img;
+      img.alt = c.dataset.title || '';
+      titleEl.textContent = c.dataset.title || '';
+      tagEl.textContent = c.dataset.tag || '';
+      descEl.textContent = c.dataset.desc || '';
+      ctaEl.href = c.dataset.link || '#';
+      backdrop.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBox() {
+      backdrop.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    cards.forEach(function(card, i) {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        openBox(i);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeBox);
+    backdrop.addEventListener('click', function(e) {
+      if (e.target === backdrop) closeBox();
+    });
+    prevBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openBox((currentIdx - 1 + cards.length) % cards.length);
+    });
+    nextBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openBox((currentIdx + 1) % cards.length);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!backdrop.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeBox();
+      if (e.key === 'ArrowLeft') openBox((currentIdx - 1 + cards.length) % cards.length);
+      if (e.key === 'ArrowRight') openBox((currentIdx + 1) % cards.length);
+    });
+
+    // Touch swipe
+    var touchStartX = 0;
+    backdrop.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
+    backdrop.addEventListener('touchend', function(e){
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) openBox(dx < 0 ? (currentIdx+1)%cards.length : (currentIdx-1+cards.length)%cards.length);
+    });
+  })();
   </script>
 
 </body>
