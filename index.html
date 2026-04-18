@@ -121,25 +121,17 @@
       gap: 2rem;
     }
     .logo {
-      display: flex;
-      flex-direction: column;
+      display: inline-flex;
+      align-items: center;
       line-height: 1;
     }
-    .logo__mark {
-      font-family: var(--ff-head);
-      font-weight: 900;
-      font-size: 1.75rem;
-      letter-spacing: 0.02em;
-      color: var(--c-text);
+    .logo img {
+      height: 48px;
+      width: auto;
+      display: block;
     }
-    .logo__sub {
-      font-family: var(--ff-body);
-      font-size: 0.625rem;
-      font-weight: 500;
-      letter-spacing: 0.32em;
-      color: var(--c-text-mute);
-      text-transform: uppercase;
-      margin-top: 2px;
+    .footer__about .logo img {
+      height: 56px;
     }
     .nav__links {
       display: flex;
@@ -839,8 +831,7 @@
   <header class="nav" id="nav">
     <div class="container nav__inner">
       <a href="#top" class="logo" aria-label="Power Remodeling Texas — Home">
-        <span class="logo__mark">POWER</span>
-        <span class="logo__sub">Remodeling Texas</span>
+        <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
       </a>
       <nav aria-label="Primary">
         <ul class="nav__links" id="navLinks">
@@ -1085,8 +1076,7 @@
       <div class="footer__grid">
         <div class="footer__col footer__about">
           <a href="#top" class="logo">
-            <span class="logo__mark">POWER</span>
-            <span class="logo__sub">Remodeling Texas</span>
+            <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
           </a>
           <p>Houston's premier residential remodeling contractor. In-house craftsmen, design-led process, transparent pricing. Building better homes since 2009.</p>
           <p class="footer__license">TX Contractor Lic. #REM-2024-7741</p>
