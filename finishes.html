@@ -1,382 +1,527 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modern Finishes — Power Remodeling Texas</title>
-  <meta name="description" content="Quartz, honed marble, brushed brass, matte black — we source the materials that make a project feel permanent." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --c-bg: #0D0D0D; --c-navy: #0A1628; --c-navy-deep: #060F1C;
-      --c-red: #CC1F1F; --c-red-hover: #B01A1A;
-      --c-text: #F5F5F5; --c-text-mute: rgba(245,245,245,0.55);
-      --c-line: rgba(255,255,255,0.08);
-      --ff-head: 'Barlow Condensed', sans-serif;
-      --ff-body: 'Inter', sans-serif;
-      --ease: cubic-bezier(0.16,1,0.3,1);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { background: var(--c-bg); color: var(--c-text); font-family: var(--ff-body); font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    address { font-style: normal; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finishes &amp; Materials Houston | Power Remodeling Texas</title>
+<meta name="description" content="Premium finishes and materials for Houston remodels — countertops, tile and stone, hardware, fixtures, paint, and trim. Licensed Texas contractor. Free estimates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--c-bg:#0D0D0D;--c-red:#CC1F1F;--c-navy:#0A1628;--c-text:#E8E4DC;--c-dim:#9A9590;--rad:4px;--trans:600ms cubic-bezier(.25,.46,.45,.94)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--c-bg);color:var(--c-text);font-family:'Inter',sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background var(--trans),backdrop-filter var(--trans)}
+.nav.scrolled{background:rgba(13,13,13,.95);backdrop-filter:blur(12px)}
+.nav__inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 60px}
+.nav__logo img{height:44px;filter:brightness(0) invert(1)}
+.nav__phone{font-size:.85rem;letter-spacing:.06em;color:var(--c-dim);transition:color .3s}
+.nav__phone:hover{color:var(--c-text)}
+.nav__r{display:flex;justify-content:flex-end}
+.nav__cta{background:var(--c-red);color:#fff;padding:10px 22px;border-radius:var(--rad);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:opacity .3s}
+.nav__cta:hover{opacity:.85}
 
-    /* NAV */
-    .nav { position: fixed; inset: 0 0 auto 0; z-index: 100; padding: 1.5rem 0; transition: background-color 0.4s var(--ease), padding 0.4s var(--ease); border-bottom: 1px solid transparent; }
-    .nav.is-scrolled { background: rgba(13,13,13,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 1rem 0; border-bottom-color: var(--c-line); }
-    .nav__inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; }
-    .nav__right { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; }
-    .logo { display: inline-flex; align-items: center; }
-    .logo img { height: 48px; width: auto; filter: brightness(0) invert(1); }
-    .footer__about .logo img { height: 56px; }
-    .nav__links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
-    .nav__links a { font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-text); opacity: 0.85; transition: opacity 0.2s, color 0.2s; }
-    .nav__links a:hover { opacity: 1; color: var(--c-red); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.95rem 1.6rem; font-family: var(--ff-body); font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 0; transition: background-color 0.25s, color 0.25s, transform 0.25s; white-space: nowrap; }
-    .btn--red { background: var(--c-red); color: #fff; }
-    .btn--red:hover { background: var(--c-red-hover); transform: translateY(-1px); }
-    .btn--ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.5); }
-    .btn--ghost:hover { background: #fff; color: var(--c-bg); border-color: #fff; }
-    .btn--lg { padding: 1.15rem 2rem; font-size: 0.875rem; }
-    .nav__cta { padding: 0.75rem 1.35rem; font-size: 0.75rem; }
-    .nav__toggle { display: none; width: 28px; height: 22px; position: relative; background: transparent; border: none; cursor: pointer; }
-    .nav__toggle span { position: absolute; left: 0; width: 100%; height: 2px; background: var(--c-text); border-radius: 2px; transition: all 0.3s var(--ease); }
-    .nav__toggle span:nth-child(1) { top: 2px; } .nav__toggle span:nth-child(2) { top: 10px; } .nav__toggle span:nth-child(3) { top: 18px; }
+.hero{height:100svh;min-height:620px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding-bottom:100px}
+.hero__bg{position:absolute;inset:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;animation:heroZoom 20s ease-in-out infinite alternate}
+.hero__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.88) 0%,rgba(13,13,13,.25) 55%,transparent 100%)}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero__content{position:relative;padding:0 80px;max-width:880px}
+.hero__eyebrow{display:inline-block;background:var(--c-red);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:22px}
+.hero__h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4rem,8vw,7rem);font-weight:900;line-height:.92;text-transform:uppercase;margin-bottom:28px}
+.hero__h1 em{font-style:normal;color:var(--c-red)}
+.hero__sub{font-size:1.1rem;font-weight:300;color:var(--c-dim);max-width:500px;line-height:1.65;margin-bottom:40px}
+.hero__actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--c-red);color:#fff;padding:16px 36px;border-radius:var(--rad);font-weight:600;font-size:.88rem;letter-spacing:.07em;text-transform:uppercase;transition:opacity .3s,transform .3s}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(232,228,220,.3);color:var(--c-text);padding:15px 36px;border-radius:var(--rad);font-weight:400;font-size:.88rem;transition:border-color .3s}
+.btn-ghost:hover{border-color:rgba(232,228,220,.7)}
 
-    /* SERVICE HERO */
-    .svc-hero { position: relative; height: 75vh; min-height: 500px; display: flex; align-items: flex-end; overflow: hidden; }
-    .svc-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform-origin: center; animation: heroZoom 18s ease-in-out infinite alternate; }
-    @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.06); } }
-    .svc-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.3) 60%, rgba(13,13,13,0.1) 100%); }
-    .svc-hero__content { position: relative; z-index: 2; padding: 4rem 0; }
-    .svc-hero__tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-red); display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
-    .svc-hero__tag::before { content: ""; display: block; width: 2.5rem; height: 2px; background: var(--c-red); }
-    .svc-hero h1 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(3rem, 8vw, 6rem); line-height: 0.92; letter-spacing: -0.01em; text-transform: uppercase; }
-    .svc-hero__sub { margin-top: 1.25rem; font-size: 1.0625rem; color: var(--c-text-mute); max-width: 560px; line-height: 1.65; }
-    .svc-hero__breadcrumb { position: absolute; top: 7rem; right: 0; z-index: 2; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-    .svc-hero__breadcrumb a:hover { color: var(--c-red); }
+.stats-bar{background:#111;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:32px 80px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat__num{font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:900;color:#fff;line-height:1}
+.stat__num span{color:var(--c-red)}
+.stat__label{font-size:.75rem;color:var(--c-dim);letter-spacing:.1em;text-transform:uppercase;margin-top:5px}
 
-    /* INTRO SPLIT */
-    .intro { padding: clamp(5rem, 10vw, 9rem) 0; }
-    .intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .intro__img { position: relative; }
-    .intro__img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-    .intro__img::after { content: ""; position: absolute; bottom: -1.5rem; right: -1.5rem; width: 60%; height: 60%; border: 2px solid var(--c-red); z-index: -1; }
-    .intro__eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-red); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
-    .intro__eyebrow::before { content: ""; display: block; width: 2rem; height: 2px; background: var(--c-red); }
-    .intro h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2.25rem, 4vw, 3.25rem); line-height: 0.95; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .intro p { color: var(--c-text-mute); line-height: 1.75; margin-bottom: 1.25rem; }
-    .intro p:last-of-type { margin-bottom: 2rem; }
+.section{padding:110px 80px}
+.section--dark{background:#0a0a0a}
+.section--navy{background:var(--c-navy)}
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--c-red);margin-bottom:14px}
+.section-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.6rem,4.5vw,4rem);font-weight:900;text-transform:uppercase;line-height:1.02;margin-bottom:22px}
+.section-sub{font-size:1rem;color:var(--c-dim);line-height:1.75;max-width:580px}
 
-    /* WHAT'S INCLUDED */
-    .includes { background: var(--c-navy); padding: clamp(4rem, 8vw, 7rem) 0; }
-    .includes__head { text-align: center; margin-bottom: 3.5rem; }
-    .includes__head h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 0.75rem; }
-    .includes__head p { color: var(--c-text-mute); max-width: 520px; margin: 0 auto; }
-    .includes__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .includes__item { background: rgba(255,255,255,0.04); border: 1px solid var(--c-line); padding: 2rem 1.75rem; transition: border-color 0.3s; }
-    .includes__item:hover { border-color: var(--c-red); }
-    .includes__num { font-family: var(--ff-head); font-weight: 900; font-size: 2.5rem; color: rgba(204,31,31,0.2); line-height: 1; margin-bottom: 1rem; }
-    .includes__item h3 { font-family: var(--ff-head); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.625rem; }
-    .includes__item p { font-size: 0.9rem; color: var(--c-text-mute); line-height: 1.65; }
+.intro-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.intro-split__img{position:relative;overflow:hidden;border-radius:2px}
+.intro-split__img img{width:100%;height:640px;object-fit:cover;transition:transform 7s ease}
+.intro-split__img:hover img{transform:scale(1.04)}
+.intro-list{list-style:none;margin-top:36px;display:flex;flex-direction:column;gap:18px}
+.intro-list li{display:flex;align-items:flex-start;gap:14px;font-size:.93rem;color:var(--c-dim);line-height:1.6}
+.intro-list li::before{content:'';flex-shrink:0;width:22px;height:2px;background:var(--c-red);margin-top:12px}
 
-    /* PROCESS */
-    .process { padding: clamp(4rem, 8vw, 7rem) 0; }
-    .process__head { margin-bottom: 3.5rem; }
-    .process__head h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 0.75rem; }
-    .process__head p { color: var(--c-text-mute); max-width: 560px; }
-    .process__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--c-line); }
-    .process__step { padding: 2.5rem 1.5rem 2.5rem 0; border-right: 1px solid var(--c-line); }
-    .process__step:last-child { border-right: none; padding-right: 0; padding-left: 1.5rem; }
-    .process__step:not(:first-child) { padding-left: 1.5rem; }
-    .process__step-num { font-family: var(--ff-head); font-weight: 900; font-size: 3rem; color: rgba(204,31,31,0.15); line-height: 1; margin-bottom: 1rem; }
-    .process__step h3 { font-family: var(--ff-head); font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--c-text); }
-    .process__step p { font-size: 0.875rem; color: var(--c-text-mute); line-height: 1.65; }
+/* FINISH CATEGORY GRID */
+.finish-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
+.finish-card{background:#0D0D0D;padding:60px 50px;transition:background .4s;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.finish-card:hover{background:#111}
+.finish-card--full{grid-template-columns:1fr}
+.finish-card__img{overflow:hidden;border-radius:2px;height:340px}
+.finish-card__img img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
+.finish-card:hover .finish-card__img img{transform:scale(1.04)}
+.finish-card__num{font-family:'Barlow Condensed',sans-serif;font-size:3rem;font-weight:900;color:rgba(204,31,31,.12);line-height:1;margin-bottom:16px}
+.finish-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:16px;color:#fff}
+.finish-card__body{font-size:.88rem;color:var(--c-dim);line-height:1.8;margin-bottom:24px}
+.finish-card__tags{display:flex;flex-wrap:wrap;gap:8px}
+.finish-tag{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--c-text);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:5px 12px;border-radius:2px}
 
-    /* GALLERY STRIP */
-    .gallery-strip { padding: clamp(4rem, 8vw, 7rem) 0 0; }
-    .gallery-strip h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 2.5rem; }
-    .gallery-strip__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.75rem; }
-    .gallery-strip__grid img { width: 100%; height: 400px; object-fit: cover; display: block; transition: transform 0.6s var(--ease); overflow: hidden; }
-    .gallery-strip__grid div { overflow: hidden; }
-    .gallery-strip__grid div:hover img { transform: scale(1.04); }
+/* MATERIAL SELECTOR TABS */
+.material-section{padding:100px 80px;background:#111}
+.material-tabs{display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,.1);margin:56px 0 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mat-tab{padding:16px 32px;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--c-dim);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:color .3s,border-color .3s;background:none;border-left:none;border-right:none;border-top:none}
+.mat-tab:hover{color:var(--c-text)}
+.mat-tab.active{color:#fff;border-bottom-color:var(--c-red)}
+.mat-panel{display:none;animation:fadePanel .5s ease;margin-top:52px}
+.mat-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+@keyframes fadePanel{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.mat-panel__img{overflow:hidden;border-radius:2px;height:480px}
+.mat-panel__img img{width:100%;height:100%;object-fit:cover}
+.mat-panel__title{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;text-transform:uppercase;margin-bottom:20px;line-height:1}
+.mat-panel__body{font-size:.9rem;color:var(--c-dim);line-height:1.8;margin-bottom:28px}
+.mat-spec{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.mat-spec__item{padding:16px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:2px}
+.mat-spec__label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-dim);margin-bottom:6px}
+.mat-spec__val{font-size:.88rem;color:var(--c-text);font-weight:500}
 
-    /* CTA BAND */
-    .cta-band { position: relative; padding: clamp(5rem, 10vw, 8rem) 0; overflow: hidden; }
-    .cta-band__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-    .cta-band__overlay { position: absolute; inset: 0; background: rgba(13,13,13,0.82); }
-    .cta-band__content { position: relative; z-index: 2; max-width: 660px; }
-    .cta-band__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-red); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
-    .cta-band__eyebrow::before { content: ""; display: block; width: 2rem; height: 2px; background: var(--c-red); }
-    .cta-band h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; line-height: 0.95; margin-bottom: 1.25rem; }
-    .cta-band p { color: var(--c-text-mute); margin-bottom: 2.5rem; font-size: 1rem; }
-    .cta-band__btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
+.process-step{background:var(--c-navy);padding:52px 40px}
+.process-step__n{font-family:'Barlow Condensed',sans-serif;font-size:4.5rem;font-weight:900;color:rgba(204,31,31,.18);line-height:1;margin-bottom:16px}
+.process-step__title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;margin-bottom:12px}
+.process-step__body{font-size:.86rem;color:var(--c-dim);line-height:1.75}
 
-    /* FOOTER */
-    .footer { background: var(--c-navy-deep); border-top: 1px solid var(--c-line); padding: 4rem 0 2rem; }
-    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-    .footer__about p { font-size: 0.875rem; color: var(--c-text-mute); margin-top: 1.25rem; line-height: 1.7; }
-    .footer__license { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 0.75rem; }
-    .footer__col h4 { font-family: var(--ff-head); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; }
-    .footer__links { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
-    .footer__links a, .footer address a { font-size: 0.9rem; color: var(--c-text-mute); transition: color 0.2s; }
-    .footer__links a:hover, .footer address a:hover { color: var(--c-red); }
-    .footer address { font-size: 0.9rem; color: var(--c-text-mute); line-height: 1.9; }
-    .footer__bottom { border-top: 1px solid var(--c-line); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+.gallery-section{padding:80px 0;overflow:hidden}
+.gallery-section__header{padding:0 80px;margin-bottom:52px}
+.gallery-track{display:flex;gap:18px;width:max-content;animation:galleryScroll 34s linear infinite}
+.gallery-track:hover{animation-play-state:paused}
+@keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(calc(-50% - 9px))}}
+.gallery-slide{width:500px;height:360px;overflow:hidden;border-radius:2px;flex-shrink:0}
+.gallery-slide img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.gallery-slide:hover img{transform:scale(1.06)}
 
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
-    .reveal.is-visible { opacity: 1; transform: none; }
+.cta-band{padding:130px 80px;text-align:center;position:relative;overflow:hidden}
+.cta-band__bg{position:absolute;inset:0}
+.cta-band__bg img{width:100%;height:100%;object-fit:cover}
+.cta-band__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,13,13,.92) 0%,rgba(10,22,40,.85) 100%)}
+.cta-band__content{position:relative}
+.cta-band h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,5vw,4.8rem);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:22px}
+.cta-band h2 em{font-style:normal;color:var(--c-red)}
+.cta-band p{color:var(--c-dim);font-size:1.05rem;max-width:520px;margin:0 auto 48px;line-height:1.7}
+.cta-band .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .intro__grid, .includes__grid, .footer__grid { grid-template-columns: 1fr; }
-      .process__steps { grid-template-columns: 1fr 1fr; }
-      .gallery-strip__grid { grid-template-columns: 1fr 1fr; }
-      .gallery-strip__grid div:first-child { grid-column: span 2; }
-      .intro__img::after { display: none; }
-    }
-    @media (max-width: 720px) {
-      .nav__links { position: fixed; inset: 0; background: var(--c-bg); flex-direction: column; justify-content: center; gap: 2rem; transform: translateX(100%); transition: transform 0.4s var(--ease); }
-      .nav__links a { font-size: 1.25rem; }
-      .nav.is-open .nav__links { transform: translateX(0); }
-      .nav__toggle { display: block; z-index: 10; }
-      .nav__cta { display: none; }
-      .nav__inner { grid-template-columns: auto 1fr auto; }
-      .process__steps { grid-template-columns: 1fr; border-top: none; }
-      .process__step { border-right: none; border-top: 1px solid var(--c-line); padding: 2rem 0; }
-      .process__step:not(:first-child) { padding-left: 0; }
-      .includes__grid { grid-template-columns: 1fr; }
-      .gallery-strip__grid { grid-template-columns: 1fr; }
-      .gallery-strip__grid div:first-child { grid-column: span 1; }
-    }
+.site-footer{background:#080808;border-top:1px solid rgba(255,255,255,.05);padding:90px 80px 44px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;margin-bottom:64px}
+.footer-logo img{height:38px;filter:brightness(0) invert(1);opacity:.45;margin-bottom:22px}
+.footer-text{font-size:.86rem;color:var(--c-dim);line-height:1.75}
+.footer-h{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:22px;color:var(--c-text)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:.86rem;color:var(--c-dim);transition:color .3s}
+.footer-links a:hover{color:var(--c-text)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:34px;font-size:.76rem;color:var(--c-dim);display:flex;justify-content:space-between}
 
-  </style>
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal--delay-1{transition-delay:.15s}
+.reveal--delay-2{transition-delay:.3s}
+.reveal--delay-3{transition-delay:.45s}
+
+@media(max-width:960px){
+  .nav__inner{padding:18px 24px}
+  .hero__content{padding:0 28px}
+  .hero__h1{font-size:clamp(3rem,10vw,5rem)}
+  .stats-bar{padding:24px 28px;grid-template-columns:repeat(2,1fr)}
+  .section{padding:70px 28px}
+  .intro-split{grid-template-columns:1fr;gap:44px}
+  .intro-split__img img{height:440px}
+  .finish-grid{grid-template-columns:1fr}
+  .finish-card{grid-template-columns:1fr;gap:28px}
+  .finish-card__img{height:260px}
+  .material-section{padding:70px 28px}
+  .mat-panel.active{grid-template-columns:1fr;gap:36px}
+  .mat-panel__img{height:320px}
+  .mat-spec{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .gallery-section__header{padding:0 28px}
+  .cta-band{padding:90px 28px}
+  .site-footer{padding:64px 28px 36px}
+  .footer-grid{grid-template-columns:1fr;gap:44px}
+  .footer-bottom{flex-direction:column;gap:8px}
+}
+</style>
 </head>
 <body>
 
-  <header class="nav" id="nav">
-    <div class="container nav__inner">
-      <nav aria-label="Primary">
-        <ul class="nav__links" id="navLinks">
-          <li><a href="/#services">Services</a></li>
-          <li><a href="/#projects">Projects</a></li>
-          <li><a href="/#reviews">Reviews</a></li>
-          <li><a href="/#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="/" class="logo" aria-label="Power Remodeling Texas — Home">
-        <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
-      </a>
-      <div class="nav__right">
-        <a href="/#contact" class="btn btn--red nav__cta">Free Quote</a>
-        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <div class="nav__l">
+      <a href="tel:8328491431" class="nav__phone">(832) 849-1431</a>
+    </div>
+    <a class="nav__logo" href="index.html">
+      <img src="images/prm-logo.png" alt="Power Remodeling Texas">
+    </a>
+    <div class="nav__r">
+      <a class="nav__cta" href="index.html#contact">Free Estimate</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero__bg">
+    <img src="images/bathroom-1.jpg" alt="Luxury finishes and materials by Power Remodeling Texas">
+  </div>
+  <div class="hero__content">
+    <span class="hero__eyebrow">Finishes &amp; Materials</span>
+    <h1 class="hero__h1">Where a room<br>becomes <em>yours.</em></h1>
+    <p class="hero__sub">The countertop you run your hand across. The tile that catches the light. The hardware that clicks into place. These are the decisions that turn a renovation into a home — and we help you get every one right.</p>
+    <div class="hero__actions">
+      <a href="index.html#contact" class="btn-primary">Get a Free Estimate</a>
+      <a href="#categories" class="btn-ghost">Explore Materials ↓</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="reveal">
+    <div class="stat__num">50<span>+</span></div>
+    <div class="stat__label">Preferred Vendors</div>
+  </div>
+  <div class="reveal reveal--delay-1">
+    <div class="stat__num">Trade<span>+</span></div>
+    <div class="stat__label">Pricing on All Materials</div>
+  </div>
+  <div class="reveal reveal--delay-2">
+    <div class="stat__num">5<span>★</span></div>
+    <div class="stat__label">Average Client Rating</div>
+  </div>
+  <div class="reveal reveal--delay-3">
+    <div class="stat__num">2<span>k+</span></div>
+    <div class="stat__label">Projects Completed</div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="intro-split">
+    <div class="reveal">
+      <p class="eyebrow">The Difference Materials Make</p>
+      <h2 class="section-h">Finishes determine how a space feels — forever.</h2>
+      <p class="section-sub">You can have a technically perfect renovation that still feels off — because the countertop is the wrong scale, the tile grout is the wrong tone, or the hardware is a half-finish too bright. Finishes are the difference between a renovated house and a transformed home. We help you see it before it's installed.</p>
+      <ul class="intro-list">
+        <li>Trade-only pricing at Houston's top stone yards, tile showrooms, and plumbing houses</li>
+        <li>Material coordination — every finish is reviewed for compatibility before ordering</li>
+        <li>Memo samples and full-scale mockups before any stone is cut</li>
+        <li>Lighting review — we verify how each material reads under your home's light conditions</li>
+        <li>We source, deliver, and manage all materials — you don't coordinate with vendors</li>
+      </ul>
+    </div>
+    <div class="intro-split__img reveal reveal--delay-1">
+      <img src="images/kitchen-8.jpg" alt="Luxury finish selections — quartz countertop, marble backsplash">
+    </div>
+  </div>
+</section>
+
+<!-- FINISH CATEGORIES -->
+<section class="section section--dark" id="categories">
+  <div class="reveal">
+    <p class="eyebrow">Material Categories</p>
+    <h2 class="section-h">Every surface. Every detail.</h2>
+  </div>
+  <div class="finish-grid">
+    <div class="finish-card reveal">
+      <div class="finish-card__img">
+        <img src="images/kitchen-1.jpg" alt="Quartz and natural stone countertops">
+      </div>
+      <div>
+        <div class="finish-card__num">01</div>
+        <h3 class="finish-card__title">Countertops</h3>
+        <p class="finish-card__body">Your countertop is the most-touched surface in the kitchen or bathroom. We work with the full material spectrum — quartz for durability and consistency, quartzite for dramatic natural veining, marble for classic luxury, granite for unique character, and porcelain slab for a seamless contemporary look. We help you choose based on your lifestyle, not just aesthetics.</p>
+        <div class="finish-card__tags">
+          <span class="finish-tag">Quartz</span>
+          <span class="finish-tag">Quartzite</span>
+          <span class="finish-tag">Marble</span>
+          <span class="finish-tag">Granite</span>
+          <span class="finish-tag">Porcelain Slab</span>
+          <span class="finish-tag">Soapstone</span>
+        </div>
       </div>
     </div>
-  </header>
-
-  <main>
-
-    <!-- SERVICE HERO -->
-    <section class="svc-hero">
-      <div class="svc-hero__bg" style="background-image: url('images/kitchen-6.jpg');"></div><!-- SWAP: replace with service-specific image -->
-      <div class="svc-hero__overlay"></div>
-      <div class="container" style="position:relative;z-index:2;width:100%;">
-        <p class="svc-hero__breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; Modern Finishes</p>
-        <div class="svc-hero__content">
-          <div class="svc-hero__tag">Service — 06</div>
-          <h1>Materials that<br>mean something.</h1>
-          <p class="svc-hero__sub">Quartz, honed marble, brushed brass, matte black — we source the materials that make a project feel permanent.</p>
-        </div>
+    <div class="finish-card reveal reveal--delay-1">
+      <div class="finish-card__img">
+        <img src="images/bathroom-2.jpg" alt="Large format tile and stone selections">
       </div>
-    </section>
-
-    <!-- INTRO -->
-    <section class="intro">
-      <div class="container">
-        <div class="intro__grid">
-          <div class="intro__img reveal">
-            <img src="images/kitchen-7.jpg" alt="Modern Finishes" loading="lazy" /><!-- SWAP -->
-          </div>
-          <div class="intro__text reveal">
-            <div class="intro__eyebrow">What we do</div>
-            <h2>The details that<br>elevate everything.</h2>
-            <p>The difference between a $30,000 and a $90,000 remodel often isn't the layout — it's the material quality and the precision of installation. We spec and install finishes that look as good in year fifteen as they do on day one.</p>
-            <p>We have established relationships with stone yards, tile importers, and hardware suppliers that give our clients access to materials that aren't available at the big-box stores — at prices that reflect contractor volume, not retail markup.</p>
-            <a href="/#contact" class="btn btn--red btn--lg">Get a Free Quote</a>
-          </div>
+      <div>
+        <div class="finish-card__num">02</div>
+        <h3 class="finish-card__title">Tile &amp; Stone</h3>
+        <p class="finish-card__body">The right tile turns a bathroom or kitchen into a work of art. We access the same collections available to Houston's top interior designers — Italian porcelain, handmade Zellige ceramic, natural travertine, honed marble, large-format 48×48 rectified tile, and everything between. Our tile installers are craftsmen who treat pattern alignment and grout joint consistency as non-negotiable.</p>
+        <div class="finish-card__tags">
+          <span class="finish-tag">Porcelain</span>
+          <span class="finish-tag">Ceramic</span>
+          <span class="finish-tag">Marble</span>
+          <span class="finish-tag">Travertine</span>
+          <span class="finish-tag">Zellige</span>
+          <span class="finish-tag">Mosaic</span>
         </div>
-      </div>
-    </section>
-
-    <!-- WHAT'S INCLUDED -->
-    <section class="includes">
-      <div class="container">
-        <div class="includes__head reveal">
-          <h2>What's included</h2>
-          <p>Every modern finishes project covers these scopes — no add-on surprises mid-build.</p>
-        </div>
-        <div class="includes__grid">
-        <div class="includes__item reveal">
-          <div class="includes__num">01</div>
-          <h3>Quartz Countertops</h3>
-          <p>Calacatta, Statuario, and matte concrete looks — cut to zero-gap seams with integrated apron fronts.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">02</div>
-          <h3>Honed Natural Stone</h3>
-          <p>Unfilled travertine, honed Carrara marble, and leathered granite — properly sealed and maintained.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">03</div>
-          <h3>Decorative Tile</h3>
-          <p>Zellige, handmade ceramic, fluted, and flute-profile tile for feature walls, ranges, and entries.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">04</div>
-          <h3>Hardware Packages</h3>
-          <p>Brushed brass, unlacquered brass, matte black, and polished nickel — specified to match across every room.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">05</div>
-          <h3>Trim & Millwork</h3>
-          <p>Crown molding, picture-frame wall detail, shiplap, board-and-batten — installed by finish carpenters.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">06</div>
-          <h3>Paint & Wall Finish</h3>
-          <p>Color consultation, proper surface prep, and application by painters who use proper nap and technique.</p>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="process">
-      <div class="container">
-        <div class="process__head reveal">
-          <h2>How it works</h2>
-          <p>Our process is designed to eliminate surprises. You know what's happening, when, and why — before we ever swing a hammer.</p>
-        </div>
-        <div class="process__steps">
-        <div class="process__step reveal">
-          <div class="process__step-num">01</div>
-          <h3>Material Curation</h3>
-          <p>We present curated material boards for your project — counters, tile, hardware, and paint together.</p>
-        </div>
-        <div class="process__step reveal">
-          <div class="process__step-num">02</div>
-          <h3>Procurement</h3>
-          <p>We order materials on contractor accounts, coordinate delivery, and inspect every piece before install.</p>
-        </div>
-        <div class="process__step reveal">
-          <div class="process__step-num">03</div>
-          <h3>Surface Prep</h3>
-          <p>Proper substrate, backer, and primer for every surface — no shortcuts that compromise adhesion or durability.</p>
-        </div>
-        <div class="process__step reveal">
-          <div class="process__step-num">04</div>
-          <h3>Install & Seal</h3>
-          <p>Precision installation, grout or caulk joints in the right places, and sealer application where required.</p>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="gallery-strip">
-      <div class="container">
-        <h2 class="reveal">Recent work</h2>
-        <div class="gallery-strip__grid">
-        <div><img src="images/kitchen-8.jpg" alt="" loading="lazy" /></div>
-        <div><img src="images/kitchen-1.jpg" alt="" loading="lazy" /></div>
-        <div><img src="images/kitchen-2.jpg" alt="" loading="lazy" /></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-band">
-      <div class="cta-band__bg" style="background-image: url('images/kitchen-3.jpg');"></div>
-      <div class="cta-band__overlay"></div>
-      <div class="container">
-        <div class="cta-band__content reveal">
-          <div class="cta-band__eyebrow">Let's build</div>
-          <h2>Ready to start your project?</h2>
-          <p>Schedule a free in-home consultation. We typically book within the same week.</p>
-          <div class="cta-band__btns">
-            <a href="/#contact" class="btn btn--red btn--lg">Get Your Free Quote →</a>
-            <a href="/" class="btn btn--ghost btn--lg">See All Services</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__col footer__about">
-          <a href="/" class="logo">
-            <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
-          </a>
-          <p>Texas's premier residential remodeling contractor. In-house craftsmen, design-led process, transparent pricing. Building better homes since 2009.</p>
-          <p class="footer__license">TX Contractor Lic. #REM-2024-7741</p>
-        </div>
-        <div class="footer__col">
-          <h4>Navigate</h4>
-          <ul class="footer__links">
-            <li><a href="/#services">Services</a></li>
-            <li><a href="/#projects">Projects</a></li>
-            <li><a href="/#reviews">Reviews</a></li>
-            <li><a href="/#contact">Free Quote</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Contact</h4>
-          <address>
-            Power Remodeling Texas<br>
-            Houston, TX<br>
-            <a href="tel:7135550182">(713) 555-0182</a><br>
-            <a href="mailto:info@powerremodelingtx.com">info@powerremodelingtx.com</a>
-          </address>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>© 2025 Power Remodeling Texas. All rights reserved.</p>
-        <p>TX Contractor Lic. #REM-2024-7741</p>
       </div>
     </div>
-  </footer>
+    <div class="finish-card reveal">
+      <div class="finish-card__img">
+        <img src="images/kitchen-3.jpg" alt="Plumbing fixtures and hardware selections">
+      </div>
+      <div>
+        <div class="finish-card__num">03</div>
+        <h3 class="finish-card__title">Hardware &amp; Fixtures</h3>
+        <p class="finish-card__body">Cabinet pulls, faucets, shower systems, door hardware, and light fixtures are the jewelry of a renovation. They catch the eye and signal quality — or undercut everything else. We access Brizo, Kallista, Waterworks, Restoration Hardware, and other trade lines at cost, and we coordinate your hardware finish selection across all pieces so the room reads as composed, not assembled.</p>
+        <div class="finish-card__tags">
+          <span class="finish-tag">Unlacquered Brass</span>
+          <span class="finish-tag">Matte Black</span>
+          <span class="finish-tag">Polished Nickel</span>
+          <span class="finish-tag">Satin Brass</span>
+          <span class="finish-tag">Brushed Bronze</span>
+        </div>
+      </div>
+    </div>
+    <div class="finish-card reveal reveal--delay-1">
+      <div class="finish-card__img">
+        <img src="images/kitchen-6.jpg" alt="Interior paint and trim finishes">
+      </div>
+      <div>
+        <div class="finish-card__num">04</div>
+        <h3 class="finish-card__title">Paint &amp; Trim</h3>
+        <p class="finish-card__body">Paint is where the entire renovation either locks in or falls apart. Our painters apply Benjamin Moore Aura or Sherwin-Williams Emerald using proper surface prep — no shortcuts on primer, no rolling over previously painted texture without addressing it first. We match existing trim profiles exactly, hand-sand between coats, and deliver walls that look architectural, not finished-at-a-job-site.</p>
+        <div class="finish-card__tags">
+          <span class="finish-tag">Benjamin Moore Aura</span>
+          <span class="finish-tag">SW Emerald</span>
+          <span class="finish-tag">Millwork &amp; Trim</span>
+          <span class="finish-tag">Wainscoting</span>
+          <span class="finish-tag">Limewash</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
+<!-- COUNTERTOP MATERIAL DEEP-DIVE TABS -->
+<section class="material-section">
+  <div class="reveal">
+    <p class="eyebrow">Countertop Deep Dive</p>
+    <h2 class="section-h">Choose the surface that fits your life.</h2>
+    <p style="color:var(--c-dim);max-width:580px;font-size:1rem;line-height:1.75;margin-top:14px">Countertop selection isn't just aesthetic — it's durability, maintenance, and cost-per-year-of-enjoyment. Here's what you need to know about each material we install.</p>
+  </div>
+  <div class="material-tabs" role="tablist">
+    <button class="mat-tab active" data-panel="quartz" role="tab">Quartz</button>
+    <button class="mat-tab" data-panel="quartzite" role="tab">Quartzite</button>
+    <button class="mat-tab" data-panel="marble" role="tab">Marble</button>
+    <button class="mat-tab" data-panel="granite" role="tab">Granite</button>
+    <button class="mat-tab" data-panel="porcelain" role="tab">Porcelain Slab</button>
+  </div>
 
-    const nav = document.getElementById('nav');
-    const onScroll = () => { nav.classList.toggle('is-scrolled', window.scrollY > 20); };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    const navToggle = document.getElementById('navToggle');
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        const open = nav.classList.toggle('is-open');
-        navToggle.setAttribute('aria-expanded', open);
-      });
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  <div class="mat-panel active" id="panel-quartz">
+    <div class="mat-panel__img">
+      <img src="images/kitchen-1.jpg" alt="Quartz countertop installation">
+    </div>
+    <div>
+      <h3 class="mat-panel__title">Quartz</h3>
+      <p class="mat-panel__body">Engineered quartz (Cambria, Silestone, Caesarstone) is 90–94% ground natural quartz bound with polymer resin. The result is a non-porous, stain-resistant, scratch-resistant surface that never needs sealing. Available in hundreds of colors and veining patterns — including convincing marble looks — quartz is the most practical choice for kitchens with heavy use. It holds up to acidic foods, red wine, coffee, and oil without a second thought.</p>
+      <div class="mat-spec">
+        <div class="mat-spec__item"><div class="mat-spec__label">Durability</div><div class="mat-spec__val">Excellent — scratch &amp; stain resistant</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Maintenance</div><div class="mat-spec__val">None — no sealing required</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Heat Resistance</div><div class="mat-spec__val">Moderate — use trivets</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Best For</div><div class="mat-spec__val">Busy kitchens, families with kids</div></div>
+      </div>
+    </div>
+  </div>
 
-  </script>
+  <div class="mat-panel" id="panel-quartzite">
+    <div class="mat-panel__img">
+      <img src="images/kitchen-2.jpg" alt="Natural quartzite countertop slab">
+    </div>
+    <div>
+      <h3 class="mat-panel__title">Quartzite</h3>
+      <p class="mat-panel__body">Natural quartzite is often confused with quartz — they are completely different materials. Quartzite is a metamorphic rock formed from sandstone under heat and pressure. It is harder than granite, genuinely heat-resistant, and features dramatic natural veining that engineered materials can only approximate. Quartzite is the choice for homeowners who want the drama of marble without the maintenance concerns. Requires periodic sealing — annually in most applications.</p>
+      <div class="mat-spec">
+        <div class="mat-spec__item"><div class="mat-spec__label">Durability</div><div class="mat-spec__val">Excellent — harder than granite</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Maintenance</div><div class="mat-spec__val">Annual sealing recommended</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Heat Resistance</div><div class="mat-spec__val">Excellent — naturally heat-resistant</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Best For</div><div class="mat-spec__val">High-end kitchens, dramatic aesthetics</div></div>
+      </div>
+    </div>
+  </div>
 
+  <div class="mat-panel" id="panel-marble">
+    <div class="mat-panel__img">
+      <img src="images/bathroom-1.jpg" alt="Marble countertop and backsplash">
+    </div>
+    <div>
+      <h3 class="mat-panel__title">Marble</h3>
+      <p class="mat-panel__body">Marble is the most beautiful and the most demanding countertop material. Calacatta, Carrara, Statuario — each slab is unique, veined with organic movement that no engineered material can replicate. Marble will etch from acidic contact (lemon juice, wine, coffee) and will absorb oil if not sealed. But many designers consider the patina marble develops over time to be part of its character. It is the definitive luxury kitchen and bathroom surface — and it requires a homeowner who appreciates it rather than fears it.</p>
+      <div class="mat-spec">
+        <div class="mat-spec__item"><div class="mat-spec__label">Durability</div><div class="mat-spec__val">Moderate — etches from acid</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Maintenance</div><div class="mat-spec__val">Seal every 6–12 months</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Heat Resistance</div><div class="mat-spec__val">Good — avoid direct heat</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Best For</div><div class="mat-spec__val">Bathrooms, low-traffic kitchens, bakers</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mat-panel" id="panel-granite">
+    <div class="mat-panel__img">
+      <img src="images/kitchen-5.jpg" alt="Granite countertop natural stone">
+    </div>
+    <div>
+      <h3 class="mat-panel__title">Granite</h3>
+      <p class="mat-panel__body">Granite remains one of the most durable natural stone options available — harder than marble, more heat-resistant than quartz, and available in a wider range of colors and movement than any other natural stone. The dense crystal structure makes it highly resistant to scratching, and with proper sealing it resists staining well. If you want natural stone in a working kitchen with minimal maintenance concern, granite is the pragmatic choice with no sacrifice in beauty.</p>
+      <div class="mat-spec">
+        <div class="mat-spec__item"><div class="mat-spec__label">Durability</div><div class="mat-spec__val">Excellent — scratch &amp; heat resistant</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Maintenance</div><div class="mat-spec__val">Seal every 1–3 years</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Heat Resistance</div><div class="mat-spec__val">Excellent — naturally heat-proof</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Best For</div><div class="mat-spec__val">Working kitchens, active families</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mat-panel" id="panel-porcelain">
+    <div class="mat-panel__img">
+      <img src="images/kitchen-7.jpg" alt="Porcelain slab kitchen countertop">
+    </div>
+    <div>
+      <h3 class="mat-panel__title">Porcelain Slab</h3>
+      <p class="mat-panel__body">Large-format porcelain slab (Dekton, Laminam, Neolith) is fired at extreme temperatures to produce a surface that is virtually indestructible — scratch-proof, UV-stable, heat-resistant, and impervious to staining without any sealing. Available in continuous slab format up to 126×63 inches, it can cover a full kitchen island with zero visible seams. The aesthetic ranges from convincing stone looks to ultra-matte concrete and solid color. The contemporary choice for low-maintenance luxury.</p>
+      <div class="mat-spec">
+        <div class="mat-spec__item"><div class="mat-spec__label">Durability</div><div class="mat-spec__val">Maximum — virtually indestructible</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Maintenance</div><div class="mat-spec__val">None required</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Heat Resistance</div><div class="mat-spec__val">Excellent — direct heat safe</div></div>
+        <div class="mat-spec__item"><div class="mat-spec__label">Best For</div><div class="mat-spec__val">Modern aesthetics, zero maintenance</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section--navy">
+  <div class="reveal">
+    <p class="eyebrow">How We Source &amp; Install</p>
+    <h2 class="section-h">Trade access. Coordinated delivery. Clean installation.</h2>
+    <p class="section-sub">We don't hand you a Pinterest board and wish you luck. We walk you through selection, coordinate the entire order, and install everything ourselves.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="process-step__n">01</div>
+      <h3 class="process-step__title">Design Consultation</h3>
+      <p class="process-step__body">We review your space, lighting conditions, cabinetry color, flooring, and lifestyle — then walk you through material options at our preferred vendors. You see large samples and full slabs, not swatches. Our team helps you visualize how each material coordinates with everything else in the room.</p>
+    </div>
+    <div class="process-step reveal reveal--delay-1">
+      <div class="process-step__n">02</div>
+      <h3 class="process-step__title">Material Selection</h3>
+      <p class="process-step__body">Once your selection is made, we source everything through our trade accounts — countertop slabs, tile, fixtures, hardware. You get trade pricing without retail markup. Every item is logged in your project spec sheet and confirmed before we order.</p>
+    </div>
+    <div class="process-step reveal reveal--delay-2">
+      <div class="process-step__n">03</div>
+      <h3 class="process-step__title">Templating &amp; Fabrication</h3>
+      <p class="process-step__body">For countertops: we laser-template your exact space after cabinets are installed — precision cutting every edge, radius, and cutout. Stone is fabricated and inspected before delivery. No surprises on install day.</p>
+    </div>
+    <div class="process-step reveal reveal--delay-3">
+      <div class="process-step__n">04</div>
+      <h3 class="process-step__title">Installation &amp; Finishing</h3>
+      <p class="process-step__body">Our installers handle every surface — stone, tile, paint, and hardware — as a single coordinated crew. Nothing is handed off to a subcontractor you've never met. Every finish detail is inspected before the walkthrough. If it's not right, we fix it before we leave.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="gallery-section__header reveal">
+    <p class="eyebrow">Materials In Context</p>
+    <h2 class="section-h">How it looks in real homes.</h2>
+  </div>
+  <div class="gallery-track">
+    <div class="gallery-slide"><img src="images/kitchen-1.jpg" alt="Quartz countertop with white shaker cabinets"></div>
+    <div class="gallery-slide"><img src="images/bathroom-2.jpg" alt="Marble tile spa bathroom"></div>
+    <div class="gallery-slide"><img src="images/kitchen-3.jpg" alt="Quartzite island with waterfall edge"></div>
+    <div class="gallery-slide"><img src="images/bathroom-1.jpg" alt="Large format porcelain tile bathroom"></div>
+    <div class="gallery-slide"><img src="images/kitchen-6.jpg" alt="Custom backsplash tile installation"></div>
+    <div class="gallery-slide"><img src="images/kitchen-8.jpg" alt="Hardware finish coordination in kitchen"></div>
+    <div class="gallery-slide"><img src="images/kitchen-1.jpg" alt="Quartz countertop with white shaker cabinets"></div>
+    <div class="gallery-slide"><img src="images/bathroom-2.jpg" alt="Marble tile spa bathroom"></div>
+    <div class="gallery-slide"><img src="images/kitchen-3.jpg" alt="Quartzite island with waterfall edge"></div>
+    <div class="gallery-slide"><img src="images/bathroom-1.jpg" alt="Large format porcelain tile bathroom"></div>
+    <div class="gallery-slide"><img src="images/kitchen-6.jpg" alt="Custom backsplash tile installation"></div>
+    <div class="gallery-slide"><img src="images/kitchen-8.jpg" alt="Hardware finish coordination in kitchen"></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band__bg">
+    <img src="images/kitchen-4.jpg" alt="">
+  </div>
+  <div class="cta-band__content">
+    <h2>Ready to choose<br><em>your</em> finishes?</h2>
+    <p>We serve Houston, Sugar Land, The Woodlands, Katy, and surrounding areas. Our material selection process is collaborative, efficient, and completely free — no commitment required to start.</p>
+    <div class="actions">
+      <a href="index.html#contact" class="btn-primary">Schedule a Free Consult</a>
+      <a href="tel:8328491431" class="btn-ghost">(832) 849-1431</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><img src="images/prm-logo.png" alt="Power Remodeling Texas"></div>
+      <p class="footer-text">Premium kitchen, bathroom, and home remodeling across greater Houston. Licensed, bonded, and fully insured in Texas.</p>
+    </div>
+    <div>
+      <h4 class="footer-h">Services</h4>
+      <ul class="footer-links">
+        <li><a href="kitchen.html">Kitchen Remodeling</a></li>
+        <li><a href="bathroom.html">Bathroom Remodeling</a></li>
+        <li><a href="additions.html">Home Additions</a></li>
+        <li><a href="flooring.html">Flooring</a></li>
+        <li><a href="cabinetry.html">Cabinetry</a></li>
+        <li><a href="finishes.html">Finishes &amp; Materials</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-h">Contact</h4>
+      <p class="footer-text">(832) 849-1431<br>Houston, Texas<br><br>Serving Greater Houston<br>Licensed Texas Contractor</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Power Remodeling Texas. All rights reserved.</span>
+    <span>Licensed Texas General Contractor</span>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+// MATERIAL TABS
+const tabs = document.querySelectorAll('.mat-tab');
+const panels = document.querySelectorAll('.mat-panel');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+  });
+});
+
+// REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+reveals.forEach(r => io.observe(r));
+</script>
 </body>
 </html>

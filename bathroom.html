@@ -1,382 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bathroom Renovation — Power Remodeling Texas</title>
-  <meta name="description" content="Curbless showers, freestanding soaking tubs, custom vanities — designed and built to function perfectly for 20 years." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --c-bg: #0D0D0D; --c-navy: #0A1628; --c-navy-deep: #060F1C;
-      --c-red: #CC1F1F; --c-red-hover: #B01A1A;
-      --c-text: #F5F5F5; --c-text-mute: rgba(245,245,245,0.55);
-      --c-line: rgba(255,255,255,0.08);
-      --ff-head: 'Barlow Condensed', sans-serif;
-      --ff-body: 'Inter', sans-serif;
-      --ease: cubic-bezier(0.16,1,0.3,1);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { background: var(--c-bg); color: var(--c-text); font-family: var(--ff-body); font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    address { font-style: normal; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bathroom Remodeling Houston | Power Remodeling Texas</title>
+<meta name="description" content="Luxury bathroom remodeling in Houston — tub-to-shower conversions, full renovations, master suite upgrades. Licensed Texas contractor. Free estimates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--c-bg:#0D0D0D;--c-red:#CC1F1F;--c-navy:#0A1628;--c-text:#E8E4DC;--c-dim:#9A9590;--rad:4px;--trans:600ms cubic-bezier(.25,.46,.45,.94)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--c-bg);color:var(--c-text);font-family:'Inter',sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background var(--trans),backdrop-filter var(--trans)}
+.nav.scrolled{background:rgba(13,13,13,.95);backdrop-filter:blur(12px)}
+.nav__inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 60px}
+.nav__logo img{height:44px;filter:brightness(0) invert(1)}
+.nav__phone{font-size:.85rem;letter-spacing:.06em;color:var(--c-dim);transition:color .3s}
+.nav__phone:hover{color:var(--c-text)}
+.nav__r{display:flex;justify-content:flex-end}
+.nav__cta{background:var(--c-red);color:#fff;padding:10px 22px;border-radius:var(--rad);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:opacity .3s}
+.nav__cta:hover{opacity:.85}
 
-    /* NAV */
-    .nav { position: fixed; inset: 0 0 auto 0; z-index: 100; padding: 1.5rem 0; transition: background-color 0.4s var(--ease), padding 0.4s var(--ease); border-bottom: 1px solid transparent; }
-    .nav.is-scrolled { background: rgba(13,13,13,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 1rem 0; border-bottom-color: var(--c-line); }
-    .nav__inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; }
-    .nav__right { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; }
-    .logo { display: inline-flex; align-items: center; }
-    .logo img { height: 48px; width: auto; filter: brightness(0) invert(1); }
-    .footer__about .logo img { height: 56px; }
-    .nav__links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
-    .nav__links a { font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-text); opacity: 0.85; transition: opacity 0.2s, color 0.2s; }
-    .nav__links a:hover { opacity: 1; color: var(--c-red); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.95rem 1.6rem; font-family: var(--ff-body); font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 0; transition: background-color 0.25s, color 0.25s, transform 0.25s; white-space: nowrap; }
-    .btn--red { background: var(--c-red); color: #fff; }
-    .btn--red:hover { background: var(--c-red-hover); transform: translateY(-1px); }
-    .btn--ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.5); }
-    .btn--ghost:hover { background: #fff; color: var(--c-bg); border-color: #fff; }
-    .btn--lg { padding: 1.15rem 2rem; font-size: 0.875rem; }
-    .nav__cta { padding: 0.75rem 1.35rem; font-size: 0.75rem; }
-    .nav__toggle { display: none; width: 28px; height: 22px; position: relative; background: transparent; border: none; cursor: pointer; }
-    .nav__toggle span { position: absolute; left: 0; width: 100%; height: 2px; background: var(--c-text); border-radius: 2px; transition: all 0.3s var(--ease); }
-    .nav__toggle span:nth-child(1) { top: 2px; } .nav__toggle span:nth-child(2) { top: 10px; } .nav__toggle span:nth-child(3) { top: 18px; }
+/* HERO */
+.hero{height:100svh;min-height:620px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding-bottom:100px}
+.hero__bg{position:absolute;inset:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;animation:heroZoom 20s ease-in-out infinite alternate}
+.hero__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.88) 0%,rgba(13,13,13,.25) 55%,transparent 100%)}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero__content{position:relative;padding:0 80px;max-width:880px}
+.hero__eyebrow{display:inline-block;background:var(--c-red);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:22px}
+.hero__h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4rem,8vw,7rem);font-weight:900;line-height:.92;text-transform:uppercase;margin-bottom:28px}
+.hero__h1 em{font-style:normal;color:var(--c-red)}
+.hero__sub{font-size:1.1rem;font-weight:300;color:var(--c-dim);max-width:500px;line-height:1.65;margin-bottom:40px}
+.hero__actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--c-red);color:#fff;padding:16px 36px;border-radius:var(--rad);font-weight:600;font-size:.88rem;letter-spacing:.07em;text-transform:uppercase;transition:opacity .3s,transform .3s}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(232,228,220,.3);color:var(--c-text);padding:15px 36px;border-radius:var(--rad);font-weight:400;font-size:.88rem;transition:border-color .3s}
+.btn-ghost:hover{border-color:rgba(232,228,220,.7)}
 
-    /* SERVICE HERO */
-    .svc-hero { position: relative; height: 75vh; min-height: 500px; display: flex; align-items: flex-end; overflow: hidden; }
-    .svc-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform-origin: center; animation: heroZoom 18s ease-in-out infinite alternate; }
-    @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.06); } }
-    .svc-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.3) 60%, rgba(13,13,13,0.1) 100%); }
-    .svc-hero__content { position: relative; z-index: 2; padding: 4rem 0; }
-    .svc-hero__tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-red); display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
-    .svc-hero__tag::before { content: ""; display: block; width: 2.5rem; height: 2px; background: var(--c-red); }
-    .svc-hero h1 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(3rem, 8vw, 6rem); line-height: 0.92; letter-spacing: -0.01em; text-transform: uppercase; }
-    .svc-hero__sub { margin-top: 1.25rem; font-size: 1.0625rem; color: var(--c-text-mute); max-width: 560px; line-height: 1.65; }
-    .svc-hero__breadcrumb { position: absolute; top: 7rem; right: 0; z-index: 2; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-    .svc-hero__breadcrumb a:hover { color: var(--c-red); }
+/* STATS BAR */
+.stats-bar{background:#111;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:32px 80px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat__num{font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:900;color:#fff;line-height:1}
+.stat__num span{color:var(--c-red)}
+.stat__label{font-size:.75rem;color:var(--c-dim);letter-spacing:.1em;text-transform:uppercase;margin-top:5px}
 
-    /* INTRO SPLIT */
-    .intro { padding: clamp(5rem, 10vw, 9rem) 0; }
-    .intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .intro__img { position: relative; }
-    .intro__img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-    .intro__img::after { content: ""; position: absolute; bottom: -1.5rem; right: -1.5rem; width: 60%; height: 60%; border: 2px solid var(--c-red); z-index: -1; }
-    .intro__eyebrow { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-red); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
-    .intro__eyebrow::before { content: ""; display: block; width: 2rem; height: 2px; background: var(--c-red); }
-    .intro h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2.25rem, 4vw, 3.25rem); line-height: 0.95; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .intro p { color: var(--c-text-mute); line-height: 1.75; margin-bottom: 1.25rem; }
-    .intro p:last-of-type { margin-bottom: 2rem; }
+/* SHARED SECTION */
+.section{padding:110px 80px}
+.section--dark{background:#0a0a0a}
+.section--navy{background:var(--c-navy)}
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--c-red);margin-bottom:14px}
+.section-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.6rem,4.5vw,4rem);font-weight:900;text-transform:uppercase;line-height:1.02;margin-bottom:22px}
+.section-sub{font-size:1rem;color:var(--c-dim);line-height:1.75;max-width:580px}
 
-    /* WHAT'S INCLUDED */
-    .includes { background: var(--c-navy); padding: clamp(4rem, 8vw, 7rem) 0; }
-    .includes__head { text-align: center; margin-bottom: 3.5rem; }
-    .includes__head h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 0.75rem; }
-    .includes__head p { color: var(--c-text-mute); max-width: 520px; margin: 0 auto; }
-    .includes__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .includes__item { background: rgba(255,255,255,0.04); border: 1px solid var(--c-line); padding: 2rem 1.75rem; transition: border-color 0.3s; }
-    .includes__item:hover { border-color: var(--c-red); }
-    .includes__num { font-family: var(--ff-head); font-weight: 900; font-size: 2.5rem; color: rgba(204,31,31,0.2); line-height: 1; margin-bottom: 1rem; }
-    .includes__item h3 { font-family: var(--ff-head); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.625rem; }
-    .includes__item p { font-size: 0.9rem; color: var(--c-text-mute); line-height: 1.65; }
+/* INTRO SPLIT */
+.intro-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.intro-split__img{position:relative;overflow:hidden;border-radius:2px}
+.intro-split__img img{width:100%;height:640px;object-fit:cover;transition:transform 7s ease}
+.intro-split__img:hover img{transform:scale(1.04)}
+.intro-list{list-style:none;margin-top:36px;display:flex;flex-direction:column;gap:18px}
+.intro-list li{display:flex;align-items:flex-start;gap:14px;font-size:.93rem;color:var(--c-dim);line-height:1.6}
+.intro-list li::before{content:'';flex-shrink:0;width:22px;height:2px;background:var(--c-red);margin-top:12px}
 
-    /* PROCESS */
-    .process { padding: clamp(4rem, 8vw, 7rem) 0; }
-    .process__head { margin-bottom: 3.5rem; }
-    .process__head h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 0.75rem; }
-    .process__head p { color: var(--c-text-mute); max-width: 560px; }
-    .process__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--c-line); }
-    .process__step { padding: 2.5rem 1.5rem 2.5rem 0; border-right: 1px solid var(--c-line); }
-    .process__step:last-child { border-right: none; padding-right: 0; padding-left: 1.5rem; }
-    .process__step:not(:first-child) { padding-left: 1.5rem; }
-    .process__step-num { font-family: var(--ff-head); font-weight: 900; font-size: 3rem; color: rgba(204,31,31,0.15); line-height: 1; margin-bottom: 1rem; }
-    .process__step h3 { font-family: var(--ff-head); font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--c-text); }
-    .process__step p { font-size: 0.875rem; color: var(--c-text-mute); line-height: 1.65; }
+/* BEFORE/AFTER SLIDER */
+.ba-section{padding:100px 80px;background:#111}
+.ba-section__header{text-align:center;margin-bottom:64px}
+.ba-section__header .eyebrow{justify-content:center;display:flex}
+.ba-section__sub{text-align:center;color:var(--c-dim);max-width:620px;margin:14px auto 0;font-size:1rem;line-height:1.7}
+.ba-wrap{max-width:1100px;margin:0 auto}
+.ba{position:relative;overflow:hidden;cursor:ew-resize;user-select:none;border-radius:2px;touch-action:none}
+.ba__after img{display:block;width:100%;height:600px;object-fit:cover}
+.ba__before{position:absolute;top:0;left:0;bottom:0;overflow:hidden}
+.ba__before img{display:block;width:100%;height:600px;object-fit:cover}
+.ba__handle{position:absolute;top:0;bottom:0;transform:translateX(-50%);width:3px;background:#fff;pointer-events:none;display:flex;align-items:center;justify-content:center}
+.ba__icon{position:absolute;background:#fff;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,.5);color:#0D0D0D;font-size:13px;font-weight:700;white-space:nowrap}
+.ba__label{position:absolute;bottom:24px;z-index:2;background:rgba(13,13,13,.82);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:2px;pointer-events:none}
+.ba__label--before{left:24px}
+.ba__label--after{right:24px}
+.ba-hint{text-align:center;color:var(--c-dim);font-size:.82rem;margin-top:18px;letter-spacing:.05em}
 
-    /* GALLERY STRIP */
-    .gallery-strip { padding: clamp(4rem, 8vw, 7rem) 0 0; }
-    .gallery-strip h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin-bottom: 2.5rem; }
-    .gallery-strip__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.75rem; }
-    .gallery-strip__grid img { width: 100%; height: 400px; object-fit: cover; display: block; transition: transform 0.6s var(--ease); overflow: hidden; }
-    .gallery-strip__grid div { overflow: hidden; }
-    .gallery-strip__grid div:hover img { transform: scale(1.04); }
+/* SERVICES GRID */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
+.svc-card{background:#0D0D0D;padding:48px 40px;transition:background .4s}
+.svc-card:hover{background:#111}
+.svc-card__num{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:900;color:rgba(204,31,31,.12);line-height:1;margin-bottom:20px}
+.svc-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:14px;color:#fff}
+.svc-card__body{font-size:.88rem;color:var(--c-dim);line-height:1.75}
 
-    /* CTA BAND */
-    .cta-band { position: relative; padding: clamp(5rem, 10vw, 8rem) 0; overflow: hidden; }
-    .cta-band__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-    .cta-band__overlay { position: absolute; inset: 0; background: rgba(13,13,13,0.82); }
-    .cta-band__content { position: relative; z-index: 2; max-width: 660px; }
-    .cta-band__eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-red); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
-    .cta-band__eyebrow::before { content: ""; display: block; width: 2rem; height: 2px; background: var(--c-red); }
-    .cta-band h2 { font-family: var(--ff-head); font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; line-height: 0.95; margin-bottom: 1.25rem; }
-    .cta-band p { color: var(--c-text-mute); margin-bottom: 2.5rem; font-size: 1rem; }
-    .cta-band__btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
+.process-step{background:var(--c-navy);padding:52px 40px;position:relative}
+.process-step__n{font-family:'Barlow Condensed',sans-serif;font-size:4.5rem;font-weight:900;color:rgba(204,31,31,.18);line-height:1;margin-bottom:16px}
+.process-step__title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;margin-bottom:12px}
+.process-step__body{font-size:.86rem;color:var(--c-dim);line-height:1.75}
 
-    /* FOOTER */
-    .footer { background: var(--c-navy-deep); border-top: 1px solid var(--c-line); padding: 4rem 0 2rem; }
-    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-    .footer__about p { font-size: 0.875rem; color: var(--c-text-mute); margin-top: 1.25rem; line-height: 1.7; }
-    .footer__license { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 0.75rem; }
-    .footer__col h4 { font-family: var(--ff-head); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; }
-    .footer__links { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
-    .footer__links a, .footer address a { font-size: 0.9rem; color: var(--c-text-mute); transition: color 0.2s; }
-    .footer__links a:hover, .footer address a:hover { color: var(--c-red); }
-    .footer address { font-size: 0.9rem; color: var(--c-text-mute); line-height: 1.9; }
-    .footer__bottom { border-top: 1px solid var(--c-line); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+/* GALLERY STRIP */
+.gallery-section{padding:80px 0;overflow:hidden}
+.gallery-section__header{padding:0 80px;margin-bottom:52px}
+.gallery-track{display:flex;gap:18px;width:max-content;animation:galleryScroll 32s linear infinite}
+.gallery-track:hover{animation-play-state:paused}
+@keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(calc(-50% - 9px))}}
+.gallery-slide{width:500px;height:360px;overflow:hidden;border-radius:2px;flex-shrink:0;position:relative}
+.gallery-slide img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.gallery-slide:hover img{transform:scale(1.06)}
 
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
-    .reveal.is-visible { opacity: 1; transform: none; }
+/* CTA BAND */
+.cta-band{padding:130px 80px;text-align:center;position:relative;overflow:hidden}
+.cta-band__bg{position:absolute;inset:0}
+.cta-band__bg img{width:100%;height:100%;object-fit:cover}
+.cta-band__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,13,13,.92) 0%,rgba(10,22,40,.85) 100%)}
+.cta-band__content{position:relative}
+.cta-band h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,5vw,4.8rem);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:22px}
+.cta-band h2 em{font-style:normal;color:var(--c-red)}
+.cta-band p{color:var(--c-dim);font-size:1.05rem;max-width:520px;margin:0 auto 48px;line-height:1.7}
+.cta-band .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .intro__grid, .includes__grid, .footer__grid { grid-template-columns: 1fr; }
-      .process__steps { grid-template-columns: 1fr 1fr; }
-      .gallery-strip__grid { grid-template-columns: 1fr 1fr; }
-      .gallery-strip__grid div:first-child { grid-column: span 2; }
-      .intro__img::after { display: none; }
-    }
-    @media (max-width: 720px) {
-      .nav__links { position: fixed; inset: 0; background: var(--c-bg); flex-direction: column; justify-content: center; gap: 2rem; transform: translateX(100%); transition: transform 0.4s var(--ease); }
-      .nav__links a { font-size: 1.25rem; }
-      .nav.is-open .nav__links { transform: translateX(0); }
-      .nav__toggle { display: block; z-index: 10; }
-      .nav__cta { display: none; }
-      .nav__inner { grid-template-columns: auto 1fr auto; }
-      .process__steps { grid-template-columns: 1fr; border-top: none; }
-      .process__step { border-right: none; border-top: 1px solid var(--c-line); padding: 2rem 0; }
-      .process__step:not(:first-child) { padding-left: 0; }
-      .includes__grid { grid-template-columns: 1fr; }
-      .gallery-strip__grid { grid-template-columns: 1fr; }
-      .gallery-strip__grid div:first-child { grid-column: span 1; }
-    }
+/* FOOTER */
+.site-footer{background:#080808;border-top:1px solid rgba(255,255,255,.05);padding:90px 80px 44px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;margin-bottom:64px}
+.footer-logo img{height:38px;filter:brightness(0) invert(1);opacity:.45;margin-bottom:22px}
+.footer-text{font-size:.86rem;color:var(--c-dim);line-height:1.75}
+.footer-h{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:22px;color:var(--c-text)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:.86rem;color:var(--c-dim);transition:color .3s}
+.footer-links a:hover{color:var(--c-text)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:34px;font-size:.76rem;color:var(--c-dim);display:flex;justify-content:space-between}
 
-  </style>
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal--delay-1{transition-delay:.15s}
+.reveal--delay-2{transition-delay:.3s}
+.reveal--delay-3{transition-delay:.45s}
+
+/* BACK LINK */
+.breadcrumb{position:fixed;top:88px;left:40px;z-index:50;display:flex;align-items:center;gap:8px;font-size:.75rem;color:var(--c-dim);letter-spacing:.06em;text-transform:uppercase;opacity:0;transition:opacity .4s}
+.nav.scrolled~.breadcrumb{opacity:1}
+.breadcrumb a:hover{color:var(--c-text)}
+
+@media(max-width:960px){
+  .nav__inner{padding:18px 24px}
+  .hero__content{padding:0 28px}
+  .hero__h1{font-size:clamp(3rem,10vw,5rem)}
+  .stats-bar{padding:24px 28px;grid-template-columns:repeat(2,1fr)}
+  .section{padding:70px 28px}
+  .ba-section{padding:70px 28px}
+  .intro-split{grid-template-columns:1fr;gap:44px}
+  .intro-split__img img{height:440px}
+  .svc-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .gallery-section__header{padding:0 28px}
+  .cta-band{padding:90px 28px}
+  .site-footer{padding:64px 28px 36px}
+  .footer-grid{grid-template-columns:1fr;gap:44px}
+  .footer-bottom{flex-direction:column;gap:8px}
+}
+</style>
 </head>
 <body>
 
-  <header class="nav" id="nav">
-    <div class="container nav__inner">
-      <nav aria-label="Primary">
-        <ul class="nav__links" id="navLinks">
-          <li><a href="/#services">Services</a></li>
-          <li><a href="/#projects">Projects</a></li>
-          <li><a href="/#reviews">Reviews</a></li>
-          <li><a href="/#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="/" class="logo" aria-label="Power Remodeling Texas — Home">
-        <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
-      </a>
-      <div class="nav__right">
-        <a href="/#contact" class="btn btn--red nav__cta">Free Quote</a>
-        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <div class="nav__l">
+      <a href="tel:8328491431" class="nav__phone">(832) 849-1431</a>
     </div>
-  </header>
-
-  <main>
-
-    <!-- SERVICE HERO -->
-    <section class="svc-hero">
-      <div class="svc-hero__bg" style="background-image: url('images/bathroom-1.jpg');"></div><!-- SWAP: replace with service-specific image -->
-      <div class="svc-hero__overlay"></div>
-      <div class="container" style="position:relative;z-index:2;width:100%;">
-        <p class="svc-hero__breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; Bathroom Renovation</p>
-        <div class="svc-hero__content">
-          <div class="svc-hero__tag">Service — 02</div>
-          <h1>Spa-grade.<br>Every detail.</h1>
-          <p class="svc-hero__sub">Curbless showers, freestanding soaking tubs, custom vanities — designed and built to function perfectly for 20 years.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTRO -->
-    <section class="intro">
-      <div class="container">
-        <div class="intro__grid">
-          <div class="intro__img reveal">
-            <img src="images/bathroom-2.jpg" alt="Bathroom Renovation" loading="lazy" /><!-- SWAP -->
-          </div>
-          <div class="intro__text reveal">
-            <div class="intro__eyebrow">What we do</div>
-            <h2>Bathrooms that perform<br>as good as they look.</h2>
-            <p>A bathroom renovation fails when the waterproofing fails. We install Schluter-KERDI membrane systems on every shower — the industry's most reliable barrier — before a single tile goes up.</p>
-            <p>Whether it's a master suite overhaul, a guest bath refresh, or a powder room that makes a statement, we design around how you use the space and deliver it on schedule.</p>
-            <a href="/#contact" class="btn btn--red btn--lg">Get a Free Quote</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT'S INCLUDED -->
-    <section class="includes">
-      <div class="container">
-        <div class="includes__head reveal">
-          <h2>What's included</h2>
-          <p>Every bathroom renovation project covers these scopes — no add-on surprises mid-build.</p>
-        </div>
-        <div class="includes__grid">
-        <div class="includes__item reveal">
-          <div class="includes__num">01</div>
-          <h3>Curbless Showers</h3>
-          <p>Barrier-free entry, linear drains, and recessed niches built to commercial waterproofing standards.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">02</div>
-          <h3>Custom Vanities</h3>
-          <p>Shop-built cabinetry with stone tops, undermount sinks, and your choice of hardware finish.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">03</div>
-          <h3>Freestanding Tubs</h3>
-          <p>Proper floor reinforcement, supply rough-in, and drain placement — installed to manufacturer specs.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">04</div>
-          <h3>Heated Floors</h3>
-          <p>Schluter-DITRA HEAT electric mat system under tile — thermostat-controlled, zero cold mornings.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">05</div>
-          <h3>Frameless Glass</h3>
-          <p>Precision-measured, field-templated frameless enclosures with brushed brass or matte black hardware.</p>
-        </div>
-        <div class="includes__item reveal">
-          <div class="includes__num">06</div>
-          <h3>Full Plumbing</h3>
-          <p>Supply and drain rough-in, vent stack modifications, and finish plumbing — all by licensed plumbers.</p>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="process">
-      <div class="container">
-        <div class="process__head reveal">
-          <h2>How it works</h2>
-          <p>Our process is designed to eliminate surprises. You know what's happening, when, and why — before we ever swing a hammer.</p>
-        </div>
-        <div class="process__steps">
-        <div class="process__step reveal">
-          <div class="process__step-num">01</div>
-          <h3>Waterproofing Plan</h3>
-          <p>We map every wet zone and specify the membrane, drain, and substrate system before demo.</p>
-        </div>
-        <div class="process__step reveal">
-          <div class="process__step-num">02</div>
-          <h3>Demo & Rough-In</h3>
-          <p>Tile removal, subfloor assessment, plumbing relocation, and electrical for lighting and heat mat.</p>
-        </div>
-        <div class="process__step reveal">
-          <div class="process__step-num">03</div>
-          <h3>Tile & Stone</h3>
-          <p>Shower walls, floor tile, and any feature walls — set by dedicated tile setters using large-format techniques.</p>
-        </div>
-        <div class="process__step reveal">
-          <div class="process__step-num">04</div>
-          <h3>Fixtures & Finish</h3>
-          <p>Vanity install, glass enclosure, lighting, mirrors, accessories — everything aligned and sealed.</p>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="gallery-strip">
-      <div class="container">
-        <h2 class="reveal">Recent work</h2>
-        <div class="gallery-strip__grid">
-        <div><img src="images/kitchen-7.jpg" alt="" loading="lazy" /></div>
-        <div><img src="images/bathroom-1.jpg" alt="" loading="lazy" /></div>
-        <div><img src="images/bathroom-2.jpg" alt="" loading="lazy" /></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-band">
-      <div class="cta-band__bg" style="background-image: url('images/kitchen-8.jpg');"></div>
-      <div class="cta-band__overlay"></div>
-      <div class="container">
-        <div class="cta-band__content reveal">
-          <div class="cta-band__eyebrow">Let's build</div>
-          <h2>Ready to start your project?</h2>
-          <p>Schedule a free in-home consultation. We typically book within the same week.</p>
-          <div class="cta-band__btns">
-            <a href="/#contact" class="btn btn--red btn--lg">Get Your Free Quote →</a>
-            <a href="/" class="btn btn--ghost btn--lg">See All Services</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__col footer__about">
-          <a href="/" class="logo">
-            <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
-          </a>
-          <p>Texas's premier residential remodeling contractor. In-house craftsmen, design-led process, transparent pricing. Building better homes since 2009.</p>
-          <p class="footer__license">TX Contractor Lic. #REM-2024-7741</p>
-        </div>
-        <div class="footer__col">
-          <h4>Navigate</h4>
-          <ul class="footer__links">
-            <li><a href="/#services">Services</a></li>
-            <li><a href="/#projects">Projects</a></li>
-            <li><a href="/#reviews">Reviews</a></li>
-            <li><a href="/#contact">Free Quote</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Contact</h4>
-          <address>
-            Power Remodeling Texas<br>
-            Houston, TX<br>
-            <a href="tel:7135550182">(713) 555-0182</a><br>
-            <a href="mailto:info@powerremodelingtx.com">info@powerremodelingtx.com</a>
-          </address>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>© 2025 Power Remodeling Texas. All rights reserved.</p>
-        <p>TX Contractor Lic. #REM-2024-7741</p>
-      </div>
+    <a class="nav__logo" href="index.html">
+      <img src="images/prm-logo.png" alt="Power Remodeling Texas">
+    </a>
+    <div class="nav__r">
+      <a class="nav__cta" href="index.html#contact">Free Estimate</a>
     </div>
-  </footer>
+  </div>
+</nav>
 
-  <script>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="images/bathroom-2.jpg" alt="Luxury master bath renovation by Power Remodeling Texas">
+  </div>
+  <div class="hero__content">
+    <span class="hero__eyebrow">Bathroom Remodeling</span>
+    <h1 class="hero__h1">Spa-grade.<br><em>Every</em> detail.</h1>
+    <p class="hero__sub">From tub-to-shower conversions to complete master suite rebuilds — we design bathrooms that feel like a private resort, built to last decades.</p>
+    <div class="hero__actions">
+      <a href="index.html#contact" class="btn-primary">Get a Free Estimate</a>
+      <a href="#before-after" class="btn-ghost">See Transformations ↓</a>
+    </div>
+  </div>
+</section>
 
-    const nav = document.getElementById('nav');
-    const onScroll = () => { nav.classList.toggle('is-scrolled', window.scrollY > 20); };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    const navToggle = document.getElementById('navToggle');
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        const open = nav.classList.toggle('is-open');
-        navToggle.setAttribute('aria-expanded', open);
-      });
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="reveal">
+    <div class="stat__num">500<span>+</span></div>
+    <div class="stat__label">Bathrooms Completed</div>
+  </div>
+  <div class="reveal reveal--delay-1">
+    <div class="stat__num">14<span>–</span>21</div>
+    <div class="stat__label">Day Avg. Timeline</div>
+  </div>
+  <div class="reveal reveal--delay-2">
+    <div class="stat__num">5<span>★</span></div>
+    <div class="stat__label">Average Client Rating</div>
+  </div>
+  <div class="reveal reveal--delay-3">
+    <div class="stat__num">100<span>%</span></div>
+    <div class="stat__label">Licensed &amp; Insured</div>
+  </div>
+</div>
 
-  </script>
+<!-- INTRO SPLIT -->
+<section class="section">
+  <div class="intro-split">
+    <div class="reveal">
+      <p class="eyebrow">Why Remodel</p>
+      <h2 class="section-h">Your bathroom deserves better than 1997.</h2>
+      <p class="section-sub">Pink tile, fiberglass tubs, and globe light bars had their moment. Today's master bathrooms are statement spaces — where the day starts right and stress doesn't follow you home. We take what's dated and replace it with something you'll actually look forward to using.</p>
+      <ul class="intro-list">
+        <li>Full teardown to studs — we fix what the previous owners ignored</li>
+        <li>Waterproofing and moisture barriers done to code, never to corners</li>
+        <li>Curbless walk-in showers, freestanding soaking tubs, dual vanities</li>
+        <li>Heated flooring, backlit mirrors, and smart fixtures available</li>
+        <li>We source material direct — you get trade pricing, not retail markup</li>
+      </ul>
+    </div>
+    <div class="intro-split__img reveal reveal--delay-1">
+      <img src="images/bathroom-1.jpg" alt="Modern dual-vanity master bathroom renovation">
+    </div>
+  </div>
+</section>
 
+<!-- BEFORE / AFTER SLIDER -->
+<section class="ba-section" id="before-after">
+  <div class="ba-section__header">
+    <p class="eyebrow">Before &amp; After</p>
+    <h2 class="section-h">Drag to see the transformation.</h2>
+    <p class="ba-section__sub">This bathroom sat untouched since the mid-1990s — mauve ceramic tile, fiberglass tub, cultured marble vanity. We gutted it to the studs and built a curbless walk-in shower with large-format porcelain and frameless glass.</p>
+  </div>
+  <div class="ba-wrap">
+    <div class="ba" data-ba>
+      <!-- AFTER image sits underneath (full width) -->
+      <div class="ba__after">
+        <img src="images/bathroom-2.jpg" alt="After: Modern spa bathroom renovation">
+      </div>
+      <!-- BEFORE image clips from left; dragging reveals more AFTER -->
+      <div class="ba__before" id="ba-before">
+        <!-- SWAP: Replace with Firefly-generated 1990s bathroom once confirmed -->
+        <img src="images/bath-before.png" alt="Before: Dated 1990s bathroom with pink tile">
+      </div>
+      <div class="ba__handle" id="ba-handle">
+        <div class="ba__icon">⟵⟶</div>
+      </div>
+      <span class="ba__label ba__label--before">Before</span>
+      <span class="ba__label ba__label--after">After</span>
+    </div>
+    <p class="ba-hint">↔ Drag the handle to compare before and after</p>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="section section--dark">
+  <div class="reveal">
+    <p class="eyebrow">Our Scope of Work</p>
+    <h2 class="section-h">Every bathroom scenario, covered.</h2>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-card__num">01</div>
+      <h3 class="svc-card__title">Tub-to-Shower Conversions</h3>
+      <p class="svc-card__body">Remove that builder-grade fiberglass tub and replace it with a curbless walk-in shower — large-format tile, frameless glass enclosure, linear drain, and rain head. This is our most-requested upgrade and one of the best investments you can make in a Texas home.</p>
+    </div>
+    <div class="svc-card reveal reveal--delay-1">
+      <div class="svc-card__num">02</div>
+      <h3 class="svc-card__title">Full Master Suite Remodel</h3>
+      <p class="svc-card__body">Complete gut-and-rebuild of your master bathroom. New layout when needed, custom tile work, soaking tub, steam shower, heated floors, dual vanity with custom cabinetry, and full lighting design. We manage every trade from demo to final walkthrough — one crew, one point of contact.</p>
+    </div>
+    <div class="svc-card reveal reveal--delay-2">
+      <div class="svc-card__num">03</div>
+      <h3 class="svc-card__title">Shower Modernization</h3>
+      <p class="svc-card__body">Tile surrounds cracking, grout discoloring, glass frames corroding — these aren't cosmetic problems, they're water intrusion waiting to happen. We remove the old surround, apply Schluter waterproofing, and install a tile system built to last 30 years. Walk-in niches, bench seating, and multi-head setups available.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-card__num">04</div>
+      <h3 class="svc-card__title">Vanity &amp; Fixture Upgrades</h3>
+      <p class="svc-card__body">A floating vanity, backlit mirror, quartz countertop, and updated plumbing fixtures can transform a bathroom in a week without a full renovation. We handle demo, tile patching, plumbing, and electrical as one crew — no subcontractor coordination on your part.</p>
+    </div>
+    <div class="svc-card reveal reveal--delay-1">
+      <div class="svc-card__num">05</div>
+      <h3 class="svc-card__title">Powder Room Transformation</h3>
+      <p class="svc-card__body">The room every guest sees. Statement wallcovering, vessel sink, dramatic floor tile, distinctive lighting — a powder room is where you take design risks you might not take elsewhere. Small footprint, outsized impression. We make them the most memorable room in the house.</p>
+    </div>
+    <div class="svc-card reveal reveal--delay-2">
+      <div class="svc-card__num">06</div>
+      <h3 class="svc-card__title">Secondary &amp; Jack-and-Jill Baths</h3>
+      <p class="svc-card__body">Secondary bathrooms see constant traffic and rarely get attention. We renovate them to match the quality of your primary spaces — durable large-format tile, quality fixtures, properly waterproofed showers, and smart storage. Done right, they're maintenance-free for two decades.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section--navy">
+  <div class="reveal">
+    <p class="eyebrow">How We Work</p>
+    <h2 class="section-h">Four steps. No surprises.</h2>
+    <p class="section-sub">We've refined this across hundreds of Houston bathrooms. Here's what happens from first call to final walkthrough.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="process-step__n">01</div>
+      <h3 class="process-step__title">In-Home Consultation</h3>
+      <p class="process-step__body">A senior estimator visits your home, takes exact measurements, reviews your vision and any existing issues, and delivers a detailed fixed-price quote within 48 hours. No vague ranges, no pressure.</p>
+    </div>
+    <div class="process-step reveal reveal--delay-1">
+      <div class="process-step__n">02</div>
+      <h3 class="process-step__title">Design &amp; Materials</h3>
+      <p class="process-step__body">We walk you through tile, fixtures, vanities, and hardware at our preferred vendors — you get trade pricing. Every item is locked before demo begins. No mid-project surprises.</p>
+    </div>
+    <div class="process-step reveal reveal--delay-2">
+      <div class="process-step__n">03</div>
+      <h3 class="process-step__title">Demo &amp; Build</h3>
+      <p class="process-step__body">Our crew arrives on schedule, protects adjacent areas, and executes. We self-perform tile, plumbing, electrical, and carpentry. Daily progress photos sent directly to you.</p>
+    </div>
+    <div class="process-step reveal reveal--delay-3">
+      <div class="process-step__n">04</div>
+      <h3 class="process-step__title">Final Walkthrough</h3>
+      <p class="process-step__body">We walk every inch with you. Any punch list items are addressed before final payment. Your satisfaction isn't a policy — it's how we stay in business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<section class="gallery-section">
+  <div class="gallery-section__header reveal">
+    <p class="eyebrow">Project Gallery</p>
+    <h2 class="section-h">Work we've done.</h2>
+  </div>
+  <div class="gallery-track">
+    <div class="gallery-slide"><img src="images/bathroom-1.jpg" alt="Master bath dual vanity"></div>
+    <div class="gallery-slide"><img src="images/bathroom-2.jpg" alt="Freestanding tub renovation"></div>
+    <div class="gallery-slide"><img src="images/kitchen-backyard.jpg" alt="Open plan remodel"></div>
+    <div class="gallery-slide"><img src="images/bathroom-1.jpg" alt="Walk-in shower tile"></div>
+    <div class="gallery-slide"><img src="images/bathroom-2.jpg" alt="Curbless shower linear drain"></div>
+    <div class="gallery-slide"><img src="images/bathroom-1.jpg" alt="Powder room statement"></div>
+    <!-- Duplicated for seamless loop -->
+    <div class="gallery-slide"><img src="images/bathroom-1.jpg" alt="Master bath dual vanity"></div>
+    <div class="gallery-slide"><img src="images/bathroom-2.jpg" alt="Freestanding tub renovation"></div>
+    <div class="gallery-slide"><img src="images/kitchen-backyard.jpg" alt="Open plan remodel"></div>
+    <div class="gallery-slide"><img src="images/bathroom-1.jpg" alt="Walk-in shower tile"></div>
+    <div class="gallery-slide"><img src="images/bathroom-2.jpg" alt="Curbless shower linear drain"></div>
+    <div class="gallery-slide"><img src="images/bathroom-1.jpg" alt="Powder room statement"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-band__bg">
+    <img src="images/bathroom-2.jpg" alt="">
+  </div>
+  <div class="cta-band__content">
+    <h2>Ready to rebuild<br><em>your</em> bathroom?</h2>
+    <p>We serve Houston, Sugar Land, The Woodlands, Katy, and surrounding areas. Estimates are free, detailed, and delivered in 48 hours.</p>
+    <div class="actions">
+      <a href="index.html#contact" class="btn-primary">Schedule a Free Estimate</a>
+      <a href="tel:8328491431" class="btn-ghost">(832) 849-1431</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><img src="images/prm-logo.png" alt="Power Remodeling Texas"></div>
+      <p class="footer-text">Premium kitchen, bathroom, and home remodeling across greater Houston. Licensed, bonded, and fully insured in Texas.</p>
+    </div>
+    <div>
+      <h4 class="footer-h">Services</h4>
+      <ul class="footer-links">
+        <li><a href="kitchen.html">Kitchen Remodeling</a></li>
+        <li><a href="bathroom.html">Bathroom Remodeling</a></li>
+        <li><a href="additions.html">Home Additions</a></li>
+        <li><a href="flooring.html">Flooring</a></li>
+        <li><a href="cabinetry.html">Cabinetry</a></li>
+        <li><a href="finishes.html">Finishes &amp; Materials</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-h">Contact</h4>
+      <p class="footer-text">(832) 849-1431<br>Houston, Texas<br><br>Serving Greater Houston<br>Licensed Texas Contractor</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Power Remodeling Texas. All rights reserved.</span>
+    <span>Licensed Texas Contractor</span>
+  </div>
+</footer>
+
+<script>
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
+
+// REVEAL ON SCROLL
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// BEFORE/AFTER SLIDER
+document.querySelectorAll('[data-ba]').forEach(wrap => {
+  const before  = document.getElementById('ba-before');
+  const handle  = document.getElementById('ba-handle');
+  let dragging  = false;
+  let startW    = 50;
+
+  const setPos = pct => {
+    pct = Math.max(4, Math.min(96, pct));
+    before.style.width  = pct + '%';
+    handle.style.left   = pct + '%';
+  };
+
+  const pctFrom = x => {
+    const r = wrap.getBoundingClientRect();
+    return (x - r.left) / r.width * 100;
+  };
+
+  setPos(50); // Initial position
+
+  wrap.addEventListener('mousedown',  e => { dragging = true; setPos(pctFrom(e.clientX)); e.preventDefault(); });
+  document.addEventListener('mousemove', e => { if(dragging) setPos(pctFrom(e.clientX)); });
+  document.addEventListener('mouseup',   () => dragging = false);
+  wrap.addEventListener('touchstart', e => { dragging = true; setPos(pctFrom(e.touches[0].clientX)); }, {passive:true});
+  document.addEventListener('touchmove', e => { if(dragging) setPos(pctFrom(e.touches[0].clientX)); }, {passive:true});
+  document.addEventListener('touchend',  () => dragging = false);
+});
+</script>
 </body>
 </html>
