@@ -115,10 +115,16 @@
       border-bottom-color: var(--c-line);
     }
     .nav__inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav__right {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
+      justify-content: flex-end;
+      gap: 1rem;
     }
     .logo {
       display: inline-flex;
@@ -129,9 +135,11 @@
       height: 48px;
       width: auto;
       display: block;
+      filter: brightness(0) invert(1);
     }
     .footer__about .logo img {
       height: 56px;
+      filter: brightness(0) invert(1);
     }
     .nav__links {
       display: flex;
@@ -794,6 +802,8 @@
       .nav.is-open .nav__links { transform: translateX(0); }
       .nav__toggle { display: block; z-index: 10; }
       .nav__cta { display: none; }
+      .nav__inner { grid-template-columns: auto 1fr auto; }
+      .nav__links { order: -1; }
 
       .hero { padding-bottom: 4rem; }
 
@@ -830,9 +840,6 @@
   <!-- NAV -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#top" class="logo" aria-label="Power Remodeling Texas — Home">
-        <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
-      </a>
       <nav aria-label="Primary">
         <ul class="nav__links" id="navLinks">
           <li><a href="#services">Services</a></li>
@@ -841,10 +848,15 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a href="#quote" class="btn btn--red nav__cta">Free Quote</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="#top" class="logo" aria-label="Power Remodeling Texas — Home">
+        <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
+      </a>
+      <div class="nav__right">
+        <a href="#quote" class="btn btn--red nav__cta">Free Quote</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -855,12 +867,12 @@
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="container hero__content">
-        <div class="hero__tag">Houston, TX — Since 2009</div>
+        <div class="hero__tag">Texas — Since 2009</div>
         <h1 class="hero__title">
-          <span>Built for Houston.</span>
+          <span>Built for Texas.</span>
           <span class="accent">Built to last.</span>
         </h1>
-        <p class="hero__sub">Premium kitchen, bathroom, and home remodeling — delivered by a licensed Houston crew that treats your home like their own.</p>
+        <p class="hero__sub">Premium kitchen, bathroom, and home remodeling — delivered by a licensed Texas crew that treats your home like their own.</p>
         <div class="hero__ctas">
           <a href="#quote" class="btn btn--red btn--lg">Get a Free Quote</a>
           <a href="#projects" class="btn btn--ghost btn--lg">See our work</a>
@@ -943,7 +955,7 @@
         </div>
         <div class="stat reveal reveal--delay-1">
           <div class="stat__num"><span class="count" data-target="15">0</span></div>
-          <div class="stat__label">Years in Houston</div>
+          <div class="stat__label">Years in Texas</div>
         </div>
         <div class="stat reveal reveal--delay-2">
           <div class="stat__num"><span class="count" data-target="100">0</span><small>%</small></div>
@@ -957,7 +969,7 @@
       <div class="container">
         <div class="section__head reveal">
           <span class="eyebrow">Our work</span>
-          <h2>Recent Houston&nbsp;projects.</h2>
+          <h2>Recent Texas&nbsp;projects.</h2>
           <p>A selection of completed homes from Memorial, The Heights, River Oaks, The Woodlands, Katy, and Sugar Land.</p>
         </div>
 
@@ -1027,7 +1039,7 @@
       <div class="container">
         <div class="section__head reveal">
           <span class="eyebrow">Real homeowners</span>
-          <h2>What Houston homeowners&nbsp;say.</h2>
+          <h2>What Texas homeowners&nbsp;say.</h2>
           <p>Every project ends with a reference check. Here's what neighbors across Harris, Fort Bend, and Montgomery counties have told us.</p>
         </div>
 
@@ -1078,7 +1090,7 @@
           <a href="#top" class="logo">
             <img src="images/prm-logo.png" alt="Power Remodeling Texas" />
           </a>
-          <p>Houston's premier residential remodeling contractor. In-house craftsmen, design-led process, transparent pricing. Building better homes since 2009.</p>
+          <p>Texas's premier residential remodeling contractor. In-house craftsmen, design-led process, transparent pricing. Building better homes since 2009.</p>
           <p class="footer__license">TX Contractor Lic. #REM-2024-7741</p>
         </div>
         <div class="footer__col">
