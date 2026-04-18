@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Received | Power Remodeling Texas</title>
+<meta name="description" content="Thank you — your estimate request has been received. Power Remodeling Texas will contact you within 24 hours.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--c-bg:#0D0D0D;--c-red:#CC1F1F;--c-navy:#0A1628;--c-text:#E8E4DC;--c-dim:#9A9590;--rad:4px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--c-bg);color:var(--c-text);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav__inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 60px}
+.nav__logo img{height:40px;filter:brightness(0) invert(1)}
+.nav__phone{font-size:.85rem;letter-spacing:.06em;color:var(--c-dim)}
+.nav__r{display:flex;justify-content:flex-end}
+
+/* HERO */
+.hero{flex:1;display:flex;align-items:center;justify-content:center;padding:140px 40px 80px;position:relative;overflow:hidden;text-align:center}
+.hero__bg{position:absolute;inset:0;background:url('images/austin-skyline.jpg') center/cover no-repeat;opacity:.1;z-index:0}
+.hero__content{position:relative;z-index:1;max-width:700px}
+
+/* CHECK ANIMATION */
+.check-wrap{width:90px;height:90px;border-radius:50%;border:3px solid var(--c-red);display:flex;align-items:center;justify-content:center;margin:0 auto 36px;animation:popIn .5s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.check-wrap svg{width:44px;height:44px;stroke:var(--c-red);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:drawCheck .5s .3s ease forwards}
+@keyframes drawCheck{to{stroke-dashoffset:0}}
+
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--c-red);margin-bottom:16px;display:block}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3.5rem,8vw,6rem);font-weight:900;text-transform:uppercase;line-height:.95;margin-bottom:20px}
+h1 em{font-style:normal;color:var(--c-red)}
+.lead{font-size:1.1rem;color:var(--c-dim);line-height:1.7;max-width:540px;margin:0 auto 52px}
+
+/* NEXT STEPS */
+.next-steps{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--rad);padding:40px;margin-bottom:48px;text-align:left}
+.next-steps h2{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;text-transform:uppercase;margin-bottom:28px;color:#fff;text-align:center;letter-spacing:.03em}
+.steps-list{display:flex;flex-direction:column;gap:0}
+.step-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.step-item:last-child{border-bottom:none;padding-bottom:0}
+.step-item:first-child{padding-top:0}
+.step-n{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--c-red);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-top:2px}
+.step-body{}
+.step-body strong{display:block;font-size:.93rem;font-weight:600;color:#fff;margin-bottom:4px}
+.step-body p{font-size:.85rem;color:var(--c-dim);line-height:1.65}
+
+/* CTA BUTTONS */
+.cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-primary{background:var(--c-red);color:#fff;padding:16px 36px;border-radius:var(--rad);font-weight:600;font-size:.88rem;letter-spacing:.07em;text-transform:uppercase;transition:opacity .3s,transform .3s;display:inline-block}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(232,228,220,.2);color:var(--c-dim);padding:15px 36px;border-radius:var(--rad);font-size:.88rem;transition:all .3s;display:inline-block}
+.btn-ghost:hover{border-color:rgba(232,228,220,.5);color:var(--c-text)}
+
+/* SERVICES GRID */
+.services-section{background:#111;border-top:1px solid rgba(255,255,255,.06);padding:80px 80px}
+.services-section h2{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;text-transform:uppercase;text-align:center;margin-bottom:48px}
+.svc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:var(--rad);overflow:hidden;max-width:860px;margin:0 auto}
+.svc-mini{background:#111;padding:32px 28px;transition:background .3s}
+.svc-mini:hover{background:#1a1a1a}
+.svc-mini__icon{font-size:1.5rem;margin-bottom:12px}
+.svc-mini__name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:6px}
+.svc-mini__link{font-size:.8rem;color:var(--c-red);letter-spacing:.05em}
+
+/* FOOTER */
+.footer-simple{border-top:1px solid rgba(255,255,255,.06);padding:28px 80px;display:flex;justify-content:space-between;align-items:center}
+.footer-simple p{font-size:.78rem;color:var(--c-dim)}
+.footer-simple a{color:var(--c-dim);transition:color .3s}
+.footer-simple a:hover{color:var(--c-text)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav__inner{padding:16px 24px}
+  .hero{padding:120px 24px 60px}
+  .services-section{padding:60px 24px}
+  .svc-row{grid-template-columns:1fr 1fr}
+  .footer-simple{padding:24px;flex-direction:column;gap:12px;text-align:center}
+  .cta-row{flex-direction:column;align-items:center}
+}
+@media(max-width:480px){
+  .svc-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="tel:8322312334" class="nav__phone">(832) 231-2334</a>
+    <a href="index.html" class="nav__logo"><img src="images/prm-logo.svg" alt="Power Remodeling Texas"></a>
+    <div class="nav__r"></div>
+  </div>
+</nav>
+
+<!-- HERO / CONFIRMATION -->
+<div class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__content">
+
+    <div class="check-wrap">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <span class="eyebrow">Estimate Request Received</span>
+    <h1>We've got<br>your <em>request</em></h1>
+    <p class="lead">Your project details are in. A member of our team will reach out within 24 hours to confirm a few details and schedule your free, no-obligation walk-through.</p>
+
+    <!-- WHAT HAPPENS NEXT -->
+    <div class="next-steps">
+      <h2>What happens next</h2>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-n">1</div>
+          <div class="step-body">
+            <strong>We review your project details (today)</strong>
+            <p>Our team reads through everything you shared — services, budget, timeline, and description — before we call.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">2</div>
+          <div class="step-body">
+            <strong>We contact you within 24 hours</strong>
+            <p>Expect a call or text from a Power Remodeling Texas team member to introduce ourselves and ask any clarifying questions.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">3</div>
+          <div class="step-body">
+            <strong>Free on-site walk-through (at your convenience)</strong>
+            <p>We come to your home or property, walk the space, take measurements, and understand exactly what you're envisioning.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">4</div>
+          <div class="step-body">
+            <strong>Detailed written estimate delivered</strong>
+            <p>You receive a complete, itemized quote in writing — no verbal estimates, no vague ranges. You decide if you want to move forward, on your schedule.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="index.html" class="btn-primary">Back to Home</a>
+      <a href="tel:8322312334" class="btn-ghost">📞 Call us directly: (832) 231-2334</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- SERVICES BROWSE -->
+<section class="services-section">
+  <h2>Browse our services</h2>
+  <div class="svc-row">
+    <a href="kitchen.html" class="svc-mini">
+      <div class="svc-mini__icon">🍳</div>
+      <div class="svc-mini__name">Kitchen</div>
+      <div class="svc-mini__link">View projects →</div>
+    </a>
+    <a href="bathroom.html" class="svc-mini">
+      <div class="svc-mini__icon">🛁</div>
+      <div class="svc-mini__name">Bathroom</div>
+      <div class="svc-mini__link">View projects →</div>
+    </a>
+    <a href="additions.html" class="svc-mini">
+      <div class="svc-mini__icon">🏠</div>
+      <div class="svc-mini__name">Additions</div>
+      <div class="svc-mini__link">View projects →</div>
+    </a>
+    <a href="cabinetry.html" class="svc-mini">
+      <div class="svc-mini__icon">🪵</div>
+      <div class="svc-mini__name">Cabinetry</div>
+      <div class="svc-mini__link">View projects →</div>
+    </a>
+    <a href="flooring.html" class="svc-mini">
+      <div class="svc-mini__icon">🏡</div>
+      <div class="svc-mini__name">Flooring</div>
+      <div class="svc-mini__link">View projects →</div>
+    </a>
+    <a href="finishes.html" class="svc-mini">
+      <div class="svc-mini__icon">✨</div>
+      <div class="svc-mini__name">Finishes</div>
+      <div class="svc-mini__link">View projects →</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-simple">
+  <p>© 2025 Power Remodeling Texas. All rights reserved.</p>
+  <p><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="estimate.html">Get Estimate</a> &nbsp;·&nbsp; <a href="tel:8322312334">(832) 231-2334</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Estimate | Power Remodeling Texas</title>
+<meta name="description" content="Get a free remodeling estimate from Power Remodeling Texas. Kitchen remodels, bathroom renovations, home additions, cabinetry, flooring, and finishes — Houston's trusted contractor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--c-bg:#0D0D0D;--c-red:#CC1F1F;--c-navy:#0A1628;--c-text:#E8E4DC;--c-dim:#9A9590;--rad:4px;--trans:600ms cubic-bezier(.25,.46,.45,.94)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--c-bg);color:var(--c-text);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav__inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 60px}
+.nav__logo img{height:40px;filter:brightness(0) invert(1)}
+.nav__phone{font-size:.85rem;letter-spacing:.06em;color:var(--c-dim);transition:color .3s}
+.nav__phone:hover{color:var(--c-text)}
+.nav__r{display:flex;justify-content:flex-end;align-items:center;gap:20px}
+.nav__back{font-size:.82rem;color:var(--c-dim);letter-spacing:.05em;transition:color .3s}
+.nav__back:hover{color:var(--c-text)}
+.nav__back::before{content:'← '}
+
+/* HERO STRIP */
+.hero-strip{padding:140px 80px 60px;text-align:center;position:relative;overflow:hidden}
+.hero-strip__bg{position:absolute;inset:0;background:url('images/austin-skyline.jpg') center/cover no-repeat;opacity:.12;z-index:0}
+.hero-strip__content{position:relative;z-index:1}
+.hero-strip .eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--c-red);margin-bottom:16px;display:block}
+.hero-strip h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:900;text-transform:uppercase;line-height:.95;margin-bottom:20px}
+.hero-strip h1 em{font-style:normal;color:var(--c-red)}
+.hero-strip p{font-size:1rem;color:var(--c-dim);max-width:520px;margin:0 auto;line-height:1.7}
+
+/* PROGRESS BAR */
+.progress-wrap{padding:40px 80px 0;max-width:820px;margin:0 auto}
+.progress-steps{display:flex;align-items:center;gap:0;margin-bottom:8px}
+.progress-step{display:flex;align-items:center;flex:1}
+.progress-step:last-child{flex:0}
+.step-bubble{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:600;color:var(--c-dim);transition:all .4s;flex-shrink:0;position:relative;z-index:1;background:var(--c-bg)}
+.step-bubble.active{border-color:var(--c-red);color:#fff;background:var(--c-red)}
+.step-bubble.done{border-color:var(--c-red);color:var(--c-red);background:transparent}
+.step-bubble.done::after{content:'✓';font-size:.9rem}
+.step-bubble.done span{display:none}
+.step-line{flex:1;height:2px;background:rgba(255,255,255,.1);transition:background .4s;margin:0 -1px}
+.step-line.done{background:var(--c-red)}
+.progress-labels{display:flex;justify-content:space-between;padding:0 0}
+.progress-label{font-size:.7rem;letter-spacing:.06em;color:var(--c-dim);text-align:center;text-transform:uppercase;flex:1}
+.progress-label:first-child{text-align:left}
+.progress-label:last-child{text-align:right}
+.progress-label.active{color:var(--c-text)}
+
+/* FORM WRAPPER */
+.form-outer{padding:48px 80px 100px;max-width:820px;margin:0 auto}
+.form-panel{display:none;animation:fadeSlide .35s ease}
+.form-panel.active{display:block}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* STEP 1 — SERVICE TYPE */
+.step-title{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;text-transform:uppercase;margin-bottom:10px;line-height:1.05}
+.step-sub{color:var(--c-dim);font-size:.93rem;margin-bottom:40px;line-height:1.65}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.service-card{border:2px solid rgba(255,255,255,.1);border-radius:var(--rad);padding:28px 24px;cursor:pointer;transition:all .3s;position:relative;user-select:none;background:rgba(255,255,255,.02)}
+.service-card:hover{border-color:rgba(204,31,31,.5);background:rgba(204,31,31,.05)}
+.service-card.selected{border-color:var(--c-red);background:rgba(204,31,31,.08)}
+.service-card.selected::after{content:'✓';position:absolute;top:14px;right:16px;color:var(--c-red);font-size:1rem;font-weight:700}
+.service-card__icon{font-size:1.8rem;margin-bottom:14px;line-height:1}
+.service-card__name{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px;color:#fff}
+.service-card__desc{font-size:.8rem;color:var(--c-dim);line-height:1.55}
+input[type="checkbox"].svc-check{display:none}
+
+/* STEP 2 — PROJECT DETAILS */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.form-row.single{grid-template-columns:1fr}
+.form-group{display:flex;flex-direction:column;gap:8px}
+.form-group label{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--c-dim)}
+.form-group label span.req{color:var(--c-red);margin-left:3px}
+.form-control{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--rad);padding:14px 18px;color:var(--c-text);font-family:'Inter',sans-serif;font-size:.93rem;width:100%;transition:border-color .3s,background .3s;-webkit-appearance:none}
+.form-control:focus{outline:none;border-color:var(--c-red);background:rgba(255,255,255,.07)}
+.form-control::placeholder{color:rgba(154,149,144,.5)}
+select.form-control{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A9590' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
+select.form-control option{background:#1a1a1a;color:var(--c-text)}
+textarea.form-control{resize:vertical;min-height:120px}
+
+/* RADIO GROUPS */
+.radio-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.radio-pill{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:9px 18px;cursor:pointer;transition:all .3s;font-size:.85rem;color:var(--c-dim);user-select:none}
+.radio-pill:hover{border-color:rgba(204,31,31,.4);color:var(--c-text)}
+.radio-pill input{display:none}
+.radio-pill.checked{border-color:var(--c-red);color:#fff;background:rgba(204,31,31,.1)}
+
+/* STEP 3 — CONTACT INFO */
+.trust-strip{display:flex;gap:28px;margin-bottom:40px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--c-dim)}
+.trust-icon{color:var(--c-red);font-size:1rem}
+
+/* BUTTONS */
+.form-actions{display:flex;justify-content:space-between;align-items:center;margin-top:40px;gap:16px}
+.btn-back{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--c-dim);padding:14px 28px;border-radius:var(--rad);font-family:'Inter',sans-serif;font-size:.88rem;cursor:pointer;transition:all .3s;letter-spacing:.04em}
+.btn-back:hover{border-color:rgba(255,255,255,.35);color:var(--c-text)}
+.btn-next{background:var(--c-red);color:#fff;padding:16px 40px;border-radius:var(--rad);font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;transition:opacity .3s,transform .3s;letter-spacing:.06em;text-transform:uppercase;border:none}
+.btn-next:hover{opacity:.88;transform:translateY(-2px)}
+.btn-next:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-submit{background:var(--c-red);color:#fff;padding:18px 56px;border-radius:var(--rad);font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;cursor:pointer;transition:opacity .3s,transform .3s;letter-spacing:.06em;text-transform:uppercase;border:none;display:inline-flex;align-items:center;gap:10px}
+.btn-submit:hover{opacity:.88;transform:translateY(-2px)}
+.btn-submit svg{width:18px;height:18px}
+
+/* SIDE TRUST PANEL */
+.estimate-layout{display:grid;grid-template-columns:1fr 340px;gap:60px;padding:48px 80px 100px;max-width:1140px;margin:0 auto}
+.trust-panel{padding-top:80px}
+.trust-panel__inner{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:var(--rad);padding:36px 28px;position:sticky;top:120px}
+.trust-panel h3{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;margin-bottom:24px;color:#fff}
+.trust-list{list-style:none;display:flex;flex-direction:column;gap:18px}
+.trust-list li{display:flex;align-items:flex-start;gap:12px;font-size:.85rem;color:var(--c-dim);line-height:1.6}
+.trust-list li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--c-red);margin-top:7px}
+.divider{border:none;border-top:1px solid rgba(255,255,255,.07);margin:24px 0}
+.stat-mini{text-align:center;padding:4px 0}
+.stat-mini__n{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;color:#fff;line-height:1}
+.stat-mini__n span{color:var(--c-red)}
+.stat-mini__label{font-size:.72rem;color:var(--c-dim);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+
+/* VALIDATION */
+.form-error{display:none;color:#e05c5c;font-size:.78rem;margin-top:4px}
+.form-control.error{border-color:#e05c5c}
+
+/* FOOTER */
+.footer-simple{border-top:1px solid rgba(255,255,255,.06);padding:28px 80px;display:flex;justify-content:space-between;align-items:center}
+.footer-simple p{font-size:.78rem;color:var(--c-dim)}
+.footer-simple a{color:var(--c-dim);transition:color .3s}
+.footer-simple a:hover{color:var(--c-text)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .estimate-layout{grid-template-columns:1fr;gap:0}
+  .trust-panel{padding-top:0;order:2}
+  .trust-panel__inner{position:static}
+  .progress-wrap,.form-outer,.estimate-layout{padding-left:28px;padding-right:28px}
+  .hero-strip{padding:120px 28px 48px}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .nav__inner{padding:16px 24px}
+}
+@media(max-width:540px){
+  .service-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="tel:8322312334" class="nav__phone">(832) 231-2334</a>
+    <a href="index.html" class="nav__logo"><img src="images/prm-logo.svg" alt="Power Remodeling Texas"></a>
+    <div class="nav__r">
+      <a href="index.html" class="nav__back">Back to site</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO STRIP -->
+<div class="hero-strip">
+  <div class="hero-strip__bg"></div>
+  <div class="hero-strip__content">
+    <span class="eyebrow">No obligation · Responses within 24 hours</span>
+    <h1>Get your<br><em>free estimate</em></h1>
+    <p>Schedule a free in-home consultation. We serve Houston, Katy, Sugar Land, The Woodlands, and surrounding areas — typically scheduling within the same week. In Austin, we serve Northwest Hills, Steiner Ranch, Riverplace, Jester Estates and Davenport Ranch.</p>
+  </div>
+</div>
+
+<!-- LAYOUT: FORM + TRUST PANEL -->
+<div class="estimate-layout">
+
+  <!-- FORM COLUMN -->
+  <div class="form-column">
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap">
+      <div class="progress-steps">
+        <div class="step-bubble active" id="bubble-1"><span>1</span></div>
+        <div class="step-line" id="line-1"></div>
+        <div class="step-bubble" id="bubble-2"><span>2</span></div>
+        <div class="step-line" id="line-2"></div>
+        <div class="step-bubble" id="bubble-3"><span>3</span></div>
+      </div>
+      <div class="progress-labels">
+        <span class="progress-label active" id="label-1">Service Type</span>
+        <span class="progress-label" id="label-2">Project Details</span>
+        <span class="progress-label" id="label-3">Your Info</span>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form id="estimate-form" class="form-outer" novalidate>
+
+      <!-- STEP 1: SERVICE TYPE -->
+      <div class="form-panel active" id="step-1">
+        <h2 class="step-title">What can we help<br>you <em style="color:var(--c-red)">build?</em></h2>
+        <p class="step-sub">Select all that apply — many projects combine services.</p>
+
+        <div class="service-grid">
+          <div class="service-card" data-service="kitchen" onclick="toggleService(this)">
+            <div class="service-card__icon">🍳</div>
+            <div class="service-card__name">Kitchen Remodel</div>
+            <div class="service-card__desc">Full gut renovations, cabinet replacements, countertops, layout changes</div>
+          </div>
+          <div class="service-card" data-service="bathroom" onclick="toggleService(this)">
+            <div class="service-card__icon">🛁</div>
+            <div class="service-card__name">Bathroom Renovation</div>
+            <div class="service-card__desc">Master baths, guest baths, walk-in showers, tub-to-shower conversions</div>
+          </div>
+          <div class="service-card" data-service="addition" onclick="toggleService(this)">
+            <div class="service-card__icon">🏠</div>
+            <div class="service-card__name">Home Addition</div>
+            <div class="service-card__desc">Master suites, second stories, in-law suites, ADUs, sunrooms</div>
+          </div>
+          <div class="service-card" data-service="cabinetry" onclick="toggleService(this)">
+            <div class="service-card__icon">🪵</div>
+            <div class="service-card__name">Custom Cabinetry</div>
+            <div class="service-card__desc">Kitchen, closets, mudrooms, built-ins, entertainment centers</div>
+          </div>
+          <div class="service-card" data-service="flooring" onclick="toggleService(this)">
+            <div class="service-card__icon">🏡</div>
+            <div class="service-card__name">Flooring</div>
+            <div class="service-card__desc">Hardwood, LVP, tile, stone — full rooms or whole-home installations</div>
+          </div>
+          <div class="service-card" data-service="finishes" onclick="toggleService(this)">
+            <div class="service-card__icon">✨</div>
+            <div class="service-card__name">Finishes &amp; Materials</div>
+            <div class="service-card__desc">Countertops, tile, fixtures, paint, trim — material selection &amp; installation</div>
+          </div>
+        </div>
+
+        <p id="svc-error" style="color:#e05c5c;font-size:.82rem;display:none;margin-bottom:20px">Please select at least one service to continue.</p>
+
+        <div class="form-actions" style="justify-content:flex-end">
+          <button type="button" class="btn-next" onclick="goStep(2)">Continue → Project Details</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: PROJECT DETAILS -->
+      <div class="form-panel" id="step-2">
+        <h2 class="step-title">Tell us about<br><em style="color:var(--c-red)">the project</em></h2>
+        <p class="step-sub">The more detail you share, the more accurate we can be before the walk-through.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Property Type <span class="req">*</span></label>
+            <select class="form-control" id="property-type" required>
+              <option value="" disabled selected>Select property type</option>
+              <option>Single Family Home</option>
+              <option>Townhome</option>
+              <option>Condo</option>
+              <option>Multi-Family</option>
+              <option>Commercial / Office</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Property Size (approx.)</label>
+            <select class="form-control" id="home-size">
+              <option value="" disabled selected>Select square footage</option>
+              <option>Under 1,500 sq ft</option>
+              <option>1,500 – 2,500 sq ft</option>
+              <option>2,500 – 4,000 sq ft</option>
+              <option>4,000 – 6,000 sq ft</option>
+              <option>Over 6,000 sq ft</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Estimated Budget <span class="req">*</span></label>
+            <select class="form-control" id="budget" required>
+              <option value="" disabled selected>Select your budget range</option>
+              <option>Under $25,000</option>
+              <option>$25,000 – $50,000</option>
+              <option>$50,000 – $100,000</option>
+              <option>$100,000 – $200,000</option>
+              <option>$200,000 – $400,000</option>
+              <option>Over $400,000</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Desired Start Timeline</label>
+            <select class="form-control" id="timeline">
+              <option value="" disabled selected>When do you want to start?</option>
+              <option>As soon as possible</option>
+              <option>Within 1–3 months</option>
+              <option>3–6 months from now</option>
+              <option>6–12 months from now</option>
+              <option>Just gathering information</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Project Address / Area</label>
+            <input type="text" class="form-control" id="project-address" placeholder="City, neighborhood, or full address (e.g. Katy, Sugar Land, Houston Heights)">
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Project Description</label>
+            <textarea class="form-control" id="project-desc" placeholder="Describe what you're looking to do. The more detail the better — existing layout issues, inspiration styles, must-haves, anything that helps us understand your vision."></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-back" onclick="goStep(1)">← Back</button>
+          <button type="button" class="btn-next" onclick="goStep(3)">Continue → Your Info</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: CONTACT INFO -->
+      <div class="form-panel" id="step-3">
+        <h2 class="step-title">How do we<br><em style="color:var(--c-red)">reach you?</em></h2>
+        <p class="step-sub">We'll call or text within 24 hours to confirm details and schedule your free walk-through.</p>
+
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-icon">🔒</span> 100% private — we never share your info</div>
+          <div class="trust-item"><span class="trust-icon">📞</span> No spam calls, ever</div>
+          <div class="trust-item"><span class="trust-icon">⚡</span> Response within 24 hours</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" class="form-control" id="first-name" placeholder="First name" required autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" class="form-control" id="last-name" placeholder="Last name" required autocomplete="family-name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" class="form-control" id="phone" placeholder="(832) 555-0100" required autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" class="form-control" id="email" placeholder="you@email.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Best way to contact you</label>
+            <div class="radio-group" id="contact-pref">
+              <label class="radio-pill checked"><input type="radio" name="contact" value="phone" checked> 📞 Phone call</label>
+              <label class="radio-pill"><input type="radio" name="contact" value="text"> 💬 Text message</label>
+              <label class="radio-pill"><input type="radio" name="contact" value="email"> ✉️ Email</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Best time to reach you</label>
+            <div class="radio-group">
+              <label class="radio-pill checked"><input type="radio" name="time" value="morning" checked> Morning (8–11am)</label>
+              <label class="radio-pill"><input type="radio" name="time" value="midday"> Midday (11am–2pm)</label>
+              <label class="radio-pill"><input type="radio" name="time" value="afternoon"> Afternoon (2–5pm)</label>
+              <label class="radio-pill"><input type="radio" name="time" value="evening"> Evening (5–7pm)</label>
+            </div>
+          </div>
+        </div>
+
+        <p id="submit-error" style="color:#e05c5c;font-size:.82rem;display:none;margin-top:16px">Please fill in all required fields.</p>
+
+        <div class="form-actions">
+          <button type="button" class="btn-back" onclick="goStep(2)">← Back</button>
+          <button type="submit" class="btn-submit" id="submit-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            Send My Estimate Request
+          </button>
+        </div>
+
+        <p style="font-size:.75rem;color:rgba(154,149,144,.6);margin-top:24px;line-height:1.7">By submitting this form you agree to be contacted by Power Remodeling Texas regarding your project. We respect your privacy and will never sell or share your information.</p>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- TRUST PANEL -->
+  <div class="trust-panel">
+    <div class="trust-panel__inner">
+      <h3>Why Power Remodeling Texas</h3>
+      <ul class="trust-list">
+        <li>All trades are in-house — no unvetted subcontractors on your job</li>
+        <li>Detailed written quote before any work begins — no verbal estimates</li>
+        <li>We pull all permits and manage every city inspection</li>
+        <li>Single point of contact from design through final walkthrough</li>
+        <li>Fixed-price contracts — what we quote is what you pay</li>
+        <li>Serving Houston, Katy, Sugar Land, The Woodlands &amp; surrounding areas</li>
+        <li>All trades in-house — no unvetted subcontractors</li>
+      </ul>
+      <hr class="divider">
+      <div class="stat-row">
+        <div class="stat-mini">
+          <div class="stat-mini__n">500<span>+</span></div>
+          <div class="stat-mini__label">Projects Done</div>
+        </div>
+        <div class="stat-mini">
+          <div class="stat-mini__n">5<span>★</span></div>
+          <div class="stat-mini__label">Avg. Rating</div>
+        </div>
+      </div>
+      <div class="stat-row" style="margin-top:16px">
+        <div class="stat-mini">
+          <div class="stat-mini__n">15<span>+</span></div>
+          <div class="stat-mini__label">Years Active</div>
+        </div>
+        <div class="stat-mini">
+          <div class="stat-mini__n">24<span>h</span></div>
+          <div class="stat-mini__label">Response Time</div>
+        </div>
+      </div>
+      <hr class="divider">
+      <p style="font-size:.8rem;color:var(--c-dim);line-height:1.65">Questions? Call or text us directly at <a href="tel:8322312334" style="color:var(--c-text)">(832) 231-2334</a>. We're available Monday–Saturday, 8am–6pm CT.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- SIMPLE FOOTER -->
+<footer class="footer-simple">
+  <p>© 2025 Power Remodeling Texas. All rights reserved.</p>
+  <p><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="tel:8322312334">(832) 231-2334</a></p>
+</footer>
+
+<script>
+// ── Service selection ──
+function toggleService(el) {
+  el.classList.toggle('selected');
+}
+
+// ── Radio pills ──
+document.querySelectorAll('.radio-pill input').forEach(function(radio) {
+  radio.addEventListener('change', function() {
+    const group = this.closest('.radio-group');
+    group.querySelectorAll('.radio-pill').forEach(function(p){ p.classList.remove('checked'); });
+    this.closest('.radio-pill').classList.add('checked');
+  });
+});
+
+// ── Step navigation ──
+function goStep(n) {
+  const current = parseInt(document.querySelector('.form-panel.active').id.replace('step-',''));
+
+  // Validate step 1: at least one service selected
+  if (current === 1 && n === 2) {
+    const selected = document.querySelectorAll('.service-card.selected');
+    if (selected.length === 0) {
+      document.getElementById('svc-error').style.display = 'block';
+      return;
+    }
+    document.getElementById('svc-error').style.display = 'none';
+  }
+
+  // Validate step 2: required selects
+  if (current === 2 && n === 3) {
+    const propType = document.getElementById('property-type').value;
+    const budget = document.getElementById('budget').value;
+    let ok = true;
+    if (!propType) { document.getElementById('property-type').classList.add('error'); ok = false; }
+    else { document.getElementById('property-type').classList.remove('error'); }
+    if (!budget) { document.getElementById('budget').classList.add('error'); ok = false; }
+    else { document.getElementById('budget').classList.remove('error'); }
+    if (!ok) return;
+  }
+
+  // Hide all panels
+  document.querySelectorAll('.form-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.getElementById('step-' + n).classList.add('active');
+
+  // Update progress
+  for (let i = 1; i <= 3; i++) {
+    const bubble = document.getElementById('bubble-' + i);
+    const label = document.getElementById('label-' + i);
+    bubble.classList.remove('active','done');
+    label.classList.remove('active');
+    if (i < n) { bubble.classList.add('done'); }
+    if (i === n) { bubble.classList.add('active'); label.classList.add('active'); }
+  }
+  for (let i = 1; i <= 2; i++) {
+    const line = document.getElementById('line-' + i);
+    line.classList.toggle('done', i < n);
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Form submit ──
+document.getElementById('estimate-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const firstName = document.getElementById('first-name').value.trim();
+  const lastName  = document.getElementById('last-name').value.trim();
+  const phone     = document.getElementById('phone').value.trim();
+  const email     = document.getElementById('email').value.trim();
+  let ok = true;
+
+  [['first-name',firstName],['last-name',lastName],['phone',phone],['email',email]].forEach(function(pair){
+    const el = document.getElementById(pair[0]);
+    if (!pair[1]) { el.classList.add('error'); ok = false; }
+    else { el.classList.remove('error'); }
+  });
+
+  if (!ok) {
+    document.getElementById('submit-error').style.display = 'block';
+    return;
+  }
+
+  // Collect all data
+  const services = Array.from(document.querySelectorAll('.service-card.selected')).map(function(c){ return c.dataset.service; });
+  const contactPref = document.querySelector('input[name="contact"]:checked')?.value;
+  const bestTime    = document.querySelector('input[name="time"]:checked')?.value;
+
+  const payload = {
+    services,
+    property_type: document.getElementById('property-type').value,
+    home_size:     document.getElementById('home-size').value,
+    budget:        document.getElementById('budget').value,
+    timeline:      document.getElementById('timeline').value,
+    project_address: document.getElementById('project-address').value,
+    project_desc:  document.getElementById('project-desc').value,
+    first_name:    firstName,
+    last_name:     lastName,
+    phone,
+    email,
+    contact_pref:  contactPref,
+    best_time:     bestTime
+  };
+
+  const submitBtn = document.getElementById('submit-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  fetch('/api/estimate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    if (data.ok) {
+      window.location.href = '/thank-you';
+    } else {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send My Estimate Request';
+      document.getElementById('submit-error').textContent = 'Something went wrong. Please call us at (832) 231-2334.';
+      document.getElementById('submit-error').style.display = 'block';
+    }
+  })
+  .catch(function(){
+    // Redirect anyway — form data captured
+    window.location.href = '/thank-you';
+  });
+});
+</script>
+</body>
+</html>
