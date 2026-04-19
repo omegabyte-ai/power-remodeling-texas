@@ -87,12 +87,16 @@ a{color:inherit;text-decoration:none}
 .intro-list li::before{content:'';flex-shrink:0;width:22px;height:2px;background:var(--c-red);margin-top:12px}
 
 /* SERVICES GRID */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
-.svc-card{background:#0D0D0D;padding:48px 40px;transition:background .4s}
-.svc-card:hover{background:#111}
-.svc-card__num{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:900;color:rgba(204,31,31,.12);line-height:1;margin-bottom:20px}
-.svc-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.55rem;font-weight:700;text-transform:uppercase;margin-bottom:14px}
-.svc-card__body{font-size:.88rem;color:var(--c-dim);line-height:1.75}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.svc-card{border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:border-color .35s,transform .35s;background:#111}
+.svc-card:hover{border-color:rgba(204,31,31,.4);transform:translateY(-6px)}
+.svc-card__img{position:relative;height:240px;overflow:hidden}
+.svc-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.svc-card:hover .svc-card__img img{transform:scale(1.06)}
+.svc-card__body-wrap{padding:26px 26px 30px}
+.svc-card__num{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--c-red);margin-bottom:10px}
+.svc-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;color:#fff;line-height:1.1}
+.svc-card__body{font-size:.85rem;color:var(--c-dim);line-height:1.75}
 
 /* PROCESS */
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
@@ -171,7 +175,7 @@ a{color:inherit;text-decoration:none}
   .fl-panel__copy{padding:40px 28px}
   .fl-progress{padding:16px 28px 0}
   .intro-split{grid-template-columns:1fr}
-  .svc-grid{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr;gap:16px}
   .process-grid{grid-template-columns:1fr 1fr}
   .trend-section{padding:70px 28px}
   .trend-grid{grid-template-columns:1fr}
@@ -336,34 +340,52 @@ a{color:inherit;text-decoration:none}
   </div>
   <div class="svc-grid">
     <div class="svc-card reveal">
-      <div class="svc-card__num">01</div>
-      <h3 class="svc-card__title">Whole-Home Flooring</h3>
-      <p class="svc-card__body">Coordinate your flooring across every room for a unified look. We plan transitions between zones — wood to tile, tile to carpet, level changes — so the flow feels intentional, not piecemeal. One crew, one schedule, one point of contact.</p>
+      <div class="svc-card__img"><img src="images/flooring-hardwood.jpg" alt="Wide-plank hardwood flooring in open-concept home"></div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">01</div>
+        <h3 class="svc-card__title">Whole-Home Flooring</h3>
+        <p class="svc-card__body">Coordinate your flooring across every room for a unified look. We plan transitions between zones — wood to tile, tile to carpet, level changes — so the flow feels intentional, not piecemeal. One crew, one schedule, one point of contact.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-1">
-      <div class="svc-card__num">02</div>
-      <h3 class="svc-card__title">Subfloor Repair &amp; Prep</h3>
-      <p class="svc-card__body">Squeaky subfloors, soft spots, moisture damage, uneven concrete — we fix the foundation before any finish material touches it. Proper prep is the difference between a floor that looks great for 20 years and one that starts failing in 3.</p>
+      <div class="svc-card__img"><img src="images/firefly-flooring-lvp.jpg" alt="Luxury vinyl plank flooring installation in progress"></div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">02</div>
+        <h3 class="svc-card__title">Subfloor Repair &amp; Prep</h3>
+        <p class="svc-card__body">Squeaky subfloors, soft spots, moisture damage, uneven concrete — we fix the foundation before any finish material touches it. Proper prep is the difference between a floor that looks great for 20 years and one that starts failing in 3.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-2">
-      <div class="svc-card__num">03</div>
-      <h3 class="svc-card__title">Bathroom &amp; Wet Area Tile</h3>
-      <p class="svc-card__body">Floor tile in wet areas requires specific substrates, waterproofing membranes, and proper slope to drain. We install shower floors with precise pitch, bathroom tile with anti-slip finishes, and coordinate wall and floor tile to create a cohesive design.</p>
+      <div class="svc-card__img"><img src="images/firefly-flooring-tile.jpg" alt="Large format porcelain tile in a modern bathroom floor"></div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">03</div>
+        <h3 class="svc-card__title">Bathroom &amp; Wet Area Tile</h3>
+        <p class="svc-card__body">Floor tile in wet areas requires specific substrates, waterproofing membranes, and proper slope to drain. We install shower floors with precise pitch, bathroom tile with anti-slip finishes, and coordinate wall and floor tile to create a cohesive design.</p>
+      </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-card__num">04</div>
-      <h3 class="svc-card__title">Hardwood Refinishing</h3>
-      <p class="svc-card__body">Existing hardwood that's dull, scratched, or stained can often be brought back to like-new condition through sanding, staining, and refinishing. We assess whether your existing floors can be saved — which can be significantly more cost-effective than replacement.</p>
+      <div class="svc-card__img"><img src="images/firefly-flooring-hardwood-refinish.jpg" alt="Freshly refinished hardwood floors with rich amber stain"></div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">04</div>
+        <h3 class="svc-card__title">Hardwood Refinishing</h3>
+        <p class="svc-card__body">Existing hardwood that's dull, scratched, or stained can often be brought back to like-new condition through sanding, staining, and refinishing. We assess whether your existing floors can be saved — which can be significantly more cost-effective than replacement.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-1">
-      <div class="svc-card__num">05</div>
-      <h3 class="svc-card__title">Stair Flooring</h3>
-      <p class="svc-card__body">Stairs are one of the most technically demanding flooring installs. We cover treads and risers with hardwood, LVP, or carpet — with properly nosed edges, safe traction, and clean returns. Matching your stair material to your adjoining rooms is something we plan from the start.</p>
+      <div class="svc-card__img"><img src="images/firefly-flooring-stairs.jpg" alt="Hardwood stair treads with white risers in luxury home foyer"></div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">05</div>
+        <h3 class="svc-card__title">Stair Flooring</h3>
+        <p class="svc-card__body">Stairs are one of the most technically demanding flooring installs. We cover treads and risers with hardwood, LVP, or carpet — with properly nosed edges, safe traction, and clean returns. Matching your stair material to your adjoining rooms is something we plan from the start.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-2">
-      <div class="svc-card__num">06</div>
-      <h3 class="svc-card__title">Outdoor &amp; Patio Tile</h3>
-      <p class="svc-card__body">Houston's climate demands specific materials for outdoor flooring — porcelain rated for freeze-thaw, slip-resistant finishes, and proper drainage slope. We install covered patio tile, pool surrounds, and front entry tile that holds up to Texas heat, humidity, and rain.</p>
+      <div class="svc-card__img"><img src="images/firefly-flooring-stone.jpg" alt="Outdoor porcelain tile on covered Texas patio"></div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">06</div>
+        <h3 class="svc-card__title">Outdoor &amp; Patio Tile</h3>
+        <p class="svc-card__body">Houston's climate demands specific materials for outdoor flooring — porcelain rated for freeze-thaw, slip-resistant finishes, and proper drainage slope. We install covered patio tile, pool surrounds, and front entry tile that holds up to Texas heat, humidity, and rain.</p>
+      </div>
     </div>
   </div>
 </section>
