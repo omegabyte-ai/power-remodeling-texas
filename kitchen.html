@@ -88,11 +88,15 @@ a{color:inherit;text-decoration:none}
 .showcase__dot.active{background:var(--c-red);transform:scale(1.4)}
 
 /* SERVICES GRID */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
-.svc-card{background:#0D0D0D;padding:48px 40px;transition:background .4s}
-.svc-card:hover{background:#111}
-.svc-card__num{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:900;color:rgba(204,31,31,.12);line-height:1;margin-bottom:20px}
-.svc-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.55rem;font-weight:700;text-transform:uppercase;margin-bottom:14px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.svc-card{border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:border-color .35s,transform .35s;background:#111}
+.svc-card:hover{border-color:rgba(204,31,31,.4);transform:translateY(-6px)}
+.svc-card__img{position:relative;height:240px;overflow:hidden}
+.svc-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.svc-card:hover .svc-card__img img{transform:scale(1.06)}
+.svc-card__body-wrap{padding:26px 26px 30px}
+.svc-card__num{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--c-red);margin-bottom:10px}
+.svc-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;color:#fff;line-height:1.1}
 .svc-card__body{font-size:.88rem;color:var(--c-dim);line-height:1.75}
 
 /* PROCESS */
@@ -359,34 +363,64 @@ a{color:inherit;text-decoration:none}
   </div>
   <div class="svc-grid">
     <div class="svc-card reveal">
-      <div class="svc-card__num">01</div>
-      <h3 class="svc-card__title">Full Kitchen Renovation</h3>
-      <p class="svc-card__body">Complete gut-and-rebuild. New layout if you want it, custom cabinetry, countertops, backsplash, lighting, plumbing, and appliance connections. We manage every trade in-house — you deal with one crew, one timeline, one point of contact from demo to final walkthrough.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-kitchen-hero.jpg" alt="Full kitchen renovation with two-tone navy and white cabinetry, waterfall island — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">01 — Renovation</div>
+        <h3 class="svc-card__title">Full Kitchen Renovation</h3>
+        <p class="svc-card__body">Complete gut-and-rebuild. New layout if you want it, custom cabinetry, countertops, backsplash, lighting, plumbing, and appliance connections. We manage every trade in-house — you deal with one crew, one timeline, one point of contact from demo to final walkthrough.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-1">
-      <div class="svc-card__num">02</div>
-      <h3 class="svc-card__title">Custom Island Build</h3>
-      <p class="svc-card__body">An island transforms how a kitchen functions — additional prep space, seating, storage, and a visual anchor for the room. We design and build custom islands with waterfall countertops, integrated appliances, pendant lighting rough-in, and seating overhangs sized to your specific dimensions.</p>
+      <div class="svc-card__img">
+        <img src="images/project-kitchen-navy-island.jpg" alt="Custom kitchen island build with navy cabinetry and hardwood floors — Houston Texas remodel" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">02 — Island</div>
+        <h3 class="svc-card__title">Custom Island Build</h3>
+        <p class="svc-card__body">An island transforms how a kitchen functions — additional prep space, seating, storage, and a visual anchor for the room. We design and build custom islands with waterfall countertops, integrated appliances, pendant lighting rough-in, and seating overhangs sized to your specific dimensions.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-2">
-      <div class="svc-card__num">03</div>
-      <h3 class="svc-card__title">Cabinet Refacing &amp; Replacement</h3>
-      <p class="svc-card__body">If your cabinet boxes are solid but the doors and finish are dated, refacing can give you a completely new look at significantly lower cost than full replacement. When boxes need to go, we build and install custom cabinetry to exact dimensions — no stock sizing compromises.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-cabinetry-refacing.jpg" alt="Cabinet refacing transformation — dated oak to white shaker with matte black hardware — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">03 — Cabinetry</div>
+        <h3 class="svc-card__title">Cabinet Refacing &amp; Replacement</h3>
+        <p class="svc-card__body">If your cabinet boxes are solid but the doors and finish are dated, refacing can give you a completely new look at significantly lower cost than full replacement. When boxes need to go, we build and install custom cabinetry to exact dimensions — no stock sizing compromises.</p>
+      </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-card__num">04</div>
-      <h3 class="svc-card__title">Countertop Replacement</h3>
-      <p class="svc-card__body">Quartz, quartzite, marble, granite, concrete, butcher block — we template, fabricate, and install. Countertop replacement paired with new hardware and a backsplash can refresh a kitchen without the cost of a full remodel. We coordinate the plumbing disconnects and reconnects in-house.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-finishes-countertops.jpg" alt="White quartz waterfall countertop installation in modern kitchen — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">04 — Countertops</div>
+        <h3 class="svc-card__title">Countertop Replacement</h3>
+        <p class="svc-card__body">Quartz, quartzite, marble, granite, concrete, butcher block — we template, fabricate, and install. Countertop replacement paired with new hardware and a backsplash can refresh a kitchen without the cost of a full remodel. We coordinate the plumbing disconnects and reconnects in-house.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-1">
-      <div class="svc-card__num">05</div>
-      <h3 class="svc-card__title">Backsplash &amp; Tile Work</h3>
-      <p class="svc-card__body">From simple subway tile to full-height slab backsplashes, hand-painted zellige, herringbone patterns, or dimensional stone — we install it all. Our tile crews work with the same precision whether the job is a 15-square-foot backsplash or a floor-to-ceiling statement wall.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-finishes-tile-stone.jpg" alt="Calacatta marble backsplash and tile work in luxury kitchen — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">05 — Tile</div>
+        <h3 class="svc-card__title">Backsplash &amp; Tile Work</h3>
+        <p class="svc-card__body">From simple subway tile to full-height slab backsplashes, hand-painted zellige, herringbone patterns, or dimensional stone — we install it all. Our tile crews work with the same precision whether the job is a 15-square-foot backsplash or a floor-to-ceiling statement wall.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-2">
-      <div class="svc-card__num">06</div>
-      <h3 class="svc-card__title">Kitchen Expansion</h3>
-      <p class="svc-card__body">When the kitchen is just too small to work with, we evaluate structural options for opening it up — removing walls (load-bearing or not), borrowing space from adjacent rooms, or adding square footage through a bump-out. We handle permits, structural engineering referrals, and full build.</p>
+      <div class="svc-card__img">
+        <img src="images/project-kitchen-dark-marble-led.jpg" alt="Open-concept kitchen expansion with dark marble and LED under-cabinet lighting — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">06 — Expansion</div>
+        <h3 class="svc-card__title">Kitchen Expansion</h3>
+        <p class="svc-card__body">When the kitchen is just too small to work with, we evaluate structural options for opening it up — removing walls (load-bearing or not), borrowing space from adjacent rooms, or adding square footage through a bump-out. We handle permits, structural engineering referrals, and full build.</p>
+      </div>
     </div>
   </div>
 </section>

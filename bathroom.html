@@ -85,12 +85,16 @@ a{color:inherit;text-decoration:none}
 .ba-hint{text-align:center;color:var(--c-dim);font-size:.82rem;margin-top:18px;letter-spacing:.05em}
 
 /* SERVICES GRID */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
-.svc-card{background:#0D0D0D;padding:48px 40px;transition:background .4s}
-.svc-card:hover{background:#111}
-.svc-card__num{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:900;color:rgba(204,31,31,.12);line-height:1;margin-bottom:20px}
-.svc-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:14px;color:#fff}
-.svc-card__body{font-size:.88rem;color:var(--c-dim);line-height:1.75}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.svc-card{border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:border-color .35s,transform .35s;background:#111}
+.svc-card:hover{border-color:rgba(204,31,31,.4);transform:translateY(-6px)}
+.svc-card__img{position:relative;height:240px;overflow:hidden}
+.svc-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.svc-card:hover .svc-card__img img{transform:scale(1.06)}
+.svc-card__body-wrap{padding:26px 26px 30px}
+.svc-card__num{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--c-red);margin-bottom:10px}
+.svc-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;color:#fff;line-height:1.1}
+.svc-card__body{font-size:.85rem;color:var(--c-dim);line-height:1.75}
 
 /* PROCESS */
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
@@ -294,34 +298,64 @@ a{color:inherit;text-decoration:none}
   </div>
   <div class="svc-grid">
     <div class="svc-card reveal">
-      <div class="svc-card__num">01</div>
-      <h3 class="svc-card__title">Tub-to-Shower Conversions</h3>
-      <p class="svc-card__body">Remove that builder-grade fiberglass tub and replace it with a curbless walk-in shower — large-format tile, frameless glass enclosure, linear drain, and rain head. This is our most-requested upgrade and one of the best investments you can make in a Texas home.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-bathroom-shower.jpg" alt="Tub-to-shower conversion with frameless glass enclosure and large-format tile — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">01 — Shower</div>
+        <h3 class="svc-card__title">Tub-to-Shower Conversions</h3>
+        <p class="svc-card__body">Remove that builder-grade fiberglass tub and replace it with a curbless walk-in shower — large-format tile, frameless glass enclosure, linear drain, and rain head. This is our most-requested upgrade and one of the best investments you can make in a Texas home.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-1">
-      <div class="svc-card__num">02</div>
-      <h3 class="svc-card__title">Full Master Suite Remodel</h3>
-      <p class="svc-card__body">Complete gut-and-rebuild of your master bathroom. New layout when needed, custom tile work, soaking tub, steam shower, heated floors, dual vanity with custom cabinetry, and full lighting design. We manage every trade from demo to final walkthrough — one crew, one point of contact.</p>
+      <div class="svc-card__img">
+        <img src="images/project-bath-master-soaking.jpg" alt="Full master suite remodel with soaking tub, dual vanity and premium tile — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">02 — Master</div>
+        <h3 class="svc-card__title">Full Master Suite Remodel</h3>
+        <p class="svc-card__body">Complete gut-and-rebuild of your master bathroom. New layout when needed, custom tile work, soaking tub, steam shower, heated floors, dual vanity with custom cabinetry, and full lighting design. We manage every trade from demo to final walkthrough — one crew, one point of contact.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-2">
-      <div class="svc-card__num">03</div>
-      <h3 class="svc-card__title">Shower Modernization</h3>
-      <p class="svc-card__body">Tile surrounds cracking, grout discoloring, glass frames corroding — these aren't cosmetic problems, they're water intrusion waiting to happen. We remove the old surround, apply Schluter waterproofing, and install a tile system built to last 30 years. Walk-in niches, bench seating, and multi-head setups available.</p>
+      <div class="svc-card__img">
+        <img src="images/bathroom-1.jpg" alt="Shower modernization with premium tile surround and waterproofing — Houston Texas bathroom renovation" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">03 — Tile</div>
+        <h3 class="svc-card__title">Shower Modernization</h3>
+        <p class="svc-card__body">Tile surrounds cracking, grout discoloring, glass frames corroding — these aren't cosmetic problems, they're water intrusion waiting to happen. We remove the old surround, apply Schluter waterproofing, and install a tile system built to last 30 years. Walk-in niches, bench seating, and multi-head setups available.</p>
+      </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-card__num">04</div>
-      <h3 class="svc-card__title">Vanity &amp; Fixture Upgrades</h3>
-      <p class="svc-card__body">A floating vanity, backlit mirror, quartz countertop, and updated plumbing fixtures can transform a bathroom in a week without a full renovation. We handle demo, tile patching, plumbing, and electrical as one crew — no subcontractor coordination on your part.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-bathroom-vanity.jpg" alt="Custom floating vanity upgrade with backlit mirrors and quartz countertop — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">04 — Vanity</div>
+        <h3 class="svc-card__title">Vanity &amp; Fixture Upgrades</h3>
+        <p class="svc-card__body">A floating vanity, backlit mirror, quartz countertop, and updated plumbing fixtures can transform a bathroom in a week without a full renovation. We handle demo, tile patching, plumbing, and electrical as one crew — no subcontractor coordination on your part.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-1">
-      <div class="svc-card__num">05</div>
-      <h3 class="svc-card__title">Powder Room Transformation</h3>
-      <p class="svc-card__body">The room every guest sees. Statement wallcovering, vessel sink, dramatic floor tile, distinctive lighting — a powder room is where you take design risks you might not take elsewhere. Small footprint, outsized impression. We make them the most memorable room in the house.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-bathroom-powder-room.jpg" alt="Luxury powder room transformation with statement wallcovering, vessel sink and designer tile — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">05 — Powder</div>
+        <h3 class="svc-card__title">Powder Room Transformation</h3>
+        <p class="svc-card__body">The room every guest sees. Statement wallcovering, vessel sink, dramatic floor tile, distinctive lighting — a powder room is where you take design risks you might not take elsewhere. Small footprint, outsized impression. We make them the most memorable room in the house.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-2">
-      <div class="svc-card__num">06</div>
-      <h3 class="svc-card__title">Secondary &amp; Jack-and-Jill Baths</h3>
-      <p class="svc-card__body">Secondary bathrooms see constant traffic and rarely get attention. We renovate them to match the quality of your primary spaces — durable large-format tile, quality fixtures, properly waterproofed showers, and smart storage. Done right, they're maintenance-free for two decades.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-bathroom-soaking-tub.jpg" alt="Secondary bathroom renovation with quality tile, fixtures and smart storage — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">06 — Secondary</div>
+        <h3 class="svc-card__title">Secondary &amp; Jack-and-Jill Baths</h3>
+        <p class="svc-card__body">Secondary bathrooms see constant traffic and rarely get attention. We renovate them to match the quality of your primary spaces — durable large-format tile, quality fixtures, properly waterproofed showers, and smart storage. Done right, they're maintenance-free for two decades.</p>
+      </div>
     </div>
   </div>
 </section>
