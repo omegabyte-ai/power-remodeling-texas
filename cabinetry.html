@@ -62,12 +62,16 @@ a{color:inherit;text-decoration:none}
 .intro-list li{display:flex;align-items:flex-start;gap:14px;font-size:.93rem;color:var(--c-dim);line-height:1.6}
 .intro-list li::before{content:'';flex-shrink:0;width:22px;height:2px;background:var(--c-red);margin-top:12px}
 
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:64px;border-radius:2px;overflow:hidden}
-.svc-card{background:#0D0D0D;padding:48px 40px;transition:background .4s}
-.svc-card:hover{background:#111}
-.svc-card__num{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:900;color:rgba(204,31,31,.12);line-height:1;margin-bottom:20px}
-.svc-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:14px;color:#fff}
-.svc-card__body{font-size:.88rem;color:var(--c-dim);line-height:1.75}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.svc-card{border:1px solid rgba(255,255,255,.07);border-radius:6px;overflow:hidden;transition:border-color .35s,transform .35s;background:#111}
+.svc-card:hover{border-color:rgba(204,31,31,.4);transform:translateY(-6px)}
+.svc-card__img{position:relative;height:240px;overflow:hidden}
+.svc-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.svc-card:hover .svc-card__img img{transform:scale(1.06)}
+.svc-card__body-wrap{padding:26px 26px 30px}
+.svc-card__num{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--c-red);margin-bottom:10px}
+.svc-card__title{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;color:#fff;line-height:1.1}
+.svc-card__body{font-size:.85rem;color:var(--c-dim);line-height:1.75}
 
 /* WOOD SHOWCASE */
 .wood-section{padding:100px 80px;background:#111}
@@ -260,34 +264,64 @@ a{color:inherit;text-decoration:none}
   </div>
   <div class="svc-grid">
     <div class="svc-card reveal">
-      <div class="svc-card__num">01</div>
-      <h3 class="svc-card__title">Kitchen Cabinetry</h3>
-      <p class="svc-card__body">The foundation of every kitchen remodel we do. We design your cabinet layout to maximize storage efficiency, workflow logic, and visual proportion. Base cabinets, wall cabinets, tall pantry towers, and floating shelves — all built to spec for your exact kitchen dimensions. Pull-out drawers, spice racks, trash pullouts, appliance garages, and corner solutions that actually work.</p>
+      <div class="svc-card__img">
+        <img src="images/cabinetry-hero.jpg" alt="Custom kitchen cabinetry with navy flat-panel doors, glass fronts and brushed gold hardware — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">01 — Kitchen</div>
+        <h3 class="svc-card__title">Kitchen Cabinetry</h3>
+        <p class="svc-card__body">The foundation of every kitchen remodel we do. We design your cabinet layout to maximize storage efficiency, workflow logic, and visual proportion. Base cabinets, wall cabinets, tall pantry towers, and floating shelves — all built to spec for your exact kitchen dimensions. Pull-out drawers, spice racks, trash pullouts, appliance garages, and corner solutions that actually work.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-1">
-      <div class="svc-card__num">02</div>
-      <h3 class="svc-card__title">Custom Built-Ins</h3>
-      <p class="svc-card__body">A built-in bookcase, entertainment wall, home office, or bar cabinet transforms dead wall space into the most distinctive feature in the room. We design and build these from scratch — fitted to your ceiling height, studs, and architectural details. Crown moulding, fluted columns, integrated lighting, and adjustable shelving are standard, not upgrades.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-fluted-cabinetry.jpg" alt="Fluted white oak cabinetry panel with integrated LED lighting — custom built-in Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">02 — Living</div>
+        <h3 class="svc-card__title">Custom Built-Ins</h3>
+        <p class="svc-card__body">A built-in bookcase, entertainment wall, home office, or bar cabinet transforms dead wall space into the most distinctive feature in the room. We design and build these from scratch — fitted to your ceiling height, studs, and architectural details. Crown moulding, fluted columns, integrated lighting, and adjustable shelving are standard, not upgrades.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-2">
-      <div class="svc-card__num">03</div>
-      <h3 class="svc-card__title">Closet Systems</h3>
-      <p class="svc-card__body">Walk-in closets designed around how you actually dress — island with drawers, double hanging for shirts and jackets, long hang for dresses, pull-out shoe racks, integrated lighting, and a full-length mirror. Or reach-in closet systems that maximize every cubic inch. Custom-built in the same materials as your kitchen cabinetry — not wire rack or laminate particleboard.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-cabinetry-closet.jpg" alt="Custom walk-in closet system with floor-to-ceiling cabinetry, center island and LED lighting — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">03 — Closet</div>
+        <h3 class="svc-card__title">Closet Systems</h3>
+        <p class="svc-card__body">Walk-in closets designed around how you actually dress — island with drawers, double hanging for shirts and jackets, long hang for dresses, pull-out shoe racks, integrated lighting, and a full-length mirror. Or reach-in closet systems that maximize every cubic inch. Custom-built in the same materials as your kitchen cabinetry — not wire rack or laminate particleboard.</p>
+      </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-card__num">04</div>
-      <h3 class="svc-card__title">Bathroom Vanities</h3>
-      <p class="svc-card__body">A floating bathroom vanity or custom built-in linen storage changes the entire feel of the room. We build these to match your tile, countertop, and hardware selections — fully integrated, not purchased off-the-shelf and modified. Standard bathroom cabinetry doesn't survive Houston's humidity long-term. Ours does.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-bathroom-vanity.jpg" alt="Custom floating double bathroom vanity with backlit mirrors — Houston Texas bathroom cabinetry" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">04 — Bath</div>
+        <h3 class="svc-card__title">Bathroom Vanities</h3>
+        <p class="svc-card__body">A floating bathroom vanity or custom built-in linen storage changes the entire feel of the room. We build these to match your tile, countertop, and hardware selections — fully integrated, not purchased off-the-shelf and modified. Standard bathroom cabinetry doesn't survive Houston's humidity long-term. Ours does.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-1">
-      <div class="svc-card__num">05</div>
-      <h3 class="svc-card__title">Mudroom &amp; Laundry</h3>
-      <p class="svc-card__body">High-traffic utility spaces deserve cabinetry as well-built as your kitchen. Mudroom lockers with bench seating and overhead storage, laundry room upper and lower cabinets with fold-out ironing boards and hamper pullouts. Finished to coordinate with the rest of your home — functional and good-looking. Especially relevant in Texas where garage entry traffic is constant.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-cabinetry-mudroom.jpg" alt="Custom mudroom built-in cabinetry with locker cubbies, bench seating and matte black hardware — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">05 — Utility</div>
+        <h3 class="svc-card__title">Mudroom &amp; Laundry</h3>
+        <p class="svc-card__body">High-traffic utility spaces deserve cabinetry as well-built as your kitchen. Mudroom lockers with bench seating and overhead storage, laundry room upper and lower cabinets with fold-out ironing boards and hamper pullouts. Finished to coordinate with the rest of your home — functional and good-looking. Especially relevant in Texas where garage entry traffic is constant.</p>
+      </div>
     </div>
     <div class="svc-card reveal reveal--delay-2">
-      <div class="svc-card__num">06</div>
-      <h3 class="svc-card__title">Home Office &amp; Library</h3>
-      <p class="svc-card__body">A properly designed home office or study library with integrated cabinetry is one of the highest-demand features in Houston real estate right now. Floor-to-ceiling bookcases, built-in desk with filing drawers, wiring management, and LED cove lighting. We build these as full rooms — not furniture installations — and they look like they came with the house.</p>
+      <div class="svc-card__img">
+        <img src="images/firefly-cabinetry-office.jpg" alt="Luxury home office with floor-to-ceiling built-in bookcase cabinetry and integrated desk — Houston Texas" loading="lazy">
+      </div>
+      <div class="svc-card__body-wrap">
+        <div class="svc-card__num">06 — Office</div>
+        <h3 class="svc-card__title">Home Office &amp; Library</h3>
+        <p class="svc-card__body">A properly designed home office or study library with integrated cabinetry is one of the highest-demand features in Houston real estate right now. Floor-to-ceiling bookcases, built-in desk with filing drawers, wiring management, and LED cove lighting. We build these as full rooms — not furniture installations — and they look like they came with the house.</p>
+      </div>
     </div>
   </div>
 </section>
