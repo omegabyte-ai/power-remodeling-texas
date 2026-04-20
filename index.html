@@ -377,6 +377,13 @@
     }
     .svc-card__link span { transition: transform 0.35s var(--ease); }
     .svc-card:hover .svc-card__link span { transform: translateX(6px); }
+    /* Stretched-link: make the entire card clickable via the anchor's ::after overlay */
+    .svc-card__link::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+    }
 
     .svc-card::after {
       content: "";
@@ -1327,7 +1334,6 @@
     /* Card click affordance */
     .svc-card { cursor: pointer; }
     .svc-item { cursor: pointer; }
-    .svc-card .svc-card__link { pointer-events: none; }
   </style>
 </head>
 <body>
