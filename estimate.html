@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
 :root{--c-bg:#0D0D0D;--c-red:#CC1F1F;--c-navy:#0A1628;--c-text:#E8E4DC;--c-dim:#9A9590;--rad:4px;--trans:600ms cubic-bezier(.25,.46,.45,.94)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -376,6 +377,11 @@ textarea.form-control{resize:vertical;min-height:120px}
           </div>
         </div>
 
+        <!-- Cloudflare Turnstile bot protection -->
+        <div style="margin-top:28px;margin-bottom:4px">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAC_8O-kSA1LBjh5L" data-theme="dark" data-size="flexible"></div>
+        </div>
+
         <p id="submit-error" style="color:#e05c5c;font-size:.82rem;display:none;margin-top:16px">Please fill in all required fields.</p>
 
         <div class="form-actions">
@@ -522,6 +528,15 @@ document.getElementById('estimate-form').addEventListener('submit', function(e) 
     return;
   }
 
+  // Turnstile bot-protection check (client-side gate before server validation)
+  var turnstileToken = (document.querySelector('[name="cf-turnstile-response"]') || {}).value || '';
+  if (!turnstileToken) {
+    var errEl = document.getElementById('submit-error');
+    errEl.textContent = 'Please complete the security check above before submitting.';
+    errEl.style.display = 'block';
+    return;
+  }
+
   // Collect all data
   const services = Array.from(document.querySelectorAll('.service-card.selected')).map(function(c){ return c.dataset.service; });
   const contactPref = document.querySelector('input[name="contact"]:checked')?.value;
@@ -540,7 +555,8 @@ document.getElementById('estimate-form').addEventListener('submit', function(e) 
     phone,
     email,
     contact_pref:  contactPref,
-    best_time:     bestTime
+    best_time:     bestTime,
+    'cf-turnstile-response': turnstileToken
   };
 
   const submitBtn = document.getElementById('submit-btn');
@@ -558,14 +574,19 @@ document.getElementById('estimate-form').addEventListener('submit', function(e) 
       window.location.href = '/thank-you';
     } else {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send My Estimate Request';
-      document.getElementById('submit-error').textContent = 'Something went wrong. Please call us at (832) 231-2334.';
+      submitBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Send My Estimate Request';
+      var msg = (data.error && data.error.indexOf('Bot') !== -1)
+        ? 'Security check failed — please refresh and try again.'
+        : 'Something went wrong. Please call us at (832) 231-2334.';
+      document.getElementById('submit-error').textContent = msg;
       document.getElementById('submit-error').style.display = 'block';
     }
   })
   .catch(function(){
-    // Redirect anyway — form data captured
-    window.location.href = '/thank-you';
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Send My Estimate Request';
+    document.getElementById('submit-error').textContent = 'Network error — please check your connection or call (832) 231-2334.';
+    document.getElementById('submit-error').style.display = 'block';
   });
 });
 </script>

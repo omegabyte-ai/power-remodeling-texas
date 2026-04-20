@@ -1,15 +1,30 @@
 // api/estimate.js — Power Remodeling Texas lead intake
 // Vercel Serverless Function — CommonJS (no package.json type:module)
-// POST /api/estimate → Pipedrive lead + Resend emails
+// POST /api/estimate → Turnstile validation + Pipedrive lead + Resend emails
 
-const PIPEDRIVE_TOKEN = process.env.PIPEDRIVE_TOKEN;
-const PIPEDRIVE_BASE  = 'https://omegabyte.pipedrive.com/api/v1';
-const RESEND_KEY      = process.env.RESEND_API_KEY;
-const FROM_EMAIL      = process.env.FROM_EMAIL      || 'no-reply@claude4seniors.com';
-const NOTIFY_EMAIL_1  = process.env.NOTIFY_EMAIL_1  || 'noe@powerremodelingtexas.com';
-const NOTIFY_EMAIL_2  = process.env.NOTIFY_EMAIL_2  || 'shawn@shawnp.com';
+const PIPEDRIVE_TOKEN      = process.env.PIPEDRIVE_TOKEN;
+const PIPEDRIVE_BASE       = 'https://omegabyte.pipedrive.com/api/v1';
+const RESEND_KEY           = process.env.RESEND_API_KEY;
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
+const FROM_EMAIL           = process.env.FROM_EMAIL      || 'no-reply@claude4seniors.com';
+const NOTIFY_EMAIL_1       = process.env.NOTIFY_EMAIL_1  || 'noe@powerremodelingtexas.com';
+const NOTIFY_EMAIL_2       = process.env.NOTIFY_EMAIL_2  || 'shawn@shawnp.com';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+async function verifyTurnstile(token, ip) {
+  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      secret:   TURNSTILE_SECRET_KEY,
+      response: token,
+      remoteip: ip,
+    }),
+  });
+  const data = await res.json();
+  return data.success === true;
+}
 
 async function createPipedrivePerson(data) {
   const res = await fetch(`${PIPEDRIVE_BASE}/persons?api_token=${PIPEDRIVE_TOKEN}`, {
@@ -174,6 +189,19 @@ module.exports = async function handler(req, res) {
     if (!data) throw new Error('Empty body');
   } catch (e) {
     return res.status(400).json({ ok: false, error: 'Invalid JSON' });
+  }
+
+  // ── Turnstile bot-protection (server-side) ────────────────────────────────
+  if (TURNSTILE_SECRET_KEY) {
+    const token = data['cf-turnstile-response'];
+    if (!token) {
+      return res.status(400).json({ ok: false, error: 'Missing bot protection token' });
+    }
+    const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+    const valid = await verifyTurnstile(token, ip);
+    if (!valid) {
+      return res.status(400).json({ ok: false, error: 'Bot protection check failed' });
+    }
   }
 
   const errors = [];
